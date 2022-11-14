@@ -7,6 +7,8 @@ switch($url){
     case 'trang-chu':
         echo indexRoom();
         break;
+    case 'dich-vu':
+
 
 
 
