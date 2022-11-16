@@ -47,7 +47,11 @@
                             <td><input class="form-check-input" type="checkbox" name="" id=""></td>
                             <td>' . $danhmuc_id . '</td>
                             <td>' . $danhmuc_name . '</td>
-                            <td class="btn1"><a href="' . $update_dm . '"><input class="btn btn-primary btn2" type="button" value="Sửa"></a><a href="' . $delete_dm . '" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
+                            <td class="btn1">
+                                <a href="index.php?url=sua-loai-phong"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
+                                <a href="' . $delete_dm . '" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
+                                    <input class="btn btn-danger btn2" type="button" value="Xóa"></a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -58,6 +62,6 @@
 </div>
 <div class="thaotac">
     <div class="">
-        <a href="index.php?act=add_danhmuc"><input class="btn btn-primary" type="button" value="Thêm danh mục"></a>
+        <a href="index.php?url=them-moi-loai-phong"><input class="btn btn-primary" type="button" value="Thêm loại phòng"></a>
     </div>
 </div>

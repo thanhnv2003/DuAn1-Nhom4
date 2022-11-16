@@ -59,7 +59,11 @@
                             <td>phone</td>
                             <td><img src="" alt="Avatar"></td>
                             <td>role1</td>
-                            <td class="btn1"><a href=""><input class="btn btn-primary btn2" type="button" value="Sửa"></a><a href="" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
+                            <td class="btn1">
+                                <a href="index.php?url=sua-khach-hang"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
+                                <a href="" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
+                                    <input class="btn btn-danger btn2" type="button" value="Xóa"></a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -68,3 +72,4 @@
         </div>
     </div>
 </div>
+
