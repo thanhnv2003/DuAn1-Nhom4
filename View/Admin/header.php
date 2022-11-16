@@ -88,7 +88,7 @@
             <!--                </a>-->
             <!--            </li>-->
             <li class="nav-item">
-                <a class="nav-link" href="index.php?url=quan-ly-loai-phong">
+                <a class="nav-link" href="index.php?url=admin">
                     <span class="menu-title">Giao diện</span>
                     <i class="mdi mdi-home menu-icon"></i>
                 </a>
