@@ -20,8 +20,8 @@
 <!-- partial:partials/_navbar.html -->
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.php"><img src="View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="index.php?url=admin"><img src="View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.php?url=admin"><img src="View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png" alt="logo" /></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -52,14 +52,14 @@
                     <a class="dropdown-item" href="#">
                         <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="">
+                    <a class="dropdown-item" href="index.php">
                         <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
-                    <a class="dropdown-item" href="../view/index.php">
+                    <a class="dropdown-item" href="index.php?url=trang-chu">
                         <i class="mdi mdi-home menu-icon"></i> Home Page </a>
                 </div>
             </li>
             <li class="nav-item nav-logout d-none d-lg-block">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="index.php?url=trang-chu">
                     <i class="mdi mdi-power"></i>
                 </a>
             </li>
@@ -88,49 +88,49 @@
             <!--                </a>-->
             <!--            </li>-->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="index.php?url=quan-ly-loai-phong">
                     <span class="menu-title">Giao diện</span>
                     <i class="mdi mdi-home menu-icon"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?act=add_category">
+                <a class="nav-link" href="index.php?url=quan-ly-loai-phong">
                     <span class="menu-title">Loại phòng</span>
                     <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?act=add_product">
+                <a class="nav-link" href="index.php?url=quan-ly-khach-hang">
                     <span class="menu-title">Khách hàng</span>
                     <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?act=list_account">
+                <a class="nav-link" href="index.php?url=quan-ly-binh-luan">
                     <span class="menu-title">Bình luận</span>
                     <i class="mdi mdi-account menu-icon"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?act=list_comment">
+                <a class="nav-link" href="index.php?url=quan-ly-don-hang">
                     <span class="menu-title">Đơn hàng</span>
                     <i class="mdi mdi-comment-text menu-icon"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?act=list_bill">
+                <a class="nav-link" href="index.php?url=quan-ly-thong-ke">
                     <span class="menu-title">Thống kê</span>
                     <i class="mdi mdi-cart menu-icon"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?act=statistical">
+                <a class="nav-link" href="index.php?url=quan-ly-uu-dai">
                     <span class="menu-title">Ưu đãi</span>
                     <i class="mdi mdi-chart-areaspline menu-icon"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?act=statistical">
+                <a class="nav-link" href="index.php?url=quan-ly-lien-he">
                     <span class="menu-title">Liên hệ</span>
                     <i class="mdi mdi-chart-areaspline menu-icon"></i>
                 </a>
@@ -142,7 +142,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    <a class="nav-link text-black font-weight-bold" href="../index.php">
+                    <a class="nav-link text-black font-weight-bold" href="index.php?url=admin">
               <span class="page-title-icon bg-gradient-primary text-white me-2">
                 <i class="mdi mdi-home"></i>
               </span> Dashboard Admin
