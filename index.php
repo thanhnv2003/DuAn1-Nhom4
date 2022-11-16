@@ -20,7 +20,7 @@ switch($url){
     case 'lien-he':
         echo lienHe();
         break;
-    case 'dat-phong':
+    case 'book-phong':
         echo datPhong();
         break;
     case 'dang-nhap':

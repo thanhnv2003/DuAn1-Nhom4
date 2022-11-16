@@ -19,22 +19,22 @@
     <header>
         <div class="menu">
             <div class="logo">
-                <a href="index.html"> <img
+                <a href="index.php?url=trang-chu"> <img
                         src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"></a>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="gioithieu.html">Giới thiệu</a></li>
-                    <li><a href="loaiphong.html">Loại phòng</a></li>
-                    <li><a href="dichvu.html">Dịch vụ</a></li>
-                    <li><a href="lienhe.html">Liên hệ</a></li>
+                    <li><a href="index.php?url=trang-chu">Trang chủ</a></li>
+                    <li><a href="index.php?url=gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="index.php?url=loai-phong">Loại phòng</a></li>
+                    <li><a href="index.php?url=dich-vu">Dịch vụ</a></li>
+                    <li><a href="index.php?url=lien-he">Liên hệ</a></li>
                 </ul>
             </nav>
         </div>
         <div class="header_book">
-            <a href="bookphong.html"><input type="button" value="ĐẶT PHÒNG"></a>
-            <a href="dangnhap.html"> <input type="button" value="Đăng nhập"></a>
+            <a href="index.php?url=book-phong"><input type="button" value="ĐẶT PHÒNG"></a>
+            <a href="index.php?url=dang-nhap"> <input type="button" value="Đăng nhập"></a>
         </div>
     </header>
     <div class="banner">
@@ -78,7 +78,7 @@
                 <p>Cách cổng tốt nhất mà bạn có thể mơ ước. Văn hóa, bãi biển nhân tạo và ẩm thực. Tận hưởng kỳ
                     nghỉ
                     của bạn với gia đình hoặc đối tác của bạn tại một quang cảnh bãi tắm trên cao .</p>
-                <button><a href="#">xem chi tiết</a></button>
+                <button><a href="index.php?url=">xem chi tiết</a></button>
             </div>
             <div class="main-loaiphongs">
 
@@ -161,17 +161,17 @@
             </div>
             <div class="footer-box">
                 <h2>Về chúng tôi</h2>
-                <a href="lienhe.html">Liên hệ</a> <br>
-                <a href="#">Vị trí & chỉ đường</a> <br>
-                <a href="#">Tiện ích</a>
+                <a href="index.php?url=lien-he">Liên hệ</a> <br>
+                <a href="index.php?url=">Vị trí & chỉ đường</a> <br>
+                <a href="index.php?url=">Tiện ích</a>
             </div>
             <div class="footer-box">
                 <h2>Những điều cần biết</h2> <br>
-                <a href="#">Hỏi đáp</a> <br>
-                <a href="#">Điều khoản & điều kiện</a>
+                <a href="index.php?url=">Hỏi đáp</a> <br>
+                <a href="index.php?url=">Điều khoản & điều kiện</a>
             </div>
             <div class="footer-box2">
-                <a href=""> <img
+                <a href="index.php?url=trang-chu"> <img
                         src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"
                         alt=""></a>
                 <script lang="javascript">var __vnp = { code: 4505, key: '', secret: '2d9af8430e9f03871b8868f5ddb7797c' }; (function () { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.defer = true; ga.src = '//core.vchat.vn/code/tracking.js'; var s = document.getElementsByTagName('script'); s[0].parentNode.insertBefore(ga, s[0]); })();
