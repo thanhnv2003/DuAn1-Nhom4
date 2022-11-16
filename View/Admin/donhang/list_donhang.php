@@ -83,8 +83,11 @@
                                 <td>$bill['bill_total']</td>
                                 <td>$bill['bill_date']</td>
                                 <td>$status_bill</td>
-                                <td class="btn1"><a href=""><input class="btn btn-primary btn2" type="button" value="Update status"></a><a><input type="button" class="btn btn-primary btn2" value="Detail
-"></a></td>
+                                <td class="btn1">
+                                    <a href=""><input class="btn btn-primary btn2" type="button" value="Update"></a>
+                                    <a><input type="button" class="btn btn-primary btn2" value="Detail"></a>
+                                    <input type="button" class="btn btn-primary btn2" value="Delete" onclick="confirm('Bạn có muốn xóa đơn hàng \( <?php echo $value['name']?> \) hay không!') == true ? location.href='index.php?url=xoa-don-hang&id=<?php echo $value['id']?>' : '' ">
+                                </td>
                             </tr>
                             </tbody>
                         </table>

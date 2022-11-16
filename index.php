@@ -32,6 +32,9 @@ switch($url){
     case 'quen-mat-khau':
         echo quenMatKhau();
         break;
+//    case 'sua-tai-khoan':
+//        echo quenMatKhau();
+//        break;
 
 
     //Admin
@@ -61,16 +64,16 @@ switch($url){
         echo listLienHe();
         break;
 
-        //them-moi
-//    case 'them-moi-loai-phong':
-//        echo
-//        break;
-//    case 'them-moi-khach-hang':
-//        echo
-//        break;
-//    case 'them-moi-uu-dai':
-//        echo
-//        break;
+//        them-moi
+    case 'them-moi-loai-phong':
+        echo themLoaiPhong();
+        break;
+    case 'them-moi-tai-khoan':
+        echo themTaiKhoan();
+        break;
+    case 'them-moi-uu-dai':
+        echo themUuDai();
+        break;
 //
 //
 //
@@ -78,21 +81,21 @@ switch($url){
 //    case 'sua-giao-dien':
 //        echo
 //        break;
-//    case 'sua-loai-phong':
-//        echo
-//        break;
-//    case 'sua-khach-hang':
-//        echo
-//        break;
-//    case 'sua-don-hang':
-//        echo
-//        break;
+    case 'sua-loai-phong':
+        echo capNhatLoaiPhong();
+        break;
+    case 'sua-khach-hang':
+        echo capNhatKhachHang();
+        break;
+    case 'sua-don-hang':
+        echo capNhatDonHang();
+        break;
 //    case 'sua-thong-ke':
 //        echo
 //        break;
-//    case 'sua-uu-dai':
-//        echo
-//        break;
+    case 'sua-uu-dai':
+        echo capNhatUuDai();
+        break;
 //
 //
 //

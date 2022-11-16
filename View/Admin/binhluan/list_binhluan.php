@@ -72,7 +72,7 @@
                             <td>pr_name</td>
                             <td><img src="pr_img" alt=""></td>
                             <td>date_comment</td>
-                            <td class="btn1"><a href="delete_binhluan" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
+                            <td class="btn1"><a href="index.php?url=xoa-binh-luan&id=" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
                         </tr>
                         </tbody>
                     </table>

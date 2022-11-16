@@ -39,7 +39,7 @@
                 <button type=""><i class="fa-brands fa-google"></i> Đăng nhập bằng tài khoản google</button>
 
             </form>
-            <p class="dki">Bạn chưa có tài khoản? <a href="dangki.html">Tạo tài khoản miễn phí</a></p>
+            <p class="dki">Bạn chưa có tài khoản? <a href="index.php?url=dang-ky">Tạo tài khoản miễn phí</a></p>
         </div>
         <div class="info-dn-img">
             <img src="../image/image 1.png" alt="">

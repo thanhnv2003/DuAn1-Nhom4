@@ -1,4 +1,5 @@
 <?php
+//List
 function indexAdmin(){
     include_once './View/Admin/header.php';
     include_once './View/Admin/home.php';
@@ -37,6 +38,45 @@ function listUuDai(){
 function listLienHe(){
     include_once './View/Admin/header.php';
     include_once './View/Admin/lienhe/list_lienhe.php';
+    include_once './View/Admin/footer.php';
+}
+
+//Add
+function themLoaiPhong(){
+    include_once './View/Admin/header.php';
+    include_once './View/Admin/loaiphong/add_loaiphong.php';
+    include_once './View/Admin/footer.php';
+}
+function themUuDai(){
+    include_once './View/Admin/header.php';
+    include_once './View/Admin/uudai/add_uudai.php';
+    include_once './View/Admin/footer.php';
+}
+function themTaiKhoan(){
+    include_once './View/Admin/header.php';
+    include_once './View/Admin/taikhoan/add_taikhoan.php';
+    include_once './View/Admin/footer.php';
+}
+
+//Update
+function capNhatDonHang(){
+    include_once './View/Admin/header.php';
+    include_once './View/Admin/donhang/update_donhang.php';
+    include_once './View/Admin/footer.php';
+}
+function capNhatLoaiPhong(){
+    include_once './View/Admin/header.php';
+    include_once './View/Admin/loaiphong/update_loaiphong.php';
+    include_once './View/Admin/footer.php';
+}
+function capNhatKhachHang(){
+    include_once './View/Admin/header.php';
+    include_once './View/Admin/taikhoan/update_taikhoan.php';
+    include_once './View/Admin/footer.php';
+}
+function capNhatUuDai(){
+    include_once './View/Admin/header.php';
+    include_once './View/Admin/uudai/update_uudai.php';
     include_once './View/Admin/footer.php';
 }
 
