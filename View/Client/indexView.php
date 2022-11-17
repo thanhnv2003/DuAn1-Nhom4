@@ -34,6 +34,7 @@
         </div>
         <div class="header_book">
             <a href="index.php?url=book-phong"><input type="button" value="ĐẶT PHÒNG"></a>
+            <?php if (isset($_SESSION['account'])){ ?>
             <a href="index.php?url=dang-nhap"> <input type="button" value="Đăng nhập"></a>
         </div>
     </header>
