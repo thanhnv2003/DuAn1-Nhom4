@@ -51,14 +51,14 @@
                         <tbody>
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
-                            <td>user_id</td>
+                            <td>User_id</td>
                             <td><img src="" alt="Avatar"></td>
-                            <td>họ tên</td>
-                            <td>mật khẩu</td>
-                            <td>email</td>
-                            <td>địa chỉ </td>
-                            <td>số điện thoại </td>
-                            <td>role1</td>
+                            <td>Họ tên</td>
+                            <td>Mật khẩu</td>
+                            <td>Email</td>
+                            <td>Địa chỉ </td>
+                            <td>Số điện thoại </td>
+                            <td>Role1</td>
                             <td class="btn1">
                                 <a href="index.php?url=sua-khach-hang"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
                                 <a href="" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">

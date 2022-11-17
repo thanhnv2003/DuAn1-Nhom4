@@ -55,6 +55,7 @@
                         <tr>
                             <th style="width: 5%;">#</th>
                             <th>ID</th>
+                            <th>nội dung bình luận </th>
                             <th>id_phòng</th>
                             <th>id_user</th>
                             <th>thời gian </th>
@@ -65,11 +66,10 @@
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
                             <td>binhluan_id</td>
+                            <td>nội dung bình luận </td>
                             <td>id phòng</td>
                             <td>id user</td>
                             <td>thời gian </td>
-<!--                            <td><img src="pr_img" alt=""></td>-->
-<!--                            <td>date_comment</td>-->
                             <td class="btn1"><a href="index.php?url=xoa-binh-luan&id=" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
                         </tr>
                         </tbody>

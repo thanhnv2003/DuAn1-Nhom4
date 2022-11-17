@@ -15,8 +15,8 @@
                         <input class="form-control mt-2" type="file" name="file" id="" multiple="multiple">
                     </div>
                     <div class="form-group">
-                        <label for="">Username</label>
-                        <input type="text" class="form-control" name="username" value=" $username ">
+                        <label for="">Fulname</label>
+                        <input type="text" class="form-control" name="fullname" value=" $username ">
                     </div>
 
                     <div class="form-group">
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Vài trò</label> <br>
+                        <label for="">Vai trò</label> <br>
                         <input type="radio" class="form-check-input" name="role" value="0"> Khách hàng
                         <input type="radio" class="form-check-input role" name="role" value="1"> Admin
                     </div>

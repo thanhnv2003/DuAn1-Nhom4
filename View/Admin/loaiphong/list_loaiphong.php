@@ -42,7 +42,7 @@
                             <th>Ảnh</th>
                             <th>Mô tả</th>
                             <th>Gía tiền</th>
-                            <th>chất lượng</th>
+                            <th>Số lượng</th>
                             <th style="width: 22%;">Thao tác</th>
                         </tr>
                         </thead>
