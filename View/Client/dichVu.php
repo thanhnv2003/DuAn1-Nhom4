@@ -17,27 +17,27 @@
 
         <div class="menu">
             <div class="logo">
-                <a href="index.html"> <img
+                <a href="index.php?url=trang-chu"> <img
                         src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"
                         alt=""></a>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="gioithieu.html">Giới thiệu</a></li>
-                    <li><a href="loaiphong.html">Loại phòng</a></li>
-                    <li><a href="dichvu.html">Dịch vụ</a></li>
-                    <li><a href="lienhe.html">Liên hệ</a></li>
+                    <li><a href="index.php?url=trang-chu">Trang chủ</a></li>
+                    <li><a href="index.php?url=gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="index.php?url=loai-phong">Loại phòng</a></li>
+                    <li><a href="index.php?url=dich-vu">Dịch vụ</a></li>
+                    <li><a href="index.php?url=lien-he">Liên hệ</a></li>
                 </ul>
             </nav>
         </div>
         <div class="header_book">
-            <a href="bookphong.html"><input type="button" value="ĐẶT PHÒNG"></a>
-            <a href="dangnhap.html"> <input type="button" value="Đăng nhập"></a>
+            <a href="index.php?url=book-phong"><input type="button" value="ĐẶT PHÒNG"></a>
+            <a href="index.php?url=dang-nhap"> <input type="button" value="Đăng nhập"></a>
         </div>
     </header>
     <div class="banner">
-        <img src="../image/Rectangle 26.png" alt="">
+        <img src="View/src/image/Rectangle 26.png" alt="">
     </div>
     <main>
         <div class="main-dichvu">
@@ -45,7 +45,7 @@
             <div class="dv-product">
                 <div class="dv-product-right">
                     <div class="dv-product-img">
-                        <a href="#"><img src="../image/chup-hinh-khach-san-nha-hang-mimosa-06-1 1.png" alt=""></a>
+                        <a href="#"><img src="View/src/image/chup-hinh-khach-san-nha-hang-mimosa-06-1 1.png" alt=""></a>
                     </div>
                     <div class="dv-product-info">
                         <h2>Dịch vụ nhà hàng 5 sao</h2>
@@ -57,7 +57,7 @@
                             đơn tự
                             chọn và gọi món để bạn có trải nghiệm ẩm thực sang trọng giữa thiên nhiên.
                         </p>
-                        <a href="chitiet.html"><input type="button" value="Xem chi tiết"></a>
+                        <a href="index.php?url=chi-tiet"><input type="button" value="Xem chi tiết"></a>
                     </div>
                 </div>
                 <div class="dv-product-left">
@@ -69,17 +69,17 @@
                             thu
                             hút.
                         </p>
-                        <a href="chitiet.html"><input type="button" value="Xem chi tiết"></a>
+                        <a href="index.php?url=chi-tiet"><input type="button" value="Xem chi tiết"></a>
                     </div>
                     <div class="dv-product-img">
-                        <a href="#"> <img src="../image/cac-goi-dich-vu-spa-1 1.png" alt=""></a>
+                        <a href="#"> <img src="View/src/image/cac-goi-dich-vu-spa-1 1.png" alt=""></a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <div class="banner">
-        <img src="../image/f012c7effa55026ec504457f069a8f11 1.png" alt="">
+        <img src="View/src/image/f012c7effa55026ec504457f069a8f11 1.png" alt="">
     </div>
     <footer>
         <div class="footer-box1">
@@ -91,7 +91,7 @@
             </div>
             <div class="footer-box">
                 <h2>Về chúng tôi</h2>
-                <a href="lienhe.html">Liên hệ</a> <br>
+                <a href="index.php?url=lien-he">Liên hệ</a> <br>
                 <a href="#">Vị trí & chỉ đường</a> <br>
                 <a href="#">Tiện ích</a>
             </div>
@@ -102,7 +102,7 @@
             </div>
             <div class="footer-box2">
                 <a href=""> <img
-                        src="../image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"
+                        src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"
                         alt=""></a>
                 <script lang="javascript">var __vnp = { code: 4505, key: '', secret: '2d9af8430e9f03871b8868f5ddb7797c' }; (function () { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.defer = true; ga.src = '//core.vchat.vn/code/tracking.js'; var s = document.getElementsByTagName('script'); s[0].parentNode.insertBefore(ga, s[0]); })();
                 </script>
