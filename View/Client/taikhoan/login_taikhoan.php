@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="View/src/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2c37014309.js" crossorigin="anonymous"></script>
 </head>
@@ -16,7 +16,7 @@
     <div class="dn-box">
         <div class="info-dn">
             <div class="logo-dn">
-                <a href="index.html">  <img src="../image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt="" ></a>
+                <a href="index.php?url=trang-chu">  <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt="" ></a>
             </div>
             <!--form đăng nhập-->
             <form action="">
@@ -33,7 +33,7 @@
                     <div class="box-dn1-cb">
                         <input type="checkbox"><label>Ghi nhớ tài khoản</label>
                     </div>
-                    <a href="quenmk.html">Quên mật khẩu</a> <br>
+                    <a href="index.php?url=quen-mat-khau">Quên mật khẩu</a> <br>
                 </div>
                 <button type="submit"> Đăng nhập</button>
                 <button type=""><i class="fa-brands fa-google"></i> Đăng nhập bằng tài khoản google</button>
@@ -42,7 +42,7 @@
             <p class="dki">Bạn chưa có tài khoản? <a href="index.php?url=dang-ky">Tạo tài khoản miễn phí</a></p>
         </div>
         <div class="info-dn-img">
-            <img src="../image/image 1.png" alt="">
+            <img src="View/src/image/image 1.png" alt="">
         </div>
     </div>
 </div>
