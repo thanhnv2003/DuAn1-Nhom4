@@ -55,11 +55,10 @@
                         <tr>
                             <th style="width: 5%;">#</th>
                             <th>ID</th>
-                            <th>Username</th>
-                            <th>Nội dung</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Hình ảnh sản phẩm</th>
-                            <th>Ngày bình luận</th>
+                            <th>nội dung bình luận </th>
+                            <th>id_phòng</th>
+                            <th>id_user</th>
+                            <th>thời gian </th>
                             <th style="width: 17%;">Thao tác</th>
                         </tr>
                         </thead>
@@ -67,11 +66,10 @@
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
                             <td>binhluan_id</td>
-                            <td>username</td>
-                            <td>binhluan_detail</td>
-                            <td>pr_name</td>
-                            <td><img src="pr_img" alt=""></td>
-                            <td>date_comment</td>
+                            <td>nội dung bình luận </td>
+                            <td>id phòng</td>
+                            <td>id user</td>
+                            <td>thời gian </td>
                             <td class="btn1"><a href="index.php?url=xoa-binh-luan&id=" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
                         </tr>
                         </tbody>

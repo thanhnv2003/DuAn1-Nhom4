@@ -35,19 +35,26 @@
                 <div class="table-responsive">
                     <table class="table text-center table-bordered table1">
                         <thead>
-                        <tr>
-                            <th style="width: 9%;">#</th>
-                            <th>Mã loại</th>
-                            <th>Tên loại</th>
-                            <th>Tên loại</th>
-                            <th style="width: 22%;">Thao tác</th>
-                        </tr>
+                          <tr>
+                              <th style="width: 9%;">#</th>
+                              <th>Mã loại</th>
+                              <th>Tên loại</th>
+                              <th>Ảnh</th>
+                              <th>Mô tả</th>
+                              <th>Gía tiền</th>
+                              <th>Số lượng</th>
+                              <th>Tên loại</th>
+                              <th style="width: 22%;">Thao tác</th>
+                          </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <td><input class="form-check-input" type="checkbox" name="" id=""></td>
                             <td>' . $danhmuc_id . '</td>
                             <td>' . $danhmuc_name . '</td>
+                            <td>' . $danhmuc_id . '</td>
+                            <td>' . $danhmuc_name . '</td>
+                            <td>' . $danhmuc_id . '</td>
                             <td>' . $danhmuc_name . '</td>
                             <td class="btn1">
                                 <a href="index.php?url=sua-loai-phong"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>

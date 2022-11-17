@@ -13,6 +13,22 @@
                         <label for="">Tên loại</label>
                         <input name="tenloai" type="text" value="Giày nam" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="">Ảnh</label>
+                        <input name="image" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mô tả</label>
+                        <input name="mota" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Giá</label>
+                        <input name="price" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Số lượng</label>
+                        <input name="soluong" type="text" class="form-control">
+                    </div>
                     <div class="form-group mt-3">
                         <input class="btn btn-gradient-primary me-2" type="submit" name="capnhat" value="Cập nhật">
                         <input class="btn btn-secondary" type="reset" value="Nhập lại">
