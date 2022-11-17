@@ -9,11 +9,11 @@
                         <input disabled name="maloai" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">Tên loạ</label>
+                        <label for="">Tên loại</label>
                         <input name="tenloai" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">ảnh</label>
+                        <label for="">Ảnh</label>
                         <input name="image" type="file" class="form-control">
                     </div>
                     <div class="form-group">
@@ -21,11 +21,11 @@
                         <input name="mota" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">giá</label>
+                        <label for="">Giá</label>
                         <input name="price" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">số lượng</label>
+                        <label for="">Số lượng</label>
                         <input name="soluong" type="text" class="form-control">
                     </div>
                     <div class="form-group mt-3">
