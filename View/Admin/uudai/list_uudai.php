@@ -37,16 +37,20 @@
                         <thead>
                         <tr>
                             <th style="width: 9%;">#</th>
-                            <th>Mã loại</th>
-                            <th>Tên loại</th>
+                            <th>Id-voucher</th>
+                            <th>Tên</th>
+                            <th>Mã voucher</th>
+                            <th>Giá tiền</th>
                             <th style="width: 22%;">Thao tác</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <td><input class="form-check-input" type="checkbox" name="" id=""></td>
-                            <td>' . $danhmuc_id . '</td>
-                            <td>' . $danhmuc_name . '</td>
+                            <td>' .id . '</td>
+                            <td>' .name . '</td>
+                            <td>' . mã voucher . '</td>
+                            <td>' . tiền. '</td>
                             <td class="btn1"><a href="' . $update_dm . '"><input class="btn btn-primary btn2" type="button" value="Sửa"></a><a href="' . $delete_dm . '" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
                         </tr>
                         </tbody>

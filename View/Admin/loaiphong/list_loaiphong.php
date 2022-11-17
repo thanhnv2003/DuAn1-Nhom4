@@ -39,12 +39,20 @@
                             <th style="width: 9%;">#</th>
                             <th>Mã loại</th>
                             <th>Tên loại</th>
+                            <th>Ảnh</th>
+                            <th>Mô tả</th>
+                            <th>Gía tiền</th>
+                            <th>chất lượng</th>
                             <th style="width: 22%;">Thao tác</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <td><input class="form-check-input" type="checkbox" name="" id=""></td>
+                            <td>' . $danhmuc_id . '</td>
+                            <td>' . $danhmuc_name . '</td>
+                            <td>' . $danhmuc_id . '</td>
+                            <td>' . $danhmuc_name . '</td>
                             <td>' . $danhmuc_id . '</td>
                             <td>' . $danhmuc_name . '</td>
                             <td class="btn1">

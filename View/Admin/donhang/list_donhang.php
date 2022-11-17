@@ -65,26 +65,35 @@
                         <table class="table table-bordered text-center table1">
                             <thead>
                             <tr>
-                                <th>Mã đơn hàng</th>
-                                <th>Khách hàng</th>
-                                <th>Số lượng hàng</th>
-                                <th>Giá trị đơn hàng</th>
-                                <th>Ngày đặt hàng</th>
-                                <th>Tình trạng đơn hàng</th>
+                                <th>id_book</th>
+                                <th>Họ tên</th>
+                                <th>Số điện thoại</th>
+                                <th>email</th>
+                                <th>id_voucher</th>
+                                <th>tổng giá</th>
+                                <th>trạng thái</th>
+                                <th>ngày đặt</th>
+                                <th>check-in</th>
+                                <th>check-out</th>
                                 <th style="width: 22%;">Thao tác</th>
                             </tr>
                             </thead>
                             <tbody>
 
                             <tr>
-                                <td>DAM- $bill['bill_id']</td>
-                                <td>$user</td>
-                                <td>$count_product</td>
-                                <td>$bill['bill_total']</td>
-                                <td>$bill['bill_date']</td>
-                                <td>$status_bill</td>
+                                <td>id_book</td>
+                                <td>Họ tên</td>
+                                <td>Số điện thoại</td>
+                                <td>email</td>
+                                <td>id_voucher</td>
+                                <td>tổng giá</td>
+                                <td>trạng thái</td>
+                                <td>ngày đặt</td>
+                                <td>check-in</td>
+                                <td>check-out</td>
+
                                 <td class="btn1">
-                                    <a href=""><input class="btn btn-primary btn2" type="button" value="Update"></a>
+                                    <a href="index.php?url=sua-don-hang"><input class="btn btn-primary btn2" type="button" value="Update"></a>
                                     <a><input type="button" class="btn btn-primary btn2" value="Detail"></a>
                                     <input type="button" class="btn btn-primary btn2" value="Delete" onclick="confirm('Bạn có muốn xóa đơn hàng \( <?php echo $value['name']?> \) hay không!') == true ? location.href='index.php?url=xoa-don-hang&id=<?php echo $value['id']?>' : '' ">
                                 </td>

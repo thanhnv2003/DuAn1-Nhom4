@@ -37,13 +37,13 @@
                         <thead>
                         <tr>
                             <th style="width: 5%;">#</th>
-                            <th>Mã khách hàng</th>
-                            <th>Tên đăng nhập</th>
+                            <th>ID</th>
+                            <th>Img</th>
+                            <th>Họ và tên </th>
                             <th>Mật khẩu</th>
                             <th>Email</th>
                             <th>Địa chỉ</th>
-                            <th>Phone</th>
-                            <th>Avatar</th>
+                            <th>số điện thoại </th>
                             <th>Vai trò</th>
                             <th style="width: 17%;">Thao tác</th>
                         </tr>
@@ -52,12 +52,12 @@
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
                             <td>user_id</td>
-                            <td>username</td>
-                            <td>password</td>
-                            <td>email</td>
-                            <td>address</td>
-                            <td>phone</td>
                             <td><img src="" alt="Avatar"></td>
+                            <td>họ tên</td>
+                            <td>mật khẩu</td>
+                            <td>email</td>
+                            <td>địa chỉ </td>
+                            <td>số điện thoại </td>
                             <td>role1</td>
                             <td class="btn1">
                                 <a href="index.php?url=sua-khach-hang"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
