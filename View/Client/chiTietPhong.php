@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Tiết phòng</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="View/src/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2c37014309.js" crossorigin="anonymous"></script>
 </head>
@@ -16,29 +16,29 @@
     <header>
         <div class="menu">
             <div class="logo">
-                <a href="index.html"> <img
-                        src="../image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"
+                <a href="index.php?url=trang-chu"> <img
+                        src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"
                         alt=""></a>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="gioithieu.html">Giới thiệu</a></li>
-                    <li><a href="loaiphong.html">Loại phòng</a></li>
-                    <li><a href="dichvu.html">Dịch vụ</a></li>
-                    <li><a href="lienhe.html">Liên hệ</a></li>
+                    <li><a href="index.php?url=trang-chu">Trang chủ</a></li>
+                    <li><a href="index.php?url=gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="index.php?url=loai-phong">Loại phòng</a></li>
+                    <li><a href="index.php?url=dich-vu">Dịch vụ</a></li>
+                    <li><a href="index.php?url=lien-he">Liên hệ</a></li>
                 </ul>
             </nav>
         </div>
         <div class="header_book">
             <form action="">
                 <input type="button" value="BOOK NOW">
-                <a href="dangnhap.html"> <input type="button" value="Đăng nhập"></a>
+                <a href="index.php?url=dang-nhap"> <input type="button" value="Đăng nhập"></a>
             </form>
         </div>
     </header>
     <div class="banner">
-        <img src="../image/Rectangle 64.png" alt="">
+        <img src="View/src/image/Rectangle 64.png" alt="">
     </div>
     <main>
         <div class="main-chitiet">
@@ -112,13 +112,13 @@
             </div>
             <!--book phòng-->
             <form action="">
-                <a href="bookphong.html"> <input type="button" value="ĐẶT PHÒNG"></a>
+                <a href="index.php?url=book-phong"> <input type="button" value="ĐẶT PHÒNG"></a>
             </form>
             <!---->
             <div class="ct-phongkhac">
                 <div class="ct-phongkhac1">
                     <div class="ct-phongkhac-img">
-                        <a href="#"><img src="../image/Rectangle 48.png" alt=""></a>
+                        <a href="#"><img src="View/src/image/Rectangle 48.png" alt=""></a>
                     </div>
                     <div class="ctphongkhac-info">
                         <a href="#">
@@ -129,10 +129,10 @@
                 </div>
                 <div class="ct-phongkhac1">
                     <div class="ct-phongkhac-img">
-                        <a href="chitiet.html"><img src="../image/Rectangle 48.png" alt=""></a>
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
                     </div>
                     <div class="ctphongkhac-info">
-                        <a href="chitiet.html">
+                        <a href="index.php?url=chi-tiet">
                             <h4>DELUXE</h4>
                         </a>
                         <span>Price : 900.000đ</span>
@@ -140,10 +140,10 @@
                 </div>
                 <div class="ct-phongkhac1">
                     <div class="ct-phongkhac-img">
-                        <a href="chitiet.html"><img src="../image/Rectangle 48.png" alt=""></a>
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
                     </div>
                     <div class="ctphongkhac-info">
-                        <a href="chitiet.html">
+                        <a href="index.php?url=chi-tiet">
                             <h4>DELUXE</h4>
                         </a>
                         <span>Price : 900.000đ</span>
@@ -151,10 +151,10 @@
                 </div>
                 <div class="ct-phongkhac1">
                     <div class="ct-phongkhac-img">
-                        <a href="chitiet.html"><img src="../image/Rectangle 48.png" alt=""></a>
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
                     </div>
                     <div class="ctphongkhac-info">
-                        <a href="chitiet.html">
+                        <a href="index.php?url=chi-tiet">
                             <h4>DELUXE</h4>
                         </a>
                         <span>Price : 900.000đ</span>
@@ -174,7 +174,7 @@
             </div>
             <div class="footer-box">
                 <h2>Về chúng tôi</h2>
-                <a href="#">Liên hệ</a> <br>
+                <a href="index.php?url=lien-he">Liên hệ</a> <br>
                 <a href="#">Vị trí & chỉ đường</a> <br>
                 <a href="#">Tiện ích</a>
             </div>
@@ -184,7 +184,7 @@
                 <a href="#">Điều khoản & điều kiện</a>
             </div>
             <div class="footer-box2">
-                <a href=""> <img src="../image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
+                <a href=""> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
                 <script lang="javascript">var __vnp = { code: 4505, key: '', secret: '2d9af8430e9f03871b8868f5ddb7797c' }; (function () { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.defer = true; ga.src = '//core.vchat.vn/code/tracking.js'; var s = document.getElementsByTagName('script'); s[0].parentNode.insertBefore(ga, s[0]); })();
                 </script>
             </div>
