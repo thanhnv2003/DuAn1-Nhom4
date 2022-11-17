@@ -17,7 +17,7 @@ function listKhachHang(){
 }
 function listBinhluan(){
     include_once './View/Admin/header.php';
-    include_once './View/Admin/binhluan/list_binhluan.php';
+    include_once './View/Admin/binhluan/list_binhluan.php'; 
     include_once './View/Admin/footer.php';
 }
 function listDonHang(){

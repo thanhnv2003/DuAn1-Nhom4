@@ -35,16 +35,17 @@
                 <div class="table-responsive">
                     <table class="table text-center table-bordered table1">
                         <thead>
-                        <tr>
-                            <th style="width: 9%;">#</th>
-                            <th>Mã loại</th>
-                            <th>Tên loại</th>
-                            <th>Ảnh</th>
-                            <th>Mô tả</th>
-                            <th>Gía tiền</th>
-                            <th>Số lượng</th>
-                            <th style="width: 22%;">Thao tác</th>
-                        </tr>
+                          <tr>
+                              <th style="width: 9%;">#</th>
+                              <th>Mã loại</th>
+                              <th>Tên loại</th>
+                              <th>Ảnh</th>
+                              <th>Mô tả</th>
+                              <th>Gía tiền</th>
+                              <th>Số lượng</th>
+                              <th>Tên loại</th>
+                              <th style="width: 22%;">Thao tác</th>
+                          </tr>
                         </thead>
                         <tbody>
                         <tr>

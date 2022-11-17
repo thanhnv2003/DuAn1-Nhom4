@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giới thiệu</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="View/src/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2c37014309.js" crossorigin="anonymous"></script>
 </head>
@@ -18,7 +18,7 @@
         <div class="menu">
             <div class="logo">
                 <a href="index.html"> <img
-                        src="../image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"></a>
+                        src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"></a>
             </div>
             <nav>
                 <ul>
