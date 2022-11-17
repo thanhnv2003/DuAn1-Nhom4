@@ -42,7 +42,7 @@
                             <th>Họ và tên </th>
                             <th>Email</th>
                             <th>Số điện thoại</th>
-                            <th>nội dung</th>
+                            <th>Nội dung</th>
                             <th style="width: 22%;">Thao tác</th>
                         </tr>
                         </thead>

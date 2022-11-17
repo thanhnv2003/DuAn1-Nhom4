@@ -55,10 +55,10 @@
                         <tr>
                             <th style="width: 5%;">#</th>
                             <th>ID</th>
-                            <th>nội dung bình luận </th>
-                            <th>id_phòng</th>
-                            <th>id_user</th>
-                            <th>thời gian </th>
+                            <th>Nội dung bình luận</th>
+                            <th>Id_phòng</th>
+                            <th>Id_user</th>
+                            <th>Thời gian </th>
                             <th style="width: 17%;">Thao tác</th>
                         </tr>
                         </thead>

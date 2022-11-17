@@ -65,16 +65,16 @@
                         <table class="table table-bordered text-center table1">
                             <thead>
                             <tr>
-                                <th>id_book</th>
+                                <th>Id_book</th>
                                 <th>Họ tên</th>
                                 <th>Số điện thoại</th>
-                                <th>email</th>
-                                <th>id_voucher</th>
-                                <th>tổng giá</th>
-                                <th>trạng thái</th>
-                                <th>ngày đặt</th>
-                                <th>check-in</th>
-                                <th>check-out</th>
+                                <th>Email</th>
+                                <th>Id_voucher</th>
+                                <th>Tổng giá</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày đặt</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
                                 <th style="width: 22%;">Thao tác</th>
                             </tr>
                             </thead>
