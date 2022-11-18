@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once './Controller/clientController.php';
 require_once './Controller/adminController.php';
 $url = isset($_GET['url']) ? $_GET['url'] : 'trang-chu';
@@ -32,13 +33,13 @@ switch($url){
     case 'quen-mat-khau':
         echo quenMatKhau();
         break;
-//    case 'sua-tai-khoan':
-//        echo quenMatKhau();
-//        break;
+    case 'sua-tai-khoan':
+        echo quenMatKhau();
+        break;
 
 
     //Admin
-
+//    if (isset($_SESSION['account'])){
     case 'admin':
         echo indexAdmin();
         break;
@@ -130,7 +131,7 @@ switch($url){
 //    case '':
 //        echo
 //        break;
-
+//}
 
 
 
