@@ -11,7 +11,7 @@ function loadone_account($id_account){
     return $fix;
 }
 function update_account($file,$fullname,$password,$email,$address,$phone,$role){
-    $result = 'update account set image = "'.$file.'",fullname = "'.$fullname.'",password = "'.$password.'",email = "'.$email.'",address = "'.$address.'",tel = "'.$phone.'",role = "'.$role.'"  where id_account = '.$id_account ;
+    $result = 'update account set image = "null",fullname = "'.$fullname.'",password = "'.$password.'",email = "'.$email.'",address = "'.$address.'",tel = "'.$phone.'",role = "'.$role.'"  where id_account = '.$id_account ;
     pdo_execute($result);
 }
 ?>

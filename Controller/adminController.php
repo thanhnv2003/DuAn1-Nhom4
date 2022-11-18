@@ -76,15 +76,22 @@ function capNhatKhachHang(){
     if(isset($_GET['id'])&& ($_GET['id']>0)){
         $fixaccount = loadone_account($_GET['id']);
     }
-    if(isset($_POST['update_account']) && $_POST['update_account']){
-        $file = $_POST['file'];
+    if(isset($_POST['capnhat']) && $_POST['capnhat']){
         $fullname = $_POST['fullname'];
         $password = $_POST['password'];
         $email = $_POST['email'];
         $address = $_POST['address'];
         $phone = $_POST['phone'];
         $role = $_POST['role'];
-        update_account($file,$fullname,$password,$email,$address,$phone,$role);
+        $hinh=$_FILES['anh']['name'];
+        $target_dir = "";
+        $target_file = $target_dir.$hinh;
+        if(move_uploaded_file($_FILES['anh']['tmp_name'], $target_file)){
+//                      echo "ảnh của bạn đã được thêm thành công ";
+        }else{
+            echo 'sorry, ảnh của bạn ko được uplead';
+        }
+        update_account(null,$fullname,$password,$email,$address,$phone,$role);
 
     }
     include_once './View/Admin/taikhoan/update_taikhoan.php';

@@ -2,7 +2,7 @@
 if(is_array($fixaccount)){
     extract($fixaccount);
 }
-$anh = "View/image".$avata;
+
 ?>
 <style>
     .role {
@@ -15,11 +15,11 @@ $anh = "View/image".$avata;
             <div class="card-body">
                 <h4 class="card-title">Cập nhật tài khoản</h4>
 
-                <form action="index.php?act=update_account" method="post" enctype="multipart/form-data">
+                <form action="index.php?url=sua-khach-hang" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="">Avatar</label>
                         <img style="width: 120px;" src="$anh"  class="form-control" alt="ảnh">
-                        <input class="form-control mt-2" type="file" name="file" id="" multiple="multiple">
+                        <input class="form-control mt-2" type="file" name="anh" id="" multiple="multiple">
                     </div>
                     <div class="form-group">
                         <label for="">Fulname</label>
@@ -48,7 +48,8 @@ $anh = "View/image".$avata;
                         <input type="radio" class="form-check-input role" name="role" value="<?php echo $role;?>"> Admin
                     </div>
                     <input type="hidden" name="account_id" value=" $user_id ">
-                    <button type="submit" class="mt-3 btn btn-primary" name="update_account">Cập nhật</button>
+<!--                    <button type="submit" class="mt-3 btn btn-primary" name="sau-khach-hang">Cập nhật</button>-->
+                    <input type="submit" value="Cập nhật" class="mt-3 btn btn-primary" name="capnhat">
                     <input type="reset" class="mt-3 btn btn-primary" value="Nhập lại">
                 </form>
             </div>
