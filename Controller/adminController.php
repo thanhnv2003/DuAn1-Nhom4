@@ -1,5 +1,6 @@
 <?php
 include "./Models/account.php";
+include "./Models/pdo.php";
 //List
 function indexAdmin(){
     include_once './View/Admin/header.php';
@@ -77,31 +78,43 @@ function capNhatKhachHang(){
         $fixaccount = loadone_account($_GET['id']);
     }
     if(isset($_POST['capnhat']) && $_POST['capnhat']){
+        $id_account = $_POST['id_account'];
         $fullname = $_POST['fullname'];
         $password = $_POST['password'];
         $email = $_POST['email'];
         $address = $_POST['address'];
         $phone = $_POST['phone'];
         $role = $_POST['role'];
-        $hinh=$_FILES['anh']['name'];
-        $target_dir = "";
-        $target_file = $target_dir.$hinh;
-        if(move_uploaded_file($_FILES['anh']['tmp_name'], $target_file)){
-//                      echo "ảnh của bạn đã được thêm thành công ";
-        }else{
-            echo 'sorry, ảnh của bạn ko được uplead';
-        }
-        update_account(null,$fullname,$password,$email,$address,$phone,$role);
 
+//        $hinh=$_FILES['anh']['name'];
+//        $target_dir = "";
+//        $target_file = $target_dir.$hinh;
+//        if(move_uploaded_file($_FILES['anh']['tmp_name'], $target_file)){
+////                      echo "ảnh của bạn đã được thêm thành công ";
+//        }else{
+//            echo 'sorry, ảnh của bạn ko được uplead';
+//        }
+        update_account($id_account,null,$fullname,$password,$email,$address,$phone,$role);
+      echo "banj caapj nhatj thanh cong";
     }
+
     include_once './View/Admin/taikhoan/update_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
+
 function capNhatUuDai(){
     include_once './View/Admin/header.php';
     include_once './View/Admin/uudai/update_uudai.php';
     include_once './View/Admin/footer.php';
 }
-
-
+//delete
+function deleteKhachHang(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id']) && $_GET['id']>0){
+        delete_account($_GET['id']);
+    }
+    $list_account = loadall_account();
+    include_once './View/Admin/taikhoan/list_taikhoan.php';
+    include_once './View/Admin/footer.php';
+}
 ?>

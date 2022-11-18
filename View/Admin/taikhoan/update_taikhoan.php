@@ -17,6 +17,10 @@ if(is_array($fixaccount)){
 
                 <form action="index.php?url=sua-khach-hang" method="post" enctype="multipart/form-data">
                     <div class="form-group">
+                        <label for=""> </label>
+                        <input type="hidden" class="form-control" name="id_account" value="<?php echo $id_account; ?>">
+                    </div>
+                    <div class="form-group">
                         <label for="">Avatar</label>
                         <img style="width: 120px;" src="$anh"  class="form-control" alt="ảnh">
                         <input class="form-control mt-2" type="file" name="anh" id="" multiple="multiple">
@@ -40,12 +44,16 @@ if(is_array($fixaccount)){
                     </div>
                     <div class="form-group">
                         <label for="">Phone</label>
-                        <input type="phone" class="form-control" name="phone" value="<?php echo $tel ; ?>">
+                        <input type="phone" class="form-control" name="phone" value="<?php echo $tel; ?>">
                     </div>
                     <div class="form-group">
                         <label for="">Vai trò</label> <br>
-                        <input type="radio" class="form-check-input" name="role" value="<?php echo $role;?>"> Khách hàng
-                        <input type="radio" class="form-check-input role" name="role" value="<?php echo $role;?>"> Admin
+<!--                        <input type="radio" class="form-check-input" name="role" value="--><?php //echo $role;?><!--"> Khách hàng-->
+<!--                        <input type="radio" class="form-check-input role" name="role" value=""> Admin-->
+                        <select name="role">
+                            <option value="0">khachs hang </option>
+                            <option value="1">admin </option>
+                        </select>
                     </div>
                     <input type="hidden" name="account_id" value=" $user_id ">
 <!--                    <button type="submit" class="mt-3 btn btn-primary" name="sau-khach-hang">Cập nhật</button>-->

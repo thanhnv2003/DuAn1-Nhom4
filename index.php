@@ -103,9 +103,9 @@ switch($url){
 //    case 'xoa-loai-phong':
 //        echo
 //        break;
-//    case 'xoa-khach-hang':
-//        echo
-//        break;
+    case 'xoa-khach-hang':
+        echo deleteKhachHang();
+        break;
 //    case 'xoa-binh-luan':
 //        echo
 //        break;

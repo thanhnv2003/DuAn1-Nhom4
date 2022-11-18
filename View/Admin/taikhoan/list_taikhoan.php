@@ -67,7 +67,7 @@
                             <td>'.$role.'</td>
                             <td class="btn1">
                                 <a href="index.php?url=sua-khach-hang&id='.$id_account.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
-                                <a href="" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
+                                <a href="index.php?url=xoa-khach-hang&id='.$id_account.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
                                     <input class="btn btn-danger btn2" type="button" value="Xóa"></a>
                             </td>
                         </tr>
