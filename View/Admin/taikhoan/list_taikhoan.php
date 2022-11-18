@@ -49,22 +49,32 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php
+                        foreach ($list_account as $value){
+                            extract($value);
+                            $suakh="index.php?act=sua-khach-hang&id=".$id_account;
+                            $xoakh="index.php?act=xoa_kh=".$id_account;
+                            echo '     
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
-                            <td>User_id</td>
+                            <td>'.$id_account.'</td>
                             <td><img src="" alt="Avatar"></td>
-                            <td>Họ tên</td>
-                            <td>Mật khẩu</td>
-                            <td>Email</td>
-                            <td>Địa chỉ </td>
-                            <td>Số điện thoại </td>
-                            <td>Role1</td>
+                            <td>'.$fullname.'</td>
+                            <td>'.$password.'</td>
+                            <td>'.$email.'</td>
+                            <td>'.$address.'</td>
+                            <td>'.$tel.' </td>
+                            <td>'.$role.'</td>
                             <td class="btn1">
-                                <a href="index.php?url=sua-khach-hang"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
+                                <a href="index.php?url=sua-khach-hang&id='.$id_account.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
                                 <a href="" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
                                     <input class="btn btn-danger btn2" type="button" value="Xóa"></a>
                             </td>
                         </tr>
+                      
+                        ';
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div>

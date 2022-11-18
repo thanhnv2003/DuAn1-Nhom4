@@ -1,4 +1,5 @@
 <?php
+include "./Models/account.php";
 //List
 function indexAdmin(){
     include_once './View/Admin/header.php';
@@ -12,6 +13,7 @@ function listLoaiPhong(){
 }
 function listKhachHang(){
     include_once './View/Admin/header.php';
+    $list_account = loadall_account();
     include_once './View/Admin/taikhoan/list_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
@@ -71,6 +73,20 @@ function capNhatLoaiPhong(){
 }
 function capNhatKhachHang(){
     include_once './View/Admin/header.php';
+    if(isset($_GET['id'])&& ($_GET['id']>0)){
+        $fixaccount = loadone_account($_GET['id']);
+    }
+    if(isset($_POST['update_account']) && $_POST['update_account']){
+        $file = $_POST['file'];
+        $fullname = $_POST['fullname'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $phone = $_POST['phone'];
+        $role = $_POST['role'];
+        update_account($file,$fullname,$password,$email,$address,$phone,$role);
+
+    }
     include_once './View/Admin/taikhoan/update_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
