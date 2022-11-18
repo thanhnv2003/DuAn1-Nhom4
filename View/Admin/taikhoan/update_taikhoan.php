@@ -2,12 +2,18 @@
 if(is_array($fixaccount)){
     extract($fixaccount);
 }
-
+$hinh_anh = "./View/src/uploand/".$image;
+if(is_file($hinh_anh)){
+    $image = "<img width='20px' src ='".$hinh_anh."'  alt = 'anh' class = 'form-control'> ";
+}else{
+    $image = "no photo";
+}
 ?>
 <style>
     .role {
         margin-left: 1rem;
     }
+
 </style>
 <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
@@ -22,7 +28,8 @@ if(is_array($fixaccount)){
                     </div>
                     <div class="form-group">
                         <label for="">Avatar</label>
-                        <img style="width: 120px;" src="$anh"  class="form-control" alt="ảnh">
+<!--                        <img style="width: 120px;" src="" class="form-control" alt="ảnh">-->
+             <?php echo $image; ?>
                         <input class="form-control mt-2" type="file" name="anh" id="" multiple="multiple">
                     </div>
                     <div class="form-group">

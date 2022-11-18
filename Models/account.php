@@ -10,8 +10,8 @@ function loadone_account($id_account){
     $fix = pdo_query_one($result);
     return $fix;
 }
-function update_account($id_account,$file,$fullname,$password,$email,$address,$phone,$role){
-    $result = 'update account set image = "null",fullname = "'.$fullname.'",password = "'.$password.'",email = "'.$email.'",address = "'.$address.'",tel = "'.$phone.'", role = "'.$role.'" where id_account = '.$id_account ;
+function update_account($id_account,$image,$fullname,$password,$email,$address,$phone,$role){
+    $result = 'update account set image = "'.$image.'",fullname = "'.$fullname.'",password = "'.$password.'",email = "'.$email.'",address = "'.$address.'",tel = "'.$phone.'", role = "'.$role.'" where id_account = '.$id_account ;
     pdo_execute($result);
 }
 function delete_account($id_account){

@@ -52,13 +52,17 @@
                         <?php
                         foreach ($list_account as $value){
                             extract($value);
-                            $suakh="index.php?act=sua-khach-hang&id=".$id_account;
-                            $xoakh="index.php?act=xoa_kh=".$id_account;
+                            $hinh_anh = "./View/src/uploand/".$image;
+                            if(is_file($hinh_anh)){
+                                $image = "<img src ='".$hinh_anh."' height='80'> ";
+                            }else{
+                                $image = "no photo";
+                            }
                             echo '     
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
                             <td>'.$id_account.'</td>
-                            <td><img src="" alt="Avatar"></td>
+                            <td>'.$image.'</td>
                             <td>'.$fullname.'</td>
                             <td>'.$password.'</td>
                             <td>'.$email.'</td>

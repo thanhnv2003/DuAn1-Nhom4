@@ -86,16 +86,24 @@ function capNhatKhachHang(){
         $phone = $_POST['phone'];
         $role = $_POST['role'];
 
-//        $hinh=$_FILES['anh']['name'];
-//        $target_dir = "";
-//        $target_file = $target_dir.$hinh;
-//        if(move_uploaded_file($_FILES['anh']['tmp_name'], $target_file)){
-////                      echo "ảnh của bạn đã được thêm thành công ";
-//        }else{
-//            echo 'sorry, ảnh của bạn ko được uplead';
-//        }
-        update_account($id_account,null,$fullname,$password,$email,$address,$phone,$role);
-      echo "banj caapj nhatj thanh cong";
+        $target = './View/src/uploand/';
+        $image=$_FILES['anh']['name'];
+        $maxsize = 2000000;
+        $duoi = ['jpg','png'];
+        $target_file = $target.$image;
+        $tatfiletype = pathinfo($target_file,PATHINFO_EXTENSION);
+        if($_FILES['anh']['size']> $maxsize){
+            echo " ảnh của bạn có dung lược quá lớn không thể upload";
+        }
+        if(move_uploaded_file($_FILES['anh']['tmp_name'], $target_file)){
+                      echo "ảnh của bạn đã được thêm thành công ";
+        }
+         else{
+            echo 'sorry, ảnh của bạn ko được uplead';
+        }
+          update_account($id_account,$image,$fullname,$password,$email,$address,$phone,$role);
+
+      echo "bạn đã update thành công ";
     }
 
     include_once './View/Admin/taikhoan/update_taikhoan.php';
