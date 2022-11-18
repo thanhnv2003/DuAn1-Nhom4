@@ -30,10 +30,14 @@
                         <input name="quantity" type="text" class="form-control">
                     </div>
                     <div class="form-group mt-3">
+                        <!-- <input type = "text" name="id_cate" value="<?php echo $loai_phong['id_cate']?>"> -->
                         <input class="btn btn-gradient-primary me-2" type="submit" name="themmoi" value="Thêm mới">
                         <input class="btn btn-secondary" type="reset" name="reset" value="Nhập lại">
-                        <a href="index.php?act=list_danhmuc"><input class="btn btn-primary" type="button" value="Danh sách"></a>
+                        <a href="index.php?url=quan-ly-loai-phong"><input class="btn btn-primary" type="button" value="Danh sách"></a>
                     </div>
+                    <?php 
+                    if(isset($thongbao)&&($thongbao!=""))echo $thongbao;
+                    ?>
                 </form>
             </div>
         </div>

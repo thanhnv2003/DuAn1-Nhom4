@@ -82,9 +82,12 @@ switch($url){
 //    case 'sua-giao-dien':
 //        echo
 //        break;
-    case 'sua-loai-phong':
+    case 'cap-nhat-loai-phong':
         echo capNhatLoaiPhong();
         break;
+    case 'sua-loai-phong':
+        echo edit_LoaiPhong();
+       break;
     case 'sua-khach-hang':
         echo capNhatKhachHang();
         break;
@@ -101,9 +104,9 @@ switch($url){
 //
 //
 //        //delete
-//    case 'xoa-loai-phong':
-//        echo
-//        break;
+     case 'xoa-loai-phong':
+       echo deleteLoaiPhong();
+       break;
 //    case 'xoa-khach-hang':
 //        echo
 //        break;
