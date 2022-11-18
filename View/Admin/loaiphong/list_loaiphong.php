@@ -54,8 +54,8 @@
                            <?php 
                            foreach ($list_loaiphong as $value){
                             extract($value);
-                        $sualp = "index.php?url=sua-loai-phong&id=".$id_cate;
-                        $xoalp = "index.php?url=xoa-loai-phong&id=".$id_cate;
+//                        $sualp = "index.php?url=sua-loai-phong&id=".$id_cate;
+//                        $xoalp = "index.php?url=xoa-loai-phong&id=".$id_cate;
                         $hinh = "View/src/upload/" . $image;
                         if (is_file($hinh)) {
                             $image = "<img src='" . $hinh . "' height='80px'>";

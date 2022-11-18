@@ -54,17 +54,27 @@ function themLoaiPhong(){
         $description = $_POST["description"];
         $price = $_POST["price"];
         $quantity = $_POST["quantity"];
-        $hinh = $_FILES["hinh"]["name"];
-        $target_dir= "View/src/upload/";
+        $hinh=$_FILES['hinh']['name'];
+        $maxsize = 2000000;
+        $allowUpload = true;
+        $allowType = ['jpg','png','jpeg','gif'];
+        $target_dir ='View/src/upload/' ;
         $target_file = $target_dir.basename($_FILES["hinh"]["name"]);
-        if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-            
-        } else{
-
-        }    
-        loaiphong_inset($usename,$hinh,$description,$price,$quantity);
-        $thongbao = "Thêm thành công";   
-       
+        if($_FILES['hinh']['size']> $maxsize){
+            $thongbao= " Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $allowUpload = false;
+        }
+        if(!in_array($target_file, $allowType)){
+            $thongbao ='Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
+            $allowupload = false;
+        }if($allowUpload==true){
+            move_uploaded_file($_FILES['hinh']['tmp_name'], $target_file);
+            $thongbao = "Ảnh của bạn đã được thêm thành công ";
+            loaiphong_inset($usename,$hinh,$description,$price,$quantity);
+            $thongbao = "Thêm thành công";
+        }else{
+            $thongbao= "Bạn không thể thêm loại phòng";
+        }
     }
     include_once './View/Admin/loaiphong/add_loaiphong.php';
     include_once './View/Admin/footer.php';
@@ -96,21 +106,26 @@ function capNhatLoaiPhong(){
         $quantity = $_POST['quantity'];      
         $hinh=$_FILES['hinh']['name'];
         $maxsize = 2000000;
-        $duoi = ['jpg','png'];
+        $allowUpload = true;
+        $allowType = ['jpg','png','jpeg','gif'];
         $target_dir ='View/src/upload/' ;
         $target_file = $target_dir.basename($_FILES["hinh"]["name"]);
         if($_FILES['hinh']['size']> $maxsize){
-            echo " ảnh của bạn có dung lược quá lớn không thể upload";
+            $thongbao= " Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $allowUpload = false;
         }
-        if(move_uploaded_file($_FILES['hinh']['tmp_name'], $target_file)){
-                      echo "ảnh của bạn đã được thêm thành công ";
-        }
-         else{
-            echo 'sorry, ảnh của bạn ko được upload';
-        }
-        loaiphong_update($id_cate,$nameroom,$hinh,$description,$price,$quantity);
-
-      echo "bạn đã update thành công ";
+         if(!in_array($target_file, $allowType)){
+            $thongbao ='Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
+            $allowupload = false;
+         }
+         if($allowUpload==true) {
+             move_uploaded_file($_FILES['hinh']['tmp_name'], $target_file);
+            $thongbao = "Ảnh của bạn đã được thêm thành công ";
+            loaiphong_update($id_cate, $nameroom, $hinh, $description, $price, $quantity);
+            $thongbao = "Bạn đã update thành công ";
+         } else{
+             $thongbao='Không update thành công';
+         }
     }
     $list_loaiphong=loaiphong_loadall();
     include_once './View/Admin/loaiphong/list_loaiphong.php';
