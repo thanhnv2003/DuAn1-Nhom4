@@ -16,5 +16,10 @@ function check_email($email){
     $sp = pdo_query_one($sql);
     return $sp;
 }
+//cập nhật tài khoản
+function update_account($id, $fulname, $tel, $address, $email, $password){
+    $sql = "UPDATE `account` SET `fullname` = '$fulname', `password` = '$password', `email` = '$email', `address` = '$address', `tel` = '$tel' WHERE `account`.`id_account` = '$id'";
+    pdo_execute($sql);
+}
 
 ?>

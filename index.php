@@ -34,10 +34,15 @@ switch($url){
         echo quenMatKhau();
         break;
     case 'sua-tai-khoan':
-        echo quenMatKhau();
+        echo capNhatTaiKhoan();
         break;
-
-
+    case 'dang-xuat':
+        session_unset();
+        header('location: index.php');
+        break;
+    case 'welcome':
+        echo welcome();
+        break;
     //Admin
 //    if (isset($_SESSION['account'])){
     case 'admin':
@@ -143,5 +148,9 @@ switch($url){
         echo 'Đường dẫn không tồn tại';
         break;    
 }
+
+
+// Login with Google
+
 
 ?>

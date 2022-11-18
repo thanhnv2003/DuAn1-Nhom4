@@ -12,7 +12,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="View/src/assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../assets/logo.png" />
+    <link rel="shortcut icon" href="View/src/assets/logo.png"/>
     <title>Petio Admin</title>
 </head>
 
@@ -41,18 +41,18 @@
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="nav-profile-img">
-                        <img src="View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png" alt="image">
+                        <img src="<?php echo $_SESSION['account']['image'] == null ? 'View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png' : $_SESSION['account']['image'] ?>" alt="image">
                         <span class="availability-status online"></span>
                     </div>
                     <div class="nav-profile-text">
-                        <p class="mb-1 text-black">Phan luan</p>
+                        <p class="mb-1 text-black"><?php echo $_SESSION['account']['fullname'] ?></p>
                     </div>
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                     <a class="dropdown-item" href="#">
                         <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.php">
+                    <a class="dropdown-item" href="index.php?url=dang-xuat">
                         <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
                     <a class="dropdown-item" href="index.php?url=trang-chu">
                         <i class="mdi mdi-home menu-icon"></i> Home Page </a>
