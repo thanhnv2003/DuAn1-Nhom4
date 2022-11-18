@@ -148,9 +148,3 @@ switch($url){
         echo 'Đường dẫn không tồn tại';
         break;    
 }
-
-
-// Login with Google
-
-
-?>
