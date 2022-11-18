@@ -7,6 +7,16 @@ function indexAdmin(){
 }
 function listLoaiPhong(){
     include_once './View/Admin/header.php';
+    if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+        $id_cate = $_POST["id_cate"];
+        $usename = $_POST["usename"];
+        $description = $_POST["description"];
+        $price = $_POST["price"];
+        $quantity = $_POST["quantity"];
+        $hinh = $_FILES["hinh"]["name"];
+       $target = 
+
+    }
     include_once './View/Admin/loaiphong/list_loaiphong.php';
     include_once './View/Admin/footer.php';
 }

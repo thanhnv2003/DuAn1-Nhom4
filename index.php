@@ -13,6 +13,7 @@ switch($url){
         break;
     case 'loai-phong':
         echo loaiPhong();
+
         break;
     case 'dich-vu':
         echo dichVu();
