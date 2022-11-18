@@ -2,9 +2,10 @@
 if(is_array($fixaccount)){
     extract($fixaccount);
 }
+
 $hinh_anh = "./View/src/uploand/".$image;
 if(is_file($hinh_anh)){
-    $image = "<img width='20px' src ='".$hinh_anh."'  alt = 'anh' class = 'form-control'> ";
+    $image = "<img style='width: 200px;' src ='".$hinh_anh."'  alt = 'anh' class = 'form-control'> ";
 }else{
     $image = "no photo";
 }
@@ -21,7 +22,7 @@ if(is_file($hinh_anh)){
             <div class="card-body">
                 <h4 class="card-title">Cập nhật tài khoản</h4>
 
-                <form action="index.php?url=sua-khach-hang" method="post" enctype="multipart/form-data">
+                <form action="index.php?url=cap-nhat-khach-hang" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for=""> </label>
                         <input type="hidden" class="form-control" name="id_account" value="<?php echo $id_account; ?>">
@@ -33,8 +34,9 @@ if(is_file($hinh_anh)){
                         <input class="form-control mt-2" type="file" name="anh" id="" multiple="multiple">
                     </div>
                     <div class="form-group">
-                        <label for="">Fulname</label>
+                        <label for="">Fullname</label>
                         <input type="text" class="form-control" name="fullname" value="<?php echo $fullname; ?>">
+                        <?php echo isset($error['fullname']) ? $error['fullname'] : "" ?>
                     </div>
 
                     <div class="form-group">
@@ -58,14 +60,19 @@ if(is_file($hinh_anh)){
 <!--                        <input type="radio" class="form-check-input" name="role" value="--><?php //echo $role;?><!--"> Khách hàng-->
 <!--                        <input type="radio" class="form-check-input role" name="role" value=""> Admin-->
                         <select name="role">
-                            <option value="0">khachs hang </option>
-                            <option value="1">admin </option>
+                            <option value="0">Khách hàng </option>
+                            <option value="1">Admin</option>
                         </select>
                     </div>
                     <input type="hidden" name="account_id" value=" $user_id ">
 <!--                    <button type="submit" class="mt-3 btn btn-primary" name="sau-khach-hang">Cập nhật</button>-->
                     <input type="submit" value="Cập nhật" class="mt-3 btn btn-primary" name="capnhat">
                     <input type="reset" class="mt-3 btn btn-primary" value="Nhập lại">
+                    <?php
+                    if(isset($thongbao)&& $thongbao!= ""){
+                        echo $thongbao;
+                    }
+                    ?>
                 </form>
             </div>
         </div>

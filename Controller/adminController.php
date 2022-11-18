@@ -18,6 +18,14 @@ function listKhachHang(){
     include_once './View/Admin/taikhoan/list_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
+function listone_Account(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id'])&& ($_GET['id']>0)){
+        $fixaccount = loadone_account($_GET['id']);
+    }
+    include_once './View/Admin/taikhoan/update_taikhoan.php';
+    include_once './View/Admin/footer.php';
+}
 function listBinhluan(){
     include_once './View/Admin/header.php';
     include_once './View/Admin/binhluan/list_binhluan.php'; 
@@ -74,9 +82,7 @@ function capNhatLoaiPhong(){
 }
 function capNhatKhachHang(){
     include_once './View/Admin/header.php';
-    if(isset($_GET['id'])&& ($_GET['id']>0)){
-        $fixaccount = loadone_account($_GET['id']);
-    }
+//    $error = [];
     if(isset($_POST['capnhat']) && $_POST['capnhat']){
         $id_account = $_POST['id_account'];
         $fullname = $_POST['fullname'];
@@ -85,28 +91,33 @@ function capNhatKhachHang(){
         $address = $_POST['address'];
         $phone = $_POST['phone'];
         $role = $_POST['role'];
-
         $target = './View/src/uploand/';
         $image=$_FILES['anh']['name'];
         $maxsize = 2000000;
-        $duoi = ['jpg','png'];
+        $tagettype = ['jpg','png'];
         $target_file = $target.$image;
         $tatfiletype = pathinfo($target_file,PATHINFO_EXTENSION);
+        $upload = true;
         if($_FILES['anh']['size']> $maxsize){
-            echo " ảnh của bạn có dung lược quá lớn không thể upload";
+//           $error['anh_size'] =" Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $upload = false;
         }
-        if(move_uploaded_file($_FILES['anh']['tmp_name'], $target_file)){
-                      echo "ảnh của bạn đã được thêm thành công ";
+        if(!in_array($tatfiletype,$tagettype)){
+//            $error['duoi']='duoi file khong dung dinh dang ';
+            $upload = false;
         }
-         else{
-            echo 'sorry, ảnh của bạn ko được uplead';
-        }
-          update_account($id_account,$image,$fullname,$password,$email,$address,$phone,$role);
+        if($upload ==true) {
+            move_uploaded_file($_FILES['anh']['tmp_name'], $target_file);
 
-      echo "bạn đã update thành công ";
+//        if(!$error){
+            update_account($id_account, $image, $fullname, $password, $email, $address, $phone, $role);
+            $thongbao = "Update thành công";
+//        }
+        }
     }
 
-    include_once './View/Admin/taikhoan/update_taikhoan.php';
+    $list_account = loadall_account();
+    include_once './View/Admin/taikhoan/list_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
 
@@ -125,4 +136,6 @@ function deleteKhachHang(){
     include_once './View/Admin/taikhoan/list_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
+
+
 ?>

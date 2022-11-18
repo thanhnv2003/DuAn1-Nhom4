@@ -74,6 +74,7 @@ switch($url){
     case 'them-moi-uu-dai':
         echo themUuDai();
         break;
+
 //
 //
 //
@@ -84,7 +85,7 @@ switch($url){
     case 'sua-loai-phong':
         echo capNhatLoaiPhong();
         break;
-    case 'sua-khach-hang':
+    case 'cap-nhat-khach-hang':
         echo capNhatKhachHang();
         break;
     case 'sua-don-hang':
@@ -95,6 +96,9 @@ switch($url){
 //        break;
     case 'sua-uu-dai':
         echo capNhatUuDai();
+        break;
+    case 'sua-khach-hang':
+        echo listone_Account();
         break;
 //
 //
