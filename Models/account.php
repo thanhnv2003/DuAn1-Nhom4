@@ -17,7 +17,7 @@ function check_email($email){
     return $sp;
 }
 //cập nhật tài khoản
-function update_account($id, $fulname, $tel, $address, $email, $password){
+function updateAccount($id, $fulname, $tel, $address, $email, $password){
     $sql = "UPDATE `account` SET `fullname` = '$fulname', `password` = '$password', `email` = '$email', `address` = '$address', `tel` = '$tel' WHERE `account`.`id_account` = '$id'";
     pdo_execute($sql);
 }
@@ -35,7 +35,7 @@ function loadone_account($id_account){
 }
 //cập nhật account
 function update_account($id_account,$image,$fullname,$password,$email,$address,$phone,$role){
-    $result = 'update account set image = "'.$image.'",fullname = "'.$fullname.'",password = "'.$password.'",email = "'.$email.'",address = "'.$address.'",tel = "'.$phone.'", role = "'.$role.'" where id_account = '.$id_account ;
+    $result = 'update `account` set image = "'.$image.'",fullname = "'.$fullname.'",password = "'.$password.'",email = "'.$email.'",address = "'.$address.'",tel = "'.$phone.'", `role` = "'.$role.'" where id_account = '.$id_account ;
     pdo_execute($result);
 }
 //xóa account

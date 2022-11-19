@@ -14,6 +14,7 @@ function gioiThieu(){
 }
 function loaiPhong(){
     include_once './View/Client/loaiPhong.php';
+    
 }
 function dichVu(){
     include_once './View/Client/dichVu.php';
@@ -72,15 +73,13 @@ function capNhatTaiKhoan(){
         $email = $_POST['email'];
         $password = $_POST['password'];
         if ($_POST['password'] != '' && $_POST['repassword'] != '' && $_POST['password'] == $_POST['repassword']){
-            update_account($id, $fullname, $tel, $address, $email, $password);
+            updateAccount($id, $fullname, $tel, $address, $email, $password);
             $_SESSION['account'] = check_user($email, $password);
             $thongbao = 'Cập nhật thành công';
         }else{
             $thongbao = 'Hai mật khẩu bạn nhập không giống nhau';
         }
     }
-
-
     include_once './View/Client/taikhoan/update_taikhoan.php';
 }
 function datPhong(){
