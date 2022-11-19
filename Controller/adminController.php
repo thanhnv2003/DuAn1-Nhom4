@@ -1,6 +1,5 @@
 <?php
-include "./Models/account.php";
-include "./Models/pdo.php";
+require_once "./Models/account.php";
 //List
 require_once './Models/pdo.php';
 require_once './Models/room.php';
@@ -55,12 +54,10 @@ function listLienHe(){
     include_once './View/Admin/lienhe/list_lienhe.php';
     include_once './View/Admin/footer.php';
 }
-
 //Add
 function themLoaiPhong(){
     include_once './View/Admin/header.php';
     if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
-        // $id_cate = $_POST["id_cate"];
         $usename = $_POST["usename"];
         $description = $_POST["description"];
         $price = $_POST["price"];
@@ -161,10 +158,10 @@ function capNhatKhachHang(){
         $address = $_POST['address'];
         $phone = $_POST['phone'];
         $role = $_POST['role'];
-        $target = './View/src/uploand/';
+        $target = './View/src/upload/';
         $image=$_FILES['anh']['name'];
         $maxsize = 2000000;
-        $tagettype = ['jpg','png'];
+        $tagettype = ['jpg','png','jpeg','gif'];
         $target_file = $target.$image;
         $tatfiletype = pathinfo($target_file,PATHINFO_EXTENSION);
         $upload = true;
@@ -178,12 +175,9 @@ function capNhatKhachHang(){
         }
         if($upload ==true) {
             move_uploaded_file($_FILES['anh']['tmp_name'], $target_file);
-
-//        if(!$error){
-            update_account($id_account, $image, $fullname, $password, $email, $address, $phone, $role);
-            $thongbao = "Update thành công";
-//        }
         }
+        update_account($id_account, $image, $fullname, $password, $email, $address, $phone, $role);
+        $thongbao = "Update thành công";
     }
 
     $list_account = loadall_account();
