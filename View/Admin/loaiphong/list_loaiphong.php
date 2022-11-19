@@ -31,10 +31,11 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Danh sách loại hàng</h4>
+                <h4 class="card-title">Danh sách loại phòng</h4>
                 <div class="table-responsive">
-                    <table class="table text-center table-bordered table1">
-                        <thead>
+                    <!-- <form action="index.php?url=listLoaiPhong" method="post"> -->
+                    <table class="table text-center table-bordered table1" >
+                        <thead >
                           <tr>
                               <th style="width: 9%;">#</th>
                               <th>Mã loại</th>
@@ -43,27 +44,49 @@
                               <th>Mô tả</th>
                               <th>Gía tiền</th>
                               <th>Số lượng</th>
-                              <th>Tên loại</th>
+                             
                               <th style="width: 22%;">Thao tác</th>
                           </tr>
                         </thead>
                         <tbody>
+                        
+                        
+                           <?php 
+                           foreach ($list_loaiphong as $value){
+                            extract($value);
+//                        $sualp = "index.php?url=sua-loai-phong&id=".$id_cate;
+//                        $xoalp = "index.php?url=xoa-loai-phong&id=".$id_cate;
+                        $hinh = "View/src/upload/" . $image;
+                        if (is_file($hinh)) {
+                            $image = "<img src='" . $hinh . "' height='80px'>";
+                        }
+                        else {
+                            $image = "không có hình ảnh ";
+                        } 
+                                            
+                        echo'
                         <tr>
                             <td><input class="form-check-input" type="checkbox" name="" id=""></td>
-                            <td>' . $danhmuc_id . '</td>
-                            <td>' . $danhmuc_name . '</td>
-                            <td>' . $danhmuc_id . '</td>
-                            <td>' . $danhmuc_name . '</td>
-                            <td>' . $danhmuc_id . '</td>
-                            <td>' . $danhmuc_name . '</td>
+                            <td>' . $id_cate . '</td>
+                            <td>' . $name . '</td>
+                            <td>' . $image . '</td>
+                            <td>' . $description . '</td>
+                            <td>' . $price . '</td>
+                            <td>' . $quantity . '</td>
                             <td class="btn1">
-                                <a href="index.php?url=sua-loai-phong"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
-                                <a href="' . $delete_dm . '" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
+                               
+                                <a href="index.php?url=sua-loai-phong&id='.$id_cate.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
+                                <a href="index.php?url=xoa-loai-phong&id='.$id_cate.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
                                     <input class="btn btn-danger btn2" type="button" value="Xóa"></a>
                             </td>
+                            
                         </tr>
+                        ';
+                    } 
+                        ?>
                         </tbody>
                     </table>
+<!-- </form>  -->
                 </div>
             </div>
         </div>
