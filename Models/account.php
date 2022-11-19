@@ -35,7 +35,10 @@ function loadone_account($id_account){
 }
 //cập nhật account
 function update_account($id_account,$image,$fullname,$password,$email,$address,$phone,$role){
+    if($image!="")
     $result = 'update `account` set image = "'.$image.'",fullname = "'.$fullname.'",password = "'.$password.'",email = "'.$email.'",address = "'.$address.'",tel = "'.$phone.'", `role` = "'.$role.'" where id_account = '.$id_account ;
+    else
+        $result = 'update `account` set fullname = "'.$fullname.'",password = "'.$password.'",email = "'.$email.'",address = "'.$address.'",tel = "'.$phone.'" where id_account = '.$id_account ;
     pdo_execute($result);
 }
 //xóa account

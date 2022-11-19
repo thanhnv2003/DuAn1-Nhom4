@@ -3,7 +3,7 @@ if(is_array($fixaccount)){
     extract($fixaccount);
 }
 
-$hinh_anh = "./View/src/uploand/".$image;
+$hinh_anh = "./View/src/upload/".$image;
 if(is_file($hinh_anh)){
     $image = "<img style='width: 200px;' src ='".$hinh_anh."'  alt = 'anh' class = 'form-control'> ";
 }else{
