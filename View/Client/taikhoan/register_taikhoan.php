@@ -25,23 +25,23 @@
                 <h2>Đăng kí thành viên</h2>
                 <div class="box-dk">
                     <p>Họ và Tên</p>
-                    <input type="text" placeholder="Họ và tên" name="fullname">
+                    <input type="text" placeholder="Họ và tên" name="fullname" required>
                 </div>
                 <div class="box-dk">
                     <p>Email</p>
-                    <input type="email" placeholder="abcxyz@gmail.com" name="email">
+                    <input type="email" placeholder="abcxyz@gmail.com" name="email" required>
                 </div>
                 <div class="box-dk">
                     <p>Số điện thoại</p>
-                    <input type="number" placeholder="0900000000" name="tel">
+                    <input type="number" placeholder="0900000000" name="tel" required>
                 </div>
                 <div class="box-dk">
                     <p>Mật khẩu</p>
-                    <input type="password" placeholder="**********" name="password"> <br>
+                    <input type="password" placeholder="**********" name="password" required> <br>
                 </div>
                 <div class="box-dk">
                     <p>Nhập lại mật khẩu</p>
-                    <input type="password" placeholder="**********" name="repassword"> <br>
+                    <input type="password" placeholder="**********" name="repassword" required> <br>
                 </div>
 <!--                <button type="submit"> Đăng kí</button>-->
                 <input type="submit" value="Đăng ký" name="dangky">

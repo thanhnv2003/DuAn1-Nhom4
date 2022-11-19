@@ -21,10 +21,10 @@
                         alt=""></a>
             </div>
             <h2>Quên mật khẩu</h2>
-            <form action="index.php?url=quen-mat-khau" method="post" class="frm-mk">
+            <form action="index.php?url=quen-mat-khau" method="post" class="frm-mk" >
                 <div class="box-mk">
                     <p>Email</p>
-                    <input type="email" placeholder="abcxyz@gmail.com" name="email">
+                    <input type="email" placeholder="abcxyz@gmail.com" name="email" required>
                 </div>
 <!--                <button type="submit">Kiểm tra tài khoản</button>-->
                 <input type="submit" value="Kiểm tra tài khoản" name="quenmatkhau">

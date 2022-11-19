@@ -28,27 +28,27 @@
                 <h2>Cập nhật tài khoản</h2>
                 <div class="box-dk">
                     <p>Họ và tên</p>
-                    <input type="text" value="<?php if (isset($account['fullname']) && ($account['fullname'])) echo $account['fullname']?>" name="fullname">
+                    <input type="text" value="<?php if (isset($account['fullname']) && ($account['fullname'])) echo $account['fullname']?>" name="fullname" required>
                 </div>
                 <div class="box-dk">
                     <p>Số điện thoại</p>
-                    <input type="tel" value="<?php if (isset($account['tel']) && ($account['tel'])) echo $account['tel']?>" name="tel">
+                    <input type="tel" value="<?php if (isset($account['tel']) && ($account['tel'])) echo $account['tel']?>" name="tel" required>
                 </div>
                 <div class="box-dk">
                     <p>Địa chỉ</p>
-                    <input type="text" value="<?php if (isset($account['address']) && ($account['address'])) echo $account['address']?>" name="address">
+                    <input type="text" value="<?php if (isset($account['address']) && ($account['address'])) echo $account['address']?>" name="address" required>
                 </div>
                 <div class="box-dk">
                     <p>Email</p>
-                    <input type="email" value="<?php if (isset($account['email']) && ($account['email'])) echo $account['email']?>" name="email">
+                    <input type="email" value="<?php if (isset($account['email']) && ($account['email'])) echo $account['email']?>" name="email" required>
                 </div>
                 <div class="box-dk">
                     <p>Mật khẩu</p>
-                    <input type="password" value="<?php if (isset($account['password']) && ($account['password'])) echo $account['password']?>" name="password"> <br>
+                    <input type="password" value="<?php if (isset($account['password']) && ($account['password'])) echo $account['password']?>" name="password" required> <br>
                 </div>
                 <div class="box-dk">
                     <p>Nhập lại mật khẩu</p>
-                    <input type="password" name="repassword"><br>
+                    <input type="password" name="repassword" required><br>
                 </div>
 <!--                <button type="submit">CẬP NHẬT</button>-->
                 <input type="hidden" value="<?php if (isset($account['id_account']) && ($account['id_account'])) echo $account['id_account']?>" name="id">

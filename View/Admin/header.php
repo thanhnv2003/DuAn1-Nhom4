@@ -41,11 +41,19 @@
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="nav-profile-img">
-                        <img src="<?php echo $_SESSION['account']['image'] == null ? 'View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png' : $_SESSION['account']['image'] ?>" alt="image">
+                        <img src="<?php if (isset($_SESSION['account'])){
+                            if ($_SESSION['account']['image'] == null){
+                                echo 'View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png';
+                            }else{
+                                echo $_SESSION['account']['image'];
+                            }
+                        }else{
+                            echo 'View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png';
+                        }?>" alt="image">
                         <span class="availability-status online"></span>
                     </div>
                     <div class="nav-profile-text">
-                        <p class="mb-1 text-black"><?php echo $_SESSION['account']['fullname'] ?></p>
+                        <p class="mb-1 text-black"><?php echo isset($_SESSION['account']) ? $_SESSION['account']['fullname'] : "Admin" ?></p>
                     </div>
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
