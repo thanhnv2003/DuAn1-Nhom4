@@ -19,15 +19,15 @@
                 <a href="index.php?url=trang-chu">  <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt="" ></a>
             </div>
             <!--form đăng nhập-->
-            <form action="">
+            <form action="index.php?url=dang-nhap" method="post">
                 <h2>Chào mừng đến với đăng nhập</h2>
                 <div class="box-dn">
                     <p>Email</p>
-                    <input type="email" placeholder="abcxyz@gmail.com">
+                    <input type="text" placeholder="abcxyz@gmail.com" name="email" required>
                 </div>
                 <div class="box-dn">
                     <p>Mật khẩu</p>
-                    <input type="password" placeholder="**********"> <br>
+                    <input type="password" placeholder="**********" name="password" required> <br>
                 </div>
                 <div class="box-dn1">
                     <div class="box-dn1-cb">
@@ -35,9 +35,12 @@
                     </div>
                     <a href="index.php?url=quen-mat-khau">Quên mật khẩu</a> <br>
                 </div>
-                <button type="submit"> Đăng nhập</button>
-                <button type=""><i class="fa-brands fa-google"></i> Đăng nhập bằng tài khoản google</button>
-
+<!--                <button type="submit"> Đăng nhập</button>-->
+                <input type="submit" value="Đăng nhập" name="dangnhap">
+                <button type="button"><i class="fa-brands fa-google"></i> Đăng nhập bằng tài khoản Google</button>
+                <?php if (isset($thongbao) && ($thongbao != '')){
+                    echo $thongbao;
+                } ?>
             </form>
             <p class="dki">Bạn chưa có tài khoản? <a href="index.php?url=dang-ky">Tạo tài khoản miễn phí</a></p>
         </div>

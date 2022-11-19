@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once './Controller/clientController.php';
 require_once './Controller/adminController.php';
 $url = isset($_GET['url']) ? $_GET['url'] : 'trang-chu';
@@ -13,7 +14,6 @@ switch($url){
         break;
     case 'loai-phong':
         echo loaiPhong();
-
         break;
     case 'dich-vu':
         echo dichVu();
@@ -33,13 +33,18 @@ switch($url){
     case 'quen-mat-khau':
         echo quenMatKhau();
         break;
-//    case 'sua-tai-khoan':
-//        echo quenMatKhau();
-//        break;
-
-
+    case 'sua-tai-khoan':
+        echo capNhatTaiKhoan();
+        break;
+    case 'dang-xuat':
+        session_unset();
+        header('location: index.php');
+        break;
+    case 'welcome':
+        echo welcome();
+        break;
     //Admin
-
+//    if (isset($_SESSION['account'])){
     case 'admin':
         echo indexAdmin();
         break;
@@ -75,6 +80,7 @@ switch($url){
     case 'them-moi-uu-dai':
         echo themUuDai();
         break;
+
 //
 //
 //
@@ -82,13 +88,16 @@ switch($url){
 //    case 'sua-giao-dien':
 //        echo
 //        break;
-    case 'cap-nhat-loai-phong':
-        echo capNhatLoaiPhong();
-        break;
     case 'sua-loai-phong':
         echo edit_LoaiPhong();
        break;
+    case 'cap-nhat-loai-phong':
+        echo capNhatLoaiPhong();
+        break;
     case 'sua-khach-hang':
+        echo listone_Account();
+        break;
+    case 'cap-nhat-khach-hang':
         echo capNhatKhachHang();
         break;
     case 'sua-don-hang':
@@ -107,9 +116,9 @@ switch($url){
      case 'xoa-loai-phong':
        echo deleteLoaiPhong();
        break;
-//    case 'xoa-khach-hang':
-//        echo
-//        break;
+    case 'xoa-khach-hang':
+        echo deleteKhachHang();
+        break;
 //    case 'xoa-binh-luan':
 //        echo
 //        break;
@@ -134,7 +143,7 @@ switch($url){
 //    case '':
 //        echo
 //        break;
-
+//}
 
 
 
@@ -146,5 +155,3 @@ switch($url){
         echo 'Đường dẫn không tồn tại';
         break;    
 }
-
-?>
