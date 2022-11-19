@@ -23,11 +23,11 @@
                 <h2>Chào mừng đến với đăng nhập</h2>
                 <div class="box-dn">
                     <p>Email</p>
-                    <input type="text" placeholder="abcxyz@gmail.com" name="email">
+                    <input type="text" placeholder="abcxyz@gmail.com" name="email" required>
                 </div>
                 <div class="box-dn">
                     <p>Mật khẩu</p>
-                    <input type="password" placeholder="**********" name="password"> <br>
+                    <input type="password" placeholder="**********" name="password" required> <br>
                 </div>
                 <div class="box-dn1">
                     <div class="box-dn1-cb">

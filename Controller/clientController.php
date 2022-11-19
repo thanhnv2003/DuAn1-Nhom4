@@ -3,6 +3,9 @@ require_once './Models/pdo.php';
 require_once './Models/room.php';
 require_once './Models/account.php';
 
+function welcome(){
+    include_once './View/Client/taikhoan/welcome.php';
+}
 function indexRoom(){
     include_once './View/Client/indexView.php';
 }
@@ -38,8 +41,9 @@ function dangKy(){
             $email = $_POST['email'];
             $tel = $_POST['tel'];
             $password = $_POST['password'];
-            if ($_POST['password'] == $_POST['repassword']){
+            if ($_POST['password'] != '' && $_POST['repassword'] != '' && $_POST['password'] == $_POST['repassword']){
                 insert_taiKhoan($fullname,$email,$tel,$password);
+                $thongbao = 'Đăng ký thành công';
             }else{
                 $thongbao = 'Hai mật khẩu bạn nhập không giống nhau';
             }
@@ -60,6 +64,23 @@ function quenMatKhau(){
     include_once './View/Client/taikhoan/forgot_taikhoan.php';
 }
 function capNhatTaiKhoan(){
+    if (isset($_POST['capnhat']) && ($_POST['capnhat'])){
+        $id = $_POST['id'];
+        $fullname = $_POST['fullname'];
+        $tel = $_POST['tel'];
+        $address = $_POST['address'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        if ($_POST['password'] != '' && $_POST['repassword'] != '' && $_POST['password'] == $_POST['repassword']){
+            update_account($id, $fullname, $tel, $address, $email, $password);
+            $_SESSION['account'] = check_user($email, $password);
+            $thongbao = 'Cập nhật thành công';
+        }else{
+            $thongbao = 'Hai mật khẩu bạn nhập không giống nhau';
+        }
+    }
+
+
     include_once './View/Client/taikhoan/update_taikhoan.php';
 }
 function datPhong(){

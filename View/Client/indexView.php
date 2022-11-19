@@ -36,8 +36,10 @@
             <a href="index.php?url=book-phong"><input type="button" value="ĐẶT PHÒNG"></a>
             <?php if (isset($_SESSION['account']) && ($_SESSION['account']['role'] > 0)){ ?>
                 <a href="index.php?url=admin"> <input type="button" value="Admin"></a>
+                <a href="index.php?url=dang-xuat"> <input type="button" value="Đăng xuất"></a>
             <?php }elseif (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 0)){ ?>
-                <a href="index.php?url=sua-tai-khoan"> <input type="button" value="Xin chào <?php echo $_SESSION['account']['fullname']?>"></a>
+                <a href="index.php?url=sua-tai-khoan"> <input type="button" value="Account"></a>
+                <a href="index.php?url=dang-xuat"> <input type="button" value="Đăng xuất"></a>
            <?php }else{ ?>
                 <a href="index.php?url=dang-nhap"> <input type="button" value="Đăng nhập"></a>
             <?php } ?>

@@ -28,6 +28,7 @@
     }
 </style>
 <div class="row">
+<!--    --><?php //var_dump($_SESSION['account']); ?>
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
