@@ -45,7 +45,7 @@
                             if ($_SESSION['account']['image'] == null){
                                 echo 'View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png';
                             }else{
-                                echo $_SESSION['account']['image'];
+                                echo 'View/src/upload/'.$_SESSION['account']['image'];
                             }
                         }else{
                             echo 'View/src/image/Chân%20mây%20có%20sen%20nền%20trắng.png';
