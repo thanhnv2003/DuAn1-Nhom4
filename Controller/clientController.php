@@ -14,6 +14,7 @@ function gioiThieu(){
 }
 function loaiPhong(){
     include_once './View/Client/loaiPhong.php';
+    
 }
 function dichVu(){
     include_once './View/Client/dichVu.php';
