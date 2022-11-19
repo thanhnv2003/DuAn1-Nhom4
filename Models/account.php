@@ -21,5 +21,26 @@ function update_account($id, $fulname, $tel, $address, $email, $password){
     $sql = "UPDATE `account` SET `fullname` = '$fulname', `password` = '$password', `email` = '$email', `address` = '$address', `tel` = '$tel' WHERE `account`.`id_account` = '$id'";
     pdo_execute($sql);
 }
-
+//list tất cả account
+function loadall_account(){
+    $result = "Select * from account order by id_account";
+    $account = pdo_query($result);
+    return $account;
+}
+//load ra 1 account
+function loadone_account($id_account){
+    $result = "select * from account where id_account = ".$id_account;
+    $fix = pdo_query_one($result);
+    return $fix;
+}
+//cập nhật account
+function update_account($id_account,$image,$fullname,$password,$email,$address,$phone,$role){
+    $result = 'update account set image = "'.$image.'",fullname = "'.$fullname.'",password = "'.$password.'",email = "'.$email.'",address = "'.$address.'",tel = "'.$phone.'", role = "'.$role.'" where id_account = '.$id_account ;
+    pdo_execute($result);
+}
+//xóa account
+function delete_account($id_account){
+    $result = "delete from account where id_account = ".$id_account;
+    pdo_execute($result);
+}
 ?>
