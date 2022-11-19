@@ -21,7 +21,10 @@ function loaiphong_delete($id_cate){
     pdo_execute($sql);
  }
  function loaiphong_update($id_cate,$nameroom,$hinh,$description,$price,$quantity){
+    if ($hinh!= "")
     $sql ="UPDATE `categories_room` SET `name`='$nameroom',`image`='$hinh',`description`='$description',`price`='$price',`quantity`='$quantity' WHERE id_cate=".$id_cate;
-    pdo_execute($sql);
+    else
+        $sql ="UPDATE `categories_room` SET `name`='$nameroom',`description`='$description',`price`='$price',`quantity`='$quantity' WHERE id_cate=".$id_cate;
+     pdo_execute($sql);
  }
 ?>
