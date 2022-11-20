@@ -74,7 +74,7 @@
                             <td>' . $price . '</td>
                             <td>' . $quantity . '</td>
                             <td class="btn1">
-                               
+                                <a href="index.php?url=chi-tiet-anh-phong&id='.$id_cate.'"><input class="btn btn-primary btn2" type="button" value="Ảnh phòng"></a>
                                 <a href="index.php?url=sua-loai-phong&id='.$id_cate.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
                                 <a href="index.php?url=xoa-loai-phong&id='.$id_cate.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
                                     <input class="btn btn-danger btn2" type="button" value="Xóa"></a>
