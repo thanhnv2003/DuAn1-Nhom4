@@ -69,6 +69,9 @@ switch($url){
     case 'quan-ly-lien-he':
         echo listLienHe();
         break;
+    case 'quan-ly-dich-vu':
+        echo listDichVu();
+         break;    
 
 //        them-moi
     case 'them-moi-loai-phong':
@@ -80,7 +83,9 @@ switch($url){
     case 'them-moi-uu-dai':
         echo themUuDai();
         break;
-
+    case 'them-moi-dich-vu':
+         echo themDichVu();
+         break;
 //
 //
 //
@@ -109,6 +114,12 @@ switch($url){
     case 'sua-uu-dai':
         echo capNhatUuDai();
         break;
+    case 'sua-dich-vu':
+        echo edit_DichVu();
+           break;
+    case 'cap-nhat-dich-vu':
+        echo capNhatDichVu();
+        break;    
 //
 //
 //
@@ -134,9 +145,9 @@ switch($url){
 //    case 'xoa-lien-he':
 //        echo
 //        break;
-//    case '':
-//        echo
-//        break;
+   case 'xoa-dich-vu':
+       echo deleteDichVu();
+       break;
 //    case '':
 //        echo
 //        break;
