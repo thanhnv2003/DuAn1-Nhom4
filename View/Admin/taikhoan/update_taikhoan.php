@@ -1,4 +1,5 @@
 <?php
+//var_dump($list_role);
 if(is_array($fixaccount)){
     extract($fixaccount);
 }
@@ -57,11 +58,14 @@ if(is_file($hinh_anh)){
                     </div>
                     <div class="form-group">
                         <label for="">Vai trò</label> <br>
-<!--                        <input type="radio" class="form-check-input" name="role" value="--><?php //echo $role;?><!--"> Khách hàng-->
-<!--                        <input type="radio" class="form-check-input role" name="role" value=""> Admin-->
                         <select name="role">
-                            <option value="0">Khách hàng </option>
-                            <option value="1">Admin</option>
+                           <?php
+                               foreach ($list_role as $key => $value){
+                           ?>
+                                   <option value="<?php echo $value['id_vaitro'] ?>" <?php echo $role == $value['id_vaitro'] ? 'selected' : ''?>> <?php echo $value['name']; ?></option>
+                            <?php
+                               }
+                           ?>
                         </select>
                     </div>
                     <input type="hidden" name="account_id" value=" $user_id ">
