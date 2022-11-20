@@ -3,7 +3,7 @@ require_once "./Models/account.php";
 //List
 require_once './Models/pdo.php';
 require_once './Models/room.php';
-
+require_once './Models/uudai.php';
 function indexAdmin(){
     include_once './View/Admin/header.php';
     include_once './View/Admin/home.php';
@@ -46,6 +46,7 @@ function listThongKe(){
 }
 function listUuDai(){
     include_once './View/Admin/header.php';
+    $list_uudai = uudai_loadall() ;
     include_once './View/Admin/uudai/list_uudai.php';
     include_once './View/Admin/footer.php';
 }
@@ -89,6 +90,13 @@ function themLoaiPhong(){
 }
 function themUuDai(){
     include_once './View/Admin/header.php';
+    if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+        $usename = $_POST["usename"];
+        $giftcode = $_POST["giftcode"];
+        $price = $_POST["price"];
+        uudai_inset($usename,$giftcode,$price);
+        $thongbao = "Bạn đã thêm ưu đãi thành công";
+    }
     include_once './View/Admin/uudai/add_uudai.php';
     include_once './View/Admin/footer.php';
 }
@@ -187,6 +195,23 @@ function capNhatKhachHang(){
 
 function capNhatUuDai(){
     include_once './View/Admin/header.php';
+    if(isset($_POST['capnhat']) && $_POST['capnhat']){
+        $id_voucher = $_POST['id'];
+        $tenuudai = $_POST['tenuudai'];
+        $giftcode = $_POST['giftcode'];
+        $price = $_POST['price'];
+        uudai_update($id_voucher,$tenuudai,$giftcode,$price);
+        $thongbao = "Update thành công";
+    }
+    $list_uudai = uudai_loadall() ;
+    include_once './View/Admin/uudai/list_uudai.php';
+    include_once './View/Admin/footer.php';
+}
+function edit_uudai(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id'])&& ($_GET['id']>0)){
+        $uudai = uudai_loadone($_GET['id']);
+    }
     include_once './View/Admin/uudai/update_uudai.php';
     include_once './View/Admin/footer.php';
 }
@@ -211,5 +236,13 @@ function deleteLoaiPhong(){
     include_once './View/Admin/loaiphong/list_loaiphong.php';
     include_once './View/Admin/footer.php';
 }
-
+function deleteUuDai(){
+    include_once './View/Admin/header.php'; 
+    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+        uudai_delete($_GET['id']);
+     } 
+     $list_uudai = uudai_loadall() ;
+     include_once './View/Admin/uudai/list_uudai.php';
+    include_once './View/Admin/footer.php';
+}
 ?>
