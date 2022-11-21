@@ -31,19 +31,19 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Danh sách loại phòng</h4>
+                <h4 class="card-title">Danh sách dịch vụ</h4>
                 <div class="table-responsive">
-                    <!-- <form action="index.php?url=listLoaiPhong" method="post"> -->
+                    
                     <table class="table text-center table-bordered table1" >
                         <thead >
                           <tr>
                               <th style="width: 9%;">#</th>
-                              <th>Mã loại</th>
-                              <th>Tên loại</th>
+                              <th>Mã dịch vụ</th>
+                              <th>Tên dịch vụ</th>
+                              <th>Giá dịch vụ</th>
                               <th>Ảnh</th>
                               <th>Mô tả</th>
-                              <th>Gía tiền</th>
-                              <th>Số lượng</th>
+                              
                              
                               <th style="width: 22%;">Thao tác</th>
                           </tr>
@@ -52,7 +52,7 @@
                         
                         
                            <?php 
-                           foreach ($list_loaiphong as $value){
+                           foreach ($list_dichvu as $value){
                             extract($value);
                         $hinh = "View/src/upload/" . $image;
                         if (is_file($hinh)) {
@@ -65,16 +65,16 @@
                         echo'
                         <tr>
                             <td><input class="form-check-input" type="checkbox" name="" id=""></td>
-                            <td>' . $id_cate . '</td>
+                            <td>' . $id_sv . '</td>
                             <td>' . $name . '</td>
-                            <td>' . $image . '</td>
-                            <td>' . $description . '</td>
                             <td>' . $price . '</td>
-                            <td>' . $quantity . '</td>
+                            <td>' . $image . '</td>
+                            <td>' . $description  . '</td>
+                            
                             <td class="btn1">
-                                <a href="index.php?url=chi-tiet-anh-phong&id='.$id_cate.'"><input class="btn btn-primary btn2" type="button" value="Ảnh phòng"></a>
-                                <a href="index.php?url=sua-loai-phong&id='.$id_cate.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
-                                <a href="index.php?url=xoa-loai-phong&id='.$id_cate.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
+                               
+                                <a href="index.php?url=sua-dich-vu&id='.$id_sv.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
+                                <a href="index.php?url=xoa-dich-vu&id='.$id_sv.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
                                     <input class="btn btn-danger btn2" type="button" value="Xóa"></a>
                             </td>
                             
@@ -84,7 +84,7 @@
                         ?>
                         </tbody>
                     </table>
-<!-- </form>  -->
+
                 </div>
             </div>
         </div>
@@ -92,6 +92,6 @@
 </div>
 <div class="thaotac">
     <div class="">
-        <a href="index.php?url=them-moi-loai-phong"><input class="btn btn-primary" type="button" value="Thêm loại phòng"></a>
+        <a href="index.php?url=them-moi-dich-vu"><input class="btn btn-primary" type="button" value="Thêm dịch vu"></a>
     </div>
 </div>

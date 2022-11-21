@@ -12,43 +12,43 @@
 </head>
 
 <body>
-<div class="container">
-    <div class="dn-box">
-        <div class="info-dn">
-            <div class="logo-dn">
-                <a href="index.php?url=trang-chu">  <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt="" ></a>
-            </div>
-            <!--form đăng nhập-->
-            <form action="index.php?url=dang-nhap" method="post">
-                <h2>Chào mừng đến với đăng nhập</h2>
-                <div class="box-dn">
-                    <p>Email</p>
-                    <input type="text" placeholder="abcxyz@gmail.com" name="email" required>
+    <div class="container">
+        <div class="dn-box">
+            <div class="info-dn">
+                <div class="logo-dn">
+                    <a href="index.php?url=trang-chu"> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
                 </div>
-                <div class="box-dn">
-                    <p>Mật khẩu</p>
-                    <input type="password" placeholder="**********" name="password" required> <br>
-                </div>
-                <div class="box-dn1">
-                    <div class="box-dn1-cb">
-                        <input type="checkbox"><label>Ghi nhớ tài khoản</label>
+                <!--form đăng nhập-->
+                <form action="index.php?url=dang-nhap" method="post">
+                    <h2>Chào mừng đến với đăng nhập</h2>
+                    <div class="box-dn">
+                        <p>Email</p>
+                        <input type="text" placeholder="abcxyz@gmail.com" name="email" required>
                     </div>
-                    <a href="index.php?url=quen-mat-khau">Quên mật khẩu</a> <br>
-                </div>
-<!--                <button type="submit"> Đăng nhập</button>-->
-                <input type="submit" value="Đăng nhập" name="dangnhap">
-                <button type="button"><i class="fa-brands fa-google"></i> Đăng nhập bằng tài khoản Google</button>
-                <?php if (isset($thongbao) && ($thongbao != '')){
-                    echo $thongbao;
-                } ?>
-            </form>
-            <p class="dki">Bạn chưa có tài khoản? <a href="index.php?url=dang-ky">Tạo tài khoản miễn phí</a></p>
-        </div>
-        <div class="info-dn-img">
-            <img src="View/src/image/image 1.png" alt="">
+                    <div class="box-dn">
+                        <p>Mật khẩu</p>
+                        <input type="password" placeholder="**********" name="password" required> <br>
+                    </div>
+                    <div class="box-dn1">
+                        <div class="box-dn1-cb">
+                            <input type="checkbox"><label>Ghi nhớ tài khoản</label>
+                        </div>
+                        <a href="index.php?url=quen-mat-khau">Quên mật khẩu</a> <br>
+                    </div>
+                    <!--                <button type="submit"> Đăng nhập</button>-->
+                    <input type="submit" value="Đăng nhập" name="dangnhap" class="info-dn-ip">
+                    <button type="button"><i class="fa-brands fa-google"></i> Đăng nhập bằng tài khoản Google</button>
+                    <?php if (isset($thongbao) && ($thongbao != '')) { ?>
+                        <h1 style="color: red;"><?php echo $thongbao ?></h1>
+                    <?php   } ?>
+                </form>
+                <p class="dki">Bạn chưa có tài khoản? <a href="index.php?url=dang-ky">Tạo tài khoản miễn phí</a></p>
+            </div>
+            <div class="info-dn-img">
+                <img src="View/src/image/image 1.png" alt="">
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>
