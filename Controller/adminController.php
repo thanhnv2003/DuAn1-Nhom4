@@ -501,6 +501,7 @@ function deleteUuDai(){
      } 
      $list_uudai = uudai_loadall() ;
      include_once './View/Admin/uudai/list_uudai.php';
+    }
 function deleBinhluan(){
     include_once './View/Admin/header.php';
     if(isset($_GET['id']) && $_GET['id']>0){
