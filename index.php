@@ -15,6 +15,9 @@ switch($url){
     case 'loai-phong':
         echo loaiPhong();
         break;
+    case 'chi-tiet-phong':
+        echo chitietphong();
+        break;
     case 'dich-vu':
         echo dichVu();
         break;
@@ -126,7 +129,7 @@ switch($url){
 //        echo
 //        break;
     case 'sua-uu-dai':
-        echo capNhatUuDai();
+        echo edit_uudai();
         break;
     case 'sua-dich-vu':
         echo edit_DichVu();
@@ -141,6 +144,9 @@ switch($url){
         echo capNhatAnhSlider();
         break;
 //
+case 'cap-nhat-uu-dai':
+    echo capNhatUuDai();
+    break;
 //
 //
 //        //delete
@@ -156,15 +162,18 @@ switch($url){
 //    case 'xoa-binh-luan':
 //        echo
 //        break;
+    case 'xoa-binh-luan':
+        echo deleBinhluan();
+        break;
 //    case 'xoa-don-hang':
 //        echo
 //        break;
 //    case 'xoa-thong-ke':
 //        echo
 //        break;
-//    case 'xoa-uu-dai':
-//        echo
-//        break;
+   case 'xoa-uu-dai':
+       echo  deleteUuDai();
+       break;
 //    case 'xoa-lien-he':
 //        echo
 //        break;

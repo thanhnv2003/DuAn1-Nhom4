@@ -5,6 +5,8 @@ require_once "./Models/home.php";
 require_once './Models/pdo.php';
 require_once './Models/room.php';
 require_once './Models/dichvu.php';
+require_once "./Models/comment.php";
+require_once './Models/uudai.php';
 function indexAdmin(){
     include_once './View/Admin/header.php';
     $giaoDienTrangChu = giaoDienTrangChu();
@@ -30,12 +32,15 @@ function listone_Account(){
     include_once './View/Admin/header.php';
     if(isset($_GET['id'])&& ($_GET['id']>0)){
         $fixaccount = loadone_account($_GET['id']);
+        $list_role =  role();
     }
     include_once './View/Admin/taikhoan/update_taikhoan.php';
+
     include_once './View/Admin/footer.php';
 }
 function listBinhluan(){
     include_once './View/Admin/header.php';
+    $load_commnet =  list_comment();
     include_once './View/Admin/binhluan/list_binhluan.php'; 
     include_once './View/Admin/footer.php';
 }
@@ -51,6 +56,7 @@ function listThongKe(){
 }
 function listUuDai(){
     include_once './View/Admin/header.php';
+    $list_uudai = uudai_loadall() ;
     include_once './View/Admin/uudai/list_uudai.php';
     include_once './View/Admin/footer.php';
 }
@@ -147,6 +153,13 @@ function themLoaiPhong(){
 }
 function themUuDai(){
     include_once './View/Admin/header.php';
+    if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+        $usename = $_POST["usename"];
+        $giftcode = $_POST["giftcode"];
+        $price = $_POST["price"];
+        uudai_inset($usename,$giftcode,$price);
+        $thongbao = "Bạn đã thêm ưu đãi thành công";
+    }
     include_once './View/Admin/uudai/add_uudai.php';
     include_once './View/Admin/footer.php';
 }
@@ -307,7 +320,7 @@ function capNhatKhachHang(){
             move_uploaded_file($_FILES['anh']['tmp_name'], $target_file);
         }
         update_account($id_account, $image, $fullname, $password, $email, $address, $phone, $role);
-        $thongbao = "Update thành công";
+//        $thongbao = "Update thành công";
     }
 
     $list_account = loadall_account();
@@ -351,6 +364,23 @@ function capNhatTrangChu(){
 }
 function capNhatUuDai(){
     include_once './View/Admin/header.php';
+    if(isset($_POST['capnhat']) && $_POST['capnhat']){
+        $id_voucher = $_POST['id'];
+        $tenuudai = $_POST['tenuudai'];
+        $giftcode = $_POST['giftcode'];
+        $price = $_POST['price'];
+        uudai_update($id_voucher,$tenuudai,$giftcode,$price);
+        $thongbao = "Update thành công";
+    }
+    $list_uudai = uudai_loadall() ;
+    include_once './View/Admin/uudai/list_uudai.php';
+    include_once './View/Admin/footer.php';
+}
+function edit_uudai(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id'])&& ($_GET['id']>0)){
+        $uudai = uudai_loadone($_GET['id']);
+    }
     include_once './View/Admin/uudai/update_uudai.php';
     include_once './View/Admin/footer.php';
 }
@@ -434,7 +464,6 @@ function deleteKhachHang(){
     include_once './View/Admin/taikhoan/list_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
-
 // delete
 function deleteLoaiPhong(){
     include_once './View/Admin/header.php'; 
@@ -465,5 +494,20 @@ function deleteSlider(){
     include_once './View/Admin/home.php';
     include_once './View/Admin/footer.php';
 }
-
+function deleteUuDai(){
+    include_once './View/Admin/header.php'; 
+    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+        uudai_delete($_GET['id']);
+     } 
+     $list_uudai = uudai_loadall() ;
+     include_once './View/Admin/uudai/list_uudai.php';
+function deleBinhluan(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id']) && $_GET['id']>0){
+        delete_commet($_GET['id']);
+    }
+    $load_commnet =  list_comment();
+    include_once './View/Admin/binhluan/list_binhluan.php';
+    include_once './View/Admin/footer.php';
+}
 ?>

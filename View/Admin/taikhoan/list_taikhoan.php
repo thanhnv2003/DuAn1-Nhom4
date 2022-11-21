@@ -52,7 +52,7 @@
                         <?php
                         foreach ($list_account as $value){
                             extract($value);
-                            $hinh_anh = "./View/src/uploand/".$image;
+                            $hinh_anh = "./View/src/upload/".$image;
                             if(is_file($hinh_anh)){
                                 $image = "<img src ='".$hinh_anh."' height='80'> ";
                             }else{
