@@ -1,11 +1,16 @@
 <?php
 require_once "./Models/account.php";
+require_once "./Models/home.php";
 //List
 require_once './Models/pdo.php';
 require_once './Models/room.php';
 require_once './Models/dichvu.php';
 function indexAdmin(){
     include_once './View/Admin/header.php';
+    $giaoDienTrangChu = giaoDienTrangChu();
+    $anhSlider = listAnhSlider();
+//    var_dump($giaoDienTrangChu);
+
     include_once './View/Admin/home.php';
     include_once './View/Admin/footer.php';
 }
@@ -58,9 +63,56 @@ function listDichVu(){
     include_once './View/Admin/header.php';
     $list_dichvu=dichvu_loadall();
     include_once './View/Admin/dichvu/list_dichvu.php';
+}
+function listOneSlider(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id'])&& ($_GET['id']>0)){
+        $id = $_GET['id'];
+        $oneSlider = listOneAnhSlider($id);
+//        var_dump($oneSlider);
+    }
+    include_once './View/Admin/giaodien/edit_slider.php';
+    include_once './View/Admin/footer.php';
+}
+function listImageRoom(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id'])&& ($_GET['id']>0)){
+        $id = $_GET['id'];
+        $_SESSION['id_room'] = $id;
+        $listImage = list_image_room($id);
+//        var_dump($listImage);
+    }
+    include_once './View/Admin/loaiphong/detail_loaiphong.php';
     include_once './View/Admin/footer.php';
 }
 //Add
+function themMoiAnhPhong(){
+    include_once './View/Admin/header.php';
+    if (isset($_POST['themmoi']) && $_POST['themmoi']){
+        $hinh=$_FILES['imageRoom']['name'];
+        $maxsize = 2000000;
+        $allowUpload = true;
+        $allowType = ['jpg','png','jpeg','gif'];
+        $target_dir ='View/src/upload/' ;
+        $target_file = $target_dir.basename($_FILES["imageRoom"]["name"]);
+        if($_FILES['imageRoom']['size']> $maxsize){
+//            $thongbao= " Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $allowUpload = false;
+        }
+        if(!in_array($target_file, $allowType)){
+//            $thongbao ='Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
+            $allowupload = false;
+        }if($allowUpload==true){
+            move_uploaded_file($_FILES['imageRoom']['tmp_name'], $target_file);
+            $thongbao = "Ảnh của bạn đã được thêm thành công ";
+            them_moi_anh_phong($hinh, $_SESSION['id_room']);
+//            $thongbao = "Thêm thành công";
+        }
+    }
+    $list_loaiphong=loaiphong_loadall();
+    include_once './View/Admin/loaiphong/list_loaiphong.php';
+    include_once './View/Admin/footer.php';
+}
 function themLoaiPhong(){
     include_once './View/Admin/header.php';
     if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
@@ -110,6 +162,13 @@ function themDichVu(){
         $price = $_POST["price"];
         $description = $_POST["description"];       
         $hinh=$_FILES['hinh']['name'];
+function themMoiAnhSlider(){
+    include_once './View/Admin/header.php';
+    if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+        $url = $_POST['url'];
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $hinh = $_FILES['image']['name'];
         $maxsize = 2000000;
         $allowUpload = true;
         $allowType = ['jpg','png','jpeg','gif'];
@@ -134,6 +193,33 @@ function themDichVu(){
     include_once './View/Admin/dichvu/add_dichvu.php';
     include_once './View/Admin/footer.php';
 }
+        $target_file = $target_dir.basename($_FILES["image"]["name"]);
+        if($_FILES['image']['size']> $maxsize){
+//            $thongbao= " Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $allowUpload = false;
+        }
+        if(!in_array($target_file, $allowType)){
+//            $thongbao ='Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
+            $allowupload = false;
+        }if($allowUpload==true){
+            move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+            themMoiSlider($hinh,$url,$title,$description);
+            $thongbao = "Thêm thành công";
+        }else{
+            $thongbao= "Bạn không thể thêm loại phòng";
+        }
+    }
+    include_once './View/Admin/giaodien/add_slider.php';
+    include_once './View/Admin/footer.php';
+}
+//Edit
+function suaTrangChu(){
+    include_once './View/Admin/header.php';
+    $giaoDienTrangChu = giaoDienTrangChu();
+    include_once './View/Admin/giaodien/trangchu.php';
+    include_once './View/Admin/footer.php';
+}
+
 //Update
 function capNhatDonHang(){
     include_once './View/Admin/header.php';
@@ -228,7 +314,41 @@ function capNhatKhachHang(){
     include_once './View/Admin/taikhoan/list_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
+function capNhatTrangChu(){
+    include_once './View/Admin/header.php';
+    if (isset($_POST['capnhat']) && ($_POST['capnhat'])){
+        $address = $_POST['address'];
+        $tel = $_POST['tel'];
+        $email = $_POST['email'];
+        $copyright = $_POST['copyright'];
 
+        //ảnh
+        $target = './View/src/upload/';
+        $image=$_FILES['logo']['name'];
+        $maxsize = 2000000;
+        $tagettype = ['jpg','png','jpeg','gif'];
+        $target_file = $target.$image;
+        $tatfiletype = pathinfo($target_file,PATHINFO_EXTENSION);
+        $upload = true;
+        if($_FILES['logo']['size']> $maxsize){
+//           $error['anh_size'] =" Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $upload = false;
+        }
+        if(!in_array($tatfiletype,$tagettype)){
+//            $error['duoi']='duoi file khong dung dinh dang ';
+            $upload = false;
+        }
+        if($upload ==true) {
+            move_uploaded_file($_FILES['logo']['tmp_name'], $target_file);
+        }
+        suaGiaoDien($image,$address,$tel,$email, $copyright);
+        $thongbao = "Update thành công";
+    }
+    $anhSlider = listAnhSlider();
+    $giaoDienTrangChu = giaoDienTrangChu();
+    include_once './View/Admin/home.php';
+    include_once './View/Admin/footer.php';
+}
 function capNhatUuDai(){
     include_once './View/Admin/header.php';
     include_once './View/Admin/uudai/update_uudai.php';
@@ -268,6 +388,42 @@ function capNhatDichVu(){
     include_once './View/Admin/dichvu/list_dichvu.php';
     include_once './View/Admin/footer.php';
 }
+function capNhatAnhSlider(){
+    include_once './View/Admin/header.php';
+    if (isset($_POST['capnhat']) && ($_POST['capnhat'])){
+        $id = $_POST['id'];
+        $url = $_POST['url'];
+        $title = $_POST['title'];
+        $desc = $_POST['desc'];
+
+        //ảnh
+        $target = './View/src/upload/';
+        $image=$_FILES['image']['name'];
+        $maxsize = 2000000;
+        $tagettype = ['jpg','png','jpeg','gif'];
+        $target_file = $target.$image;
+        $tatfiletype = pathinfo($target_file,PATHINFO_EXTENSION);
+        $upload = true;
+        if($_FILES['image']['size']> $maxsize){
+//           $error['anh_size'] =" Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $upload = false;
+        }
+        if(!in_array($tatfiletype,$tagettype)){
+//            $error['duoi']='duoi file khong dung dinh dang ';
+            $upload = false;
+        }
+        if($upload ==true) {
+            move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+        }
+        suaSlider($id, $image, $url, $title, $desc);
+        $thongbao = "Update thành công";
+    }
+    $anhSlider = listAnhSlider();
+    $giaoDienTrangChu = giaoDienTrangChu();
+    include_once './View/Admin/home.php';
+    include_once './View/Admin/footer.php';
+}
+
 //delete
 function deleteKhachHang(){
     include_once './View/Admin/header.php';
@@ -298,4 +454,16 @@ function deleteDichVu(){
     include_once './View/Admin/dichvu/list_dichvu.php';
     include_once './View/Admin/footer.php';
 }
+function deleteSlider(){
+    include_once './View/Admin/header.php';
+    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+        $id = $_GET['id'];
+        deleteAnhSlider($id);
+    }
+    $anhSlider = listAnhSlider();
+    $giaoDienTrangChu = giaoDienTrangChu();
+    include_once './View/Admin/home.php';
+    include_once './View/Admin/footer.php';
+}
+
 ?>
