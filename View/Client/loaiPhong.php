@@ -49,96 +49,106 @@
                 </select>
             </div>
             <div class="lp-product">
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="chitiet.html">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ /ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
+              <?php
+               foreach ($list_roomss as $value) {
+                extract($value);
+                   echo '
+                   <div class="lp-product1" >
+                   <div class="lp-product-img" >
+                       <a href = "index.php?url=chi-tiet-phong&id='.$id_cate .'" ><img src = "./View/src/upload/'.$image.'" alt = "" ></a >
+                   </div >
+                   <div class="lp-product-info" >
+                       <a href = "index.php?url=chi-tiet-phong&id='.$id_cate .'" >
+                           <h4>'.$name.'</h4 >
+                       </a >
+                       <span > Price :'.$price.'/ ngày </span >
+                   </div >
+               </div >
+         
 
-            </div>
+           ';
+           }
+             ?>
+                <!-- <div class="lp-product1">
+                    <div class="lp-product-img">
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
+                    </div>
+                    <div class="lp-product-info">
+                        <a href="index.php?url=chi-tiet">
+                            <h4>DELUXE</h4>
+                        </a>
+                        <span>Price : 900.000đ/ngày</span>
+                    </div>
+                </div>
+                <div class="lp-product1">
+                    <div class="lp-product-img">
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
+                    </div>
+                    <div class="lp-product-info">
+                        <a href="index.php?url=chi-tiet">
+                            <h4>DELUXE</h4>
+                        </a>
+                        <span>Price : 900.000đ/ngày</span>
+                    </div>
+                </div>
+                <div class="lp-product1">
+                    <div class="lp-product-img">
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
+                    </div>
+                    <div class="lp-product-info">
+                        <a href="index.php?url=chi-tiet">
+                            <h4>DELUXE</h4>
+                        </a>
+                        <span>Price : 900.000đ/ngày</span>
+                    </div>
+                </div>
+                <div class="lp-product1">
+                    <div class="lp-product-img">
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
+                    </div>
+                    <div class="lp-product-info">
+                        <a href="index.php?url=chi-tiet">
+                            <h4>DELUXE</h4>
+                        </a>
+                        <span>Price : 900.000đ/ngày</span>
+                    </div>
+                </div>
+                <div class="lp-product1">
+                    <div class="lp-product-img">
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
+                    </div>
+                    <div class="lp-product-info">
+                        <a href="index.php?url=chi-tiet">
+                            <h4>DELUXE</h4>
+                        </a>
+                        <span>Price : 900.000đ/ngày</span>
+                    </div>
+                </div>
+                <div class="lp-product1">
+                    <div class="lp-product-img">
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
+                    </div>
+                    <div class="lp-product-info">
+                        <a href="index.php?url=chi-tiet">
+                            <h4>DELUXE</h4>
+                        </a>
+                        <span>Price : 900.000đ/ngày</span>
+                    </div>
+                </div>
+                <div class="lp-product1">
+                    <div class="lp-product-img">
+                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
+                    </div>
+                    <div class="lp-product-info">
+                        <a href="index.php?url=chi-tiet">
+                            <h4>DELUXE</h4>
+                        </a>
+                        <span>Price : 900.000đ/ngày</span>
+                    </div>
+                </div> -->
+
+         
+          </div>
         </div>
     </main>
     <footer>
