@@ -6,7 +6,7 @@
 
 .container {
     padding: 10px;
-    margin:  auto;
+    margin: auto;
     width: 1440px;
     background-color: #F6F3E9;
     font-family: 'Roboto', sans-serif;
@@ -64,11 +64,8 @@ nav ul li a:hover,
 }
 
 /*banner*/
-.banner {
+.banner img{
     margin: 10px 0;
-}
-
-.banner img {
     width: 100%;
 }
 
@@ -127,6 +124,17 @@ nav ul li a:hover,
 
 .dv-product-info h2:hover {
     color: #8E1E20;
+}
+
+.icon-dv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    margin-left: 70px;
+}
+
+.icon-dv img {
+    width: 150px;
 }
 
 /* main loai phòng*/
@@ -244,9 +252,9 @@ nav ul li a:hover,
 .box-dn input,
 .info-dk input,
 .info-mk input,
-.frm-gt input ,
+.frm-gt input,
 .boxphong-item input,
-.boxphong-item select{
+.boxphong-item select {
     height: 70px;
     width: 500px;
     font-size: 20px;
@@ -256,7 +264,11 @@ nav ul li a:hover,
 }
 
 .info-dn button,
-.info-mk button {
+.info-mk button,
+.info-dn-ip,
+.info-dk-ip,
+.info-mk-ip,
+.info-dk-ip {
     height: 50px;
     width: 500px;
     font-size: 20px;
@@ -369,8 +381,8 @@ nav ul li a:hover,
 
 .main-gioithieu p,
 .boxgt-ct-item,
-.box-gt p 
-,.tilte p{
+.box-gt p,
+.tilte p {
     font-size: 20px;
     line-height: 200%;
 }
@@ -454,10 +466,12 @@ table tr th {
 .lh-box-left {
     font-size: 20px;
 }
-.lh-box-left h2{
+
+.lh-box-left h2 {
     margin: 40px 0;
     margin-left: 20px;
 }
+
 .lh-box-left p {
     margin: 16px 0;
 }
@@ -494,33 +508,39 @@ table tr th {
 }
 
 /* css trang chủ  */
-.banner-header{
+.banner-header {
     display: grid;
     grid-template-columns: 60% 40%;
 }
-.tilte{
+
+.tilte {
     padding-top: 140px;
 }
-.tilte h1{
+
+.tilte h1 {
     font-size: 90px;
     padding-left: 100px;
     width: 80%;
 }
-.tilte p{
+
+.tilte p {
     font-size: 25px;
     padding-left: 100px;
     padding-top: 30px;
 }
-.banner .image{
+
+.banner .image {
     position: relative;
     top: -201px;
     left: 10px;
 
 }
-.header_book{
+
+.header_book {
     z-index: 1;
 }
-.book-date{
+
+.book-date {
     background-color: #fff;
     width: 80%;
     height: 100px;
@@ -529,120 +549,144 @@ table tr th {
     position: relative;
     bottom: 400px;
 }
-.book-date form{
-   padding-left: 10px;
+
+.book-date form {
+    padding-left: 10px;
 }
-.book-date form label{
+
+.book-date form label {
     color: #487254;
     font-size: 25px;
     margin-right: 10px;
 }
-.book-date form input{
+
+.book-date form input {
     margin-right: 30px;
 }
-.book-date form #number{
+
+.book-date form #number {
     width: 50px;
 }
-.book-date form #book{
+
+.book-date form #book {
     color: #fff;
     background-color: #487254;
     font-size: 20px;
-    border:  none;
+    border: none;
     width: 180px;
     height: 60px;
     margin-left: 15px;
 }
-.header-conten{
+
+.header-conten {
     position: relative;
     top: -240px;
 }
-.conten{
+
+.conten {
     display: grid;
     grid-template-columns: 60% 40%;
     height: 150px;
     line-height: 30px;
 }
-.conten h2{
+
+.conten h2 {
     width: 60%;
     font-size: 25px;
     padding-left: 100px;
     margin-top: 40px;
 }
-.conten p{
-    border-left:1px solid #000;
+
+.conten p {
+    border-left: 1px solid #000;
     padding-left: 10px;
 }
-.box-index{
+
+.box-index {
     position: relative;
     top: -150px;
 }
-.introduction{
-      text-align: center;     
+
+.introduction {
+    text-align: center;
 }
-.introduction img{
+
+.introduction img {
     width: 90%;
 }
-.introduction p{
+
+.introduction p {
     padding-top: 30px;
     font-size: 25px;
     width: 80%;
     margin: auto;
     padding-bottom: 30px;
 }
-.introduction button{
+
+.introduction button {
     width: 200px;
     height: 70px;
     border-radius: 5px;
     background-color: #487254;
     border: none;
 }
+
 .service .tillet button a,
-.introduction button a{
+.introduction button a {
     font-size: 20px;
     text-decoration: none;
     color: #fff;
 }
-.introduction button:hover{
-   background-color: #000;
+
+.introduction button:hover {
+    background-color: #000;
 }
+
 .main-loaiphongs h1,
-.main-service h1{
+.main-service h1 {
     margin-left: 20px;
     padding-bottom: 40px;
     padding-top: 40px;
 }
-.service{
+
+.service {
     width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
     gap: 50px;
-   
+
 }
-.service img{
+
+.service img {
     width: 40%;
 }
-.service .tillet p{
- width: 90%;
-   font-size: 30px;
+
+.service .tillet p {
+    width: 90%;
+    font-size: 30px;
 }
-.service .tillet button{
+
+.service .tillet button {
     width: 180px;
     height: 50px;
     background-color: #487254;
     border: none;
     margin: 20px 0;
 }
-.room{
+
+.room {
     position: relative;
     width: 30%;
-   margin: 0 20px;
+    margin: 0 20px;
 }
-.room img{
+
+.room img {
     width: 100%;
 }
-.information{
+
+.information {
     position: absolute;
     padding-left: 20px;
     padding-top: 10px;
@@ -653,62 +697,73 @@ table tr th {
     width: 100%;
     opacity: 0;
 }
-.icon{
+
+.icon {
     padding-bottom: 10px;
 }
-.icon p{
+
+.icon p {
     font-size: 15px;
-     
+
 }
-.information button{
+
+.information button {
     width: 100px;
     height: 30px;
     border: none;
     background-color: #33974f;
 }
-.information button a{
-   color: #fff;
-   text-decoration: none;
+
+.information button a {
+    color: #fff;
+    text-decoration: none;
 }
-.room:hover .information{
+
+.room:hover .information {
     opacity: 1;
 }
 
 /*book phòng*/
-.frm-boxphong{
+.frm-boxphong {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
-    padding:0 150px ;
+    padding: 0 150px;
     font-size: 20px;
     line-height: 200%;
 }
-.main-bookphong table{
+
+.main-bookphong table {
     width: 1076px;
     border-radius: 5px;
     border-collapse: collapse;
     margin: 30px 150px;
     background-color: #fff;
 }
-.main-bookphong table tr{
+
+.main-bookphong table tr {
     text-align: center;
 }
+
 .main-bookphong table th {
     padding: 10px;
     border: 1px solid #ccc;
 }
+
 .main-bookphong table td {
     padding: 10px 20px;
     border: 1px solid #CCC;
 }
-.main-bookphong table select{
+
+.main-bookphong table select {
     width: 110px;
     height: 40px;
     font-size: 14px;
     border: 1px solid #ccc;
     padding: 5px;
 }
-.boxphong-item textarea{
+
+.boxphong-item textarea {
     border: 1px solid rgb(194, 186, 186);
     width: 500px;
     height: 200px;
@@ -716,16 +771,18 @@ table tr th {
     padding: 5px;
     font-size: 20px;
 }
+
 .checkbox-bp input {
     margin-top: 30px;
     margin-left: 727px;
     font-size: 20px;
     padding: 5px;
 }
-.checkbox-bp button{
+
+.checkbox-bp button {
     height: 50px;
     width: 90px;
-    background-color:orange;
+    background-color: orange;
     border: 1px solid orange;
     border-radius: 5px;
     margin-left: 727px;
@@ -734,3 +791,104 @@ table tr th {
     font-size: 20px;
 }
 
+/* slideshow*/
+* {
+    box-sizing: border-box
+}
+.slideshow-container img{
+    width: 1440px;
+    height: 600px;
+}
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1440px;
+    position: relative;
+   
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}

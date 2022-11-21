@@ -152,6 +152,6 @@ switch($url){
 
     //Admin    
     default:
-        echo 'Đường dẫn không tồn tại';
+        echo 'Đường dẫn không tồn tại !';
         break;    
 }
