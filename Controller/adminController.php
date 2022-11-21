@@ -1,5 +1,6 @@
 <?php
 require_once "./Models/account.php";
+require_once "./Models/comment.php";
 //List
 require_once './Models/pdo.php';
 require_once './Models/room.php';
@@ -25,12 +26,15 @@ function listone_Account(){
     include_once './View/Admin/header.php';
     if(isset($_GET['id'])&& ($_GET['id']>0)){
         $fixaccount = loadone_account($_GET['id']);
+        $list_role =  role();
     }
     include_once './View/Admin/taikhoan/update_taikhoan.php';
+
     include_once './View/Admin/footer.php';
 }
 function listBinhluan(){
     include_once './View/Admin/header.php';
+    $load_commnet =  list_comment();
     include_once './View/Admin/binhluan/list_binhluan.php'; 
     include_once './View/Admin/footer.php';
 }
@@ -177,7 +181,7 @@ function capNhatKhachHang(){
             move_uploaded_file($_FILES['anh']['tmp_name'], $target_file);
         }
         update_account($id_account, $image, $fullname, $password, $email, $address, $phone, $role);
-        $thongbao = "Update thành công";
+//        $thongbao = "Update thành công";
     }
 
     $list_account = loadall_account();
@@ -200,7 +204,6 @@ function deleteKhachHang(){
     include_once './View/Admin/taikhoan/list_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
-
 // delete
 function deleteLoaiPhong(){
     include_once './View/Admin/header.php'; 
@@ -211,5 +214,13 @@ function deleteLoaiPhong(){
     include_once './View/Admin/loaiphong/list_loaiphong.php';
     include_once './View/Admin/footer.php';
 }
-
+function deleBinhluan(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id']) && $_GET['id']>0){
+        delete_commet($_GET['id']);
+    }
+    $load_commnet =  list_comment();
+    include_once './View/Admin/binhluan/list_binhluan.php';
+    include_once './View/Admin/footer.php';
+}
 ?>

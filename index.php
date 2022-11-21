@@ -15,6 +15,9 @@ switch($url){
     case 'loai-phong':
         echo loaiPhong();
         break;
+    case 'chi-tiet-phong':
+        echo chitietphong();
+        break;
     case 'dich-vu':
         echo dichVu();
         break;
@@ -119,9 +122,9 @@ switch($url){
     case 'xoa-khach-hang':
         echo deleteKhachHang();
         break;
-//    case 'xoa-binh-luan':
-//        echo
-//        break;
+    case 'xoa-binh-luan':
+        echo deleBinhluan();
+        break;
 //    case 'xoa-don-hang':
 //        echo
 //        break;

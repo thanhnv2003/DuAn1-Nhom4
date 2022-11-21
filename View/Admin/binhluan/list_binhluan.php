@@ -63,15 +63,23 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="" id=""></td>
-                            <td>binhluan_id</td>
-                            <td>nội dung bình luận </td>
-                            <td>id phòng</td>
-                            <td>id user</td>
-                            <td>thời gian </td>
-                            <td class="btn1"><a href="index.php?url=xoa-binh-luan&id=" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
-                        </tr>
+                        <?php
+
+                        foreach ($load_commnet as $value) {
+                            extract($value);
+                             echo '
+                            <tr >
+                            <td ><input type = "checkbox" name = "" id = "" ></td >
+                            <td >'.$id_cmt.'</td >
+                            <td >'.$content.'</td >
+                            <td >'.$id_room.'</td >
+                            <td > '.$Id_user.'</td >
+                            <td >'.$date_time.'</td >
+                            <td class="btn1" ><a href = "index.php?url=xoa-binh-luan&id='.$id_cmt.'" onclick = "return confirm(`Bạn muốn xóa?`)"; id = "delete" ><input class="btn btn-danger btn2" type = "button" value = "Xóa" ></a ></td >
+                        </tr >
+                        ';
+                        }
+                            ?>
                         </tbody>
                     </table>
                 </div>
