@@ -9,53 +9,52 @@
     <link rel="stylesheet" href="View/src/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2c37014309.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-<div class="container">
-    <header>
-        <div class="menu">
-            <div class="logo">
-                <a href="index.php?url=trang-chu"> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
+    <div class="container">
+        <header>
+            <div class="menu">
+                <div class="logo">
+                    <a href="index.php?url=trang-chu"> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.php?url=trang-chu">Trang chủ</a></li>
+                        <li><a href="index.php?url=gioi-thieu">Giới thiệu</a></li>
+                        <li><a href="index.php?url=loai-phong">Loại phòng</a></li>
+                        <li><a href="index.php?url=dich-vu">Dịch vụ</a></li>
+                        <li><a href="index.php?url=lien-he">Liên hệ</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.php?url=trang-chu">Trang chủ</a></li>
-                    <li><a href="index.php?url=gioi-thieu">Giới thiệu</a></li>
-                    <li><a href="index.php?url=loai-phong">Loại phòng</a></li>
-                    <li><a href="index.php?url=dich-vu">Dịch vụ</a></li>
-                    <li><a href="index.php?url=lien-he">Liên hệ</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="header_book">
-            <a href="index.php?url=book-phong"><input type="button" value="ĐẶT PHÒNG"></a>
-            <a href="index.php?url=dang-nhap"> <input type="button" value="Đăng nhập"></a>
-        </div>
-    </header>
-    <div class="banner">
-        <img src="View/src/image/nhieu-loai-phong-khach-nhau 1.png" alt="">
-    </div>
-    <main>
-        <div class="main-loaiphong">
-            <h1>Kind of room</h1>
-            <div class="lp-fillter">
-                <input type="text" placeholder="Tìm kiếm loại phòng...">
-                <select name="" id="">
-                    <option value="0">--Lọc giá--</option>
-                    <option value="1">Dưới 1.000.000đ</option>
-                    <option value="1">Trên 1.000.000đ</option>
-                    <option value="1">Trên 3.000.000đ</option>
-                </select>
+            <div class="header_book">
+                <a href="index.php?url=book-phong"><input type="button" value="ĐẶT PHÒNG"></a>
+                <a href="index.php?url=dang-nhap"> <input type="button" value="Đăng nhập"></a>
             </div>
+        </header>
+        <div class="">
+            <div class="slideshow-container">
+                <div class="mySlides fade imgSlider">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="View/src/image/chup-hinh-khach-san-nha-hang-mimosa-06-1 1.png" style="width:100%">
+                    <div class="text">Caption Text</div>
+                </div>
+
+                <div class="mySlides fade imgSlider">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">
+                    <div class="text">Caption Two</div>
+            </div>    
             <div class="lp-product">
               <?php
                foreach ($list_roomss as $value) {
                 extract($value);
                    echo '
-                   <div class="lp-product1" >
+                <div class="lp-product1" >
                    <div class="lp-product-img" >
-                       <a href = "index.php?url=chi-tiet-phong&id='.$id_cate .'" ><img src = "./View/src/upload/'.$image.'" alt = "" ></a >
+                       <a href = "index.php?url=chi-tiet-phong&id='.$id_cate .'" ><img src = "./View/src/upload/'.$image.'" alt = "" class="img-room" ></a >
                    </div >
                    <div class="lp-product-info" >
                        <a href = "index.php?url=chi-tiet-phong&id='.$id_cate .'" >
@@ -64,90 +63,10 @@
                        <span > Price :'.$price.'/ ngày </span >
                    </div >
                </div >
-         
-
-           ';
-           }
+                ';
+                }
              ?>
-                <!-- <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div>
-                <div class="lp-product1">
-                    <div class="lp-product-img">
-                        <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                    </div>
-                    <div class="lp-product-info">
-                        <a href="index.php?url=chi-tiet">
-                            <h4>DELUXE</h4>
-                        </a>
-                        <span>Price : 900.000đ/ngày</span>
-                    </div>
-                </div> -->
-
-         
+             </div>
           </div>
         </div>
     </main>
@@ -175,9 +94,59 @@
                 <script lang="javascript">var __vnp = { code: 4505, key: '', secret: '2d9af8430e9f03871b8868f5ddb7797c' }; (function () { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.defer = true; ga.src = '//core.vchat.vn/code/tracking.js'; var s = document.getElementsByTagName('script'); s[0].parentNode.insertBefore(ga, s[0]); })();
                 </script>
             </div>
-        </div>
-    </footer>
-</div>
+        </footer>
+    </div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); 
+        }
+    </script>
 </body>
 
 </html>

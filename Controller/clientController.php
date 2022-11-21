@@ -15,7 +15,6 @@ function gioiThieu(){
 function loaiPhong(){
     $list_roomss = loaiphong_loadall();
     include_once './View/Client/loaiPhong.php';
-    
 }
 function chitietphong(){
     include_once './View/Client/chiTietPhong.php';

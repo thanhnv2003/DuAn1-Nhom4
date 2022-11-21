@@ -72,7 +72,12 @@ switch($url){
     case 'quan-ly-lien-he':
         echo listLienHe();
         break;
-
+    case 'quan-ly-dich-vu':
+        echo listDichVu();
+         break;    
+    case 'chi-tiet-anh-phong':
+        echo listImageRoom();
+        break;
 //        them-moi
     case 'them-moi-loai-phong':
         echo themLoaiPhong();
@@ -83,7 +88,15 @@ switch($url){
     case 'them-moi-uu-dai':
         echo themUuDai();
         break;
-
+    case 'them-moi-dich-vu':
+         echo themDichVu();
+         break;
+    case 'them-moi-slider':
+        echo themMoiAnhSlider();
+        break;
+    case 'them-moi-anh-phong':
+        echo themMoiAnhPhong();
+        break;
 //
 //
 //
@@ -91,6 +104,12 @@ switch($url){
 //    case 'sua-giao-dien':
 //        echo
 //        break;
+    case 'sua-trang-chu':
+        echo suaTrangChu();
+        break;
+    case 'cap-nhat-trang-chu':
+        echo capNhatTrangChu();
+        break;
     case 'sua-loai-phong':
         echo edit_LoaiPhong();
        break;
@@ -110,9 +129,24 @@ switch($url){
 //        echo
 //        break;
     case 'sua-uu-dai':
-        echo capNhatUuDai();
+        echo edit_uudai();
+        break;
+    case 'sua-dich-vu':
+        echo edit_DichVu();
+           break;
+    case 'cap-nhat-dich-vu':
+        echo capNhatDichVu();
+        break;    
+    case 'sua-slider':
+        echo listOneSlider();
+        break;
+    case 'cap-nhat-slider':
+        echo capNhatAnhSlider();
         break;
 //
+case 'cap-nhat-uu-dai':
+    echo capNhatUuDai();
+    break;
 //
 //
 //        //delete
@@ -122,6 +156,12 @@ switch($url){
     case 'xoa-khach-hang':
         echo deleteKhachHang();
         break;
+    case 'xoa-slider':
+        echo deleteSlider();
+        break;
+//    case 'xoa-binh-luan':
+//        echo
+//        break;
     case 'xoa-binh-luan':
         echo deleBinhluan();
         break;
@@ -131,15 +171,15 @@ switch($url){
 //    case 'xoa-thong-ke':
 //        echo
 //        break;
-//    case 'xoa-uu-dai':
-//        echo
-//        break;
+   case 'xoa-uu-dai':
+       echo  deleteUuDai();
+       break;
 //    case 'xoa-lien-he':
 //        echo
 //        break;
-//    case '':
-//        echo
-//        break;
+   case 'xoa-dich-vu':
+       echo deleteDichVu();
+       break;
 //    case '':
 //        echo
 //        break;
@@ -155,6 +195,6 @@ switch($url){
 
     //Admin    
     default:
-        echo 'Đường dẫn không tồn tại';
+        echo 'Đường dẫn không tồn tại !';
         break;    
 }

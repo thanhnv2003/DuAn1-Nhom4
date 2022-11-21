@@ -31,7 +31,7 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Danh sách loại hàng</h4>
+                <h4 class="card-title">Danh sách ưu đãi</h4>
                 <div class="table-responsive">
                     <table class="table text-center table-bordered table1">
                         <thead>
@@ -45,14 +45,21 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php 
+                           foreach ($list_uudai as $value){
+                            extract($value);   
+                            echo'
                         <tr>
                             <td><input class="form-check-input" type="checkbox" name="" id=""></td>
-                            <td>' .id . '</td>
-                            <td>' .name . '</td>
-                            <td>' . mã voucher . '</td>
-                            <td>' . tiền. '</td>
-                            <td class="btn1"><a href="' . $update_dm . '"><input class="btn btn-primary btn2" type="button" value="Sửa"></a><a href="' . $delete_dm . '" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
+                            <td>' .$id_voucher . '</td>
+                            <td>' .$name . '</td>
+                            <td>' . $giftcode. '</td>
+                            <td>' . $price. '</td>
+                            <td class="btn1"><a href="index.php?url=sua-uu-dai&id='.$id_voucher.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a><a href="index.php?url=xoa-uu-dai&id='.$id_voucher.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
                         </tr>
+                        ';
+                           }
+                           ?>
                         </tbody>
                     </table>
                 </div>
@@ -62,6 +69,6 @@
 </div>
 <div class="thaotac">
     <div class="">
-        <a href="index.php?act=add_danhmuc"><input class="btn btn-primary" type="button" value="Thêm danh mục"></a>
+        <a href="index.php?url=them-moi-uu-dai"><input class="btn btn-primary" type="button" value="Thêm Ưu đãi"></a>
     </div>
 </div>
