@@ -159,12 +159,16 @@ case 'cap-nhat-uu-dai':
     case 'xoa-slider':
         echo deleteSlider();
         break;
+    case 'xoa-anh-phong':
+        echo xoaAnhPhong();
+        break;
 //    case 'xoa-binh-luan':
 //        echo
 //        break;
     case 'xoa-binh-luan':
         echo deleBinhluan();
         break;
+
 //    case 'xoa-don-hang':
 //        echo
 //        break;

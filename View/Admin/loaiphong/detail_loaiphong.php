@@ -49,7 +49,7 @@
                             <td><img src="View/src/upload/<?php echo $value['image'] ?>" alt="Lỗi tải ảnh" ></td>
                             <td><?php echo $value['id_room'] ?></td>
                             <td class="btn1">
-                                <a href="index.php?url=xoa-khach-hang&id='.$id_account.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
+                                <a href="index.php?url=xoa-anh-phong&id=<?php echo $value['id_img'] ?>" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
                                     <input class="btn btn-danger btn2" type="button" value="Xóa"></a>
                             </td>
                         </tr>

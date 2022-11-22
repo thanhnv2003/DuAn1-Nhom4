@@ -94,7 +94,7 @@ function listImageRoom(){
 //Add
 function themMoiAnhPhong(){
     include_once './View/Admin/header.php';
-    if (isset($_POST['themmoi']) && $_POST['themmoi']){
+    if (isset($_POST['themmoi']) && ($_POST['themmoi'])){
         $hinh=$_FILES['imageRoom']['name'];
         $maxsize = 2000000;
         $allowUpload = true;
@@ -168,13 +168,39 @@ function themTaiKhoan(){
     include_once './View/Admin/taikhoan/add_taikhoan.php';
     include_once './View/Admin/footer.php';
 }
-function themDichVu(){
+function themDichVu()
+{
     include_once './View/Admin/header.php';
     if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
-        $usename = $_POST["usename"];        
+        $usename = $_POST["usename"];
         $price = $_POST["price"];
-        $description = $_POST["description"];       
-        $hinh=$_FILES['hinh']['name'];
+        $description = $_POST["description"];
+        $hinh = $_FILES['hinh']['name'];
+        $maxsize = 2000000;
+        $allowUpload = true;
+        $allowType = ['jpg', 'png', 'jpeg', 'gif'];
+        $target_dir = 'View/src/upload/';
+        $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+        if ($_FILES['hinh']['size'] > $maxsize) {
+            $thongbao = " Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $allowUpload = false;
+        }
+        if (!in_array($target_file, $allowType)) {
+            $thongbao = 'Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
+            $allowupload = false;
+        }
+        if ($allowUpload == true) {
+            move_uploaded_file($_FILES['hinh']['tmp_name'], $target_file);
+            $thongbao = "Ảnh của bạn đã được thêm thành công ";
+            dichvu_inset($usename, $price, $hinh, $description);
+            $thongbao = "Thêm thành công";
+        } else {
+            $thongbao = "Bạn không thể thêm dịch vụ";
+        }
+    }
+    include_once './View/Admin/dichvu/add_dichvu.php';
+    include_once './View/Admin/footer.php';
+}
 function themMoiAnhSlider(){
     include_once './View/Admin/header.php';
     if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
@@ -184,42 +210,23 @@ function themMoiAnhSlider(){
         $hinh = $_FILES['image']['name'];
         $maxsize = 2000000;
         $allowUpload = true;
-        $allowType = ['jpg','png','jpeg','gif'];
-        $target_dir ='View/src/upload/' ;
-        $target_file = $target_dir.basename($_FILES["hinh"]["name"]);
-        if($_FILES['hinh']['size']> $maxsize){
-            $thongbao= " Ảnh của bạn có dung lượng quá lớn không thể upload";
-            $allowUpload = false;
-        }
-        if(!in_array($target_file, $allowType)){
-            $thongbao ='Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
-            $allowupload = false;
-        }if($allowUpload==true){
-            move_uploaded_file($_FILES['hinh']['tmp_name'], $target_file);
-            $thongbao = "Ảnh của bạn đã được thêm thành công ";
-            dichvu_inset($usename,$price,$hinh,$description);
-            $thongbao = "Thêm thành công";
-        }else{
-            $thongbao= "Bạn không thể thêm dịch vụ";
-        }
-    }
-    include_once './View/Admin/dichvu/add_dichvu.php';
-    include_once './View/Admin/footer.php';
-}
-        $target_file = $target_dir.basename($_FILES["image"]["name"]);
-        if($_FILES['image']['size']> $maxsize){
+        $allowType = ['jpg', 'png', 'jpeg', 'gif'];
+        $target_dir = 'View/src/upload/';
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        if ($_FILES['image']['size'] > $maxsize) {
 //            $thongbao= " Ảnh của bạn có dung lượng quá lớn không thể upload";
             $allowUpload = false;
         }
-        if(!in_array($target_file, $allowType)){
+        if (!in_array($target_file, $allowType)) {
 //            $thongbao ='Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
             $allowupload = false;
-        }if($allowUpload==true){
+        }
+        if ($allowUpload == true) {
             move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
-            themMoiSlider($hinh,$url,$title,$description);
+            themMoiSlider($hinh, $url, $title, $description);
             $thongbao = "Thêm thành công";
-        }else{
-            $thongbao= "Bạn không thể thêm loại phòng";
+        } else {
+            $thongbao = "Bạn không thể thêm loại phòng";
         }
     }
     include_once './View/Admin/giaodien/add_slider.php';
@@ -492,6 +499,16 @@ function deleteSlider(){
     $anhSlider = listAnhSlider();
     $giaoDienTrangChu = giaoDienTrangChu();
     include_once './View/Admin/home.php';
+    include_once './View/Admin/footer.php';
+}
+function xoaAnhPhong(){
+    include_once './View/Admin/header.php';
+    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+        $id = $_GET['id'];
+        xoa_anh_phong($id);
+    }
+    $list_loaiphong=loaiphong_loadall();
+    include_once './View/Admin/loaiphong/list_loaiphong.php';
     include_once './View/Admin/footer.php';
 }
 function deleteUuDai(){

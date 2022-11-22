@@ -32,6 +32,7 @@ function suaSlider($id, $image, $url, $title, $desc){
     }else{
         $sql = "UPDATE `slider` SET `url` = '$url', `title` = '$title', `description` = '$desc' WHERE `slider`.`id_slider` = ".$id;
     }
+//    return $sql;
     pdo_execute($sql);
 }
 function deleteAnhSlider($id){

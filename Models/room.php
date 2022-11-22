@@ -1,6 +1,4 @@
-<!-- THÊM MỚI LOẠI PHÒNG -->
-
-<?php 
+<?php
 function loaiphong_inset($usename,$hinh,$description,$price,$quantity){
     $sql = "INSERT INTO `categories_room`(`id_cate`, `name`, `image`, `description`, `price`, `quantity`) VALUES (null,'$usename','$hinh','$description','$price','$quantity')";
     pdo_execute($sql);
@@ -30,8 +28,10 @@ function loaiphong_delete($id_cate){
 
  //thêm mới ảnh phòng
 function them_moi_anh_phong($image, $idRoom){
-    $sql = "INSERT INTO image_room VALUES (null, '$image', '$idRoom')";
-    pdo_execute($sql);
+    if ($image != ''){
+        $sql = "INSERT INTO image_room VALUES (null, '$image', '$idRoom')";
+        pdo_execute($sql);
+    }
 }
 
 //list ảnh trong phòng
@@ -40,4 +40,10 @@ function list_image_room($id){
     $img = pdo_query($sql);
     return $img;
 }
+//xóa ảnh phòng
+function xoa_anh_phong($id){
+    $sql = "DELETE FROM image_room where id_img =".$id;
+    pdo_execute($sql);
+}
+
 ?>
