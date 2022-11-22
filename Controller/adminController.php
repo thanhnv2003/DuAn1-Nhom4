@@ -11,6 +11,7 @@ function indexAdmin(){
     include_once './View/Admin/header.php';
     $giaoDienTrangChu = giaoDienTrangChu();
     $anhSlider = listAnhSlider();
+    $anhHotel = listAnhKhachSan();
 //    var_dump($giaoDienTrangChu);
 
     include_once './View/Admin/home.php';
@@ -194,8 +195,6 @@ function themDichVu()
             $thongbao = "Ảnh của bạn đã được thêm thành công ";
             dichvu_inset($usename, $price, $hinh, $description);
             $thongbao = "Thêm thành công";
-        } else {
-            $thongbao = "Bạn không thể thêm dịch vụ";
         }
     }
     include_once './View/Admin/dichvu/add_dichvu.php';
@@ -225,11 +224,38 @@ function themMoiAnhSlider(){
             move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
             themMoiSlider($hinh, $url, $title, $description);
             $thongbao = "Thêm thành công";
-        } else {
-            $thongbao = "Bạn không thể thêm loại phòng";
         }
     }
     include_once './View/Admin/giaodien/add_slider.php';
+    include_once './View/Admin/footer.php';
+}
+function themMoiAnhKhachSan(){
+    include_once './View/Admin/header.php';
+    if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+        $url = $_POST['url'];
+        $description = $_POST['description'];
+        $hinh = $_FILES['image']['name'];
+        $maxsize = 2000000;
+        $allowUpload = true;
+        $allowType = ['jpg', 'png', 'jpeg', 'gif'];
+        $target_dir = 'View/src/upload/';
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        if ($_FILES['image']['size'] > $maxsize) {
+//            $thongbao= " Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $allowUpload = false;
+        }
+        if (!in_array($target_file, $allowType)) {
+//            $thongbao ='Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
+            $allowupload = false;
+        }
+        if ($allowUpload == true) {
+            move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+            themAnhKhachSan($hinh ,$url, $description);
+            $thongbao = "Thêm thành công";
+        }
+    }
+
+    include_once './View/Admin/giaodien/add_imageHotel.php';
     include_once './View/Admin/footer.php';
 }
 //Edit
@@ -273,8 +299,6 @@ function capNhatLoaiPhong(){
             $thongbao = "Ảnh của bạn đã được thêm thành công ";
             loaiphong_update($id_cate, $nameroom, $hinh, $description, $price, $quantity);
             $thongbao = "Bạn đã update thành công ";
-         } else{
-             $thongbao='Không update thành công';
          }
     }
     $list_loaiphong=loaiphong_loadall();
@@ -366,6 +390,7 @@ function capNhatTrangChu(){
     }
     $anhSlider = listAnhSlider();
     $giaoDienTrangChu = giaoDienTrangChu();
+    $anhHotel = listAnhKhachSan();
     include_once './View/Admin/home.php';
     include_once './View/Admin/footer.php';
 }
@@ -381,6 +406,51 @@ function capNhatUuDai(){
     }
     $list_uudai = uudai_loadall() ;
     include_once './View/Admin/uudai/list_uudai.php';
+    include_once './View/Admin/footer.php';
+}
+function editAnhKhachSan(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id'])&& ($_GET['id']>0)){
+        $id = $_GET['id'];
+        $image = listOneAnhKhachSan($id);
+    }
+    include_once './View/Admin/giaodien/edit_imageHotel.php';
+    include_once './View/Admin/footer.php';
+}
+function capNhatKhachSan(){
+    include_once './View/Admin/header.php';
+    if (isset($_POST['capnhat']) && ($_POST['capnhat'])){
+        $id = $_POST['id'];
+        $url = $_POST['url'];
+        $desc = $_POST['desc'];
+
+        //ảnh
+        $target = './View/src/upload/';
+        $image=$_FILES['image']['name'];
+        $maxsize = 2000000;
+        $tagettype = ['jpg','png','jpeg','gif'];
+        $target_file = $target.$image;
+        $tatfiletype = pathinfo($target_file,PATHINFO_EXTENSION);
+        $upload = true;
+        if($_FILES['image']['size']> $maxsize){
+//           $error['anh_size'] =" Ảnh của bạn có dung lượng quá lớn không thể upload";
+            $upload = false;
+        }
+        if(!in_array($tatfiletype,$tagettype)){
+//            $error['duoi']='duoi file khong dung dinh dang ';
+            $upload = false;
+        }
+        if($upload ==true) {
+            move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+        }
+//        suaSlider($id, $image, $url, $title, $desc);
+        capNhatAnhKhachSan($id, $image, $url, $desc);
+        $thongbao = "Update thành công";
+    }
+    $anhSlider = listAnhSlider();
+    $giaoDienTrangChu = giaoDienTrangChu();
+    $anhHotel = listAnhKhachSan();
+    include_once './View/Admin/home.php';
     include_once './View/Admin/footer.php';
 }
 function edit_uudai(){
@@ -457,6 +527,7 @@ function capNhatAnhSlider(){
     }
     $anhSlider = listAnhSlider();
     $giaoDienTrangChu = giaoDienTrangChu();
+    $anhHotel = listAnhKhachSan();
     include_once './View/Admin/home.php';
     include_once './View/Admin/footer.php';
 }
@@ -498,6 +569,7 @@ function deleteSlider(){
     }
     $anhSlider = listAnhSlider();
     $giaoDienTrangChu = giaoDienTrangChu();
+    $anhHotel = listAnhKhachSan();
     include_once './View/Admin/home.php';
     include_once './View/Admin/footer.php';
 }
@@ -509,6 +581,18 @@ function xoaAnhPhong(){
     }
     $list_loaiphong=loaiphong_loadall();
     include_once './View/Admin/loaiphong/list_loaiphong.php';
+    include_once './View/Admin/footer.php';
+}
+function xoaAnhKhachSan(){
+    include_once './View/Admin/header.php';
+    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+        $id = $_GET['id'];
+        xoaKhachSan($id);
+    }
+    $anhSlider = listAnhSlider();
+    $giaoDienTrangChu = giaoDienTrangChu();
+    $anhHotel = listAnhKhachSan();
+    include_once './View/Admin/home.php';
     include_once './View/Admin/footer.php';
 }
 function deleteUuDai(){

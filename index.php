@@ -97,6 +97,9 @@ switch($url){
     case 'them-moi-anh-phong':
         echo themMoiAnhPhong();
         break;
+    case 'them-moi-anh-khach-san':
+        echo themMoiAnhKhachSan();
+        break;
 //
 //
 //
@@ -124,6 +127,12 @@ switch($url){
         break;
     case 'sua-don-hang':
         echo capNhatDonHang();
+        break;
+    case 'sua-anh-khach-san':
+        echo editAnhKhachSan();
+        break;
+    case 'cap-nhat-anh-khach-san':
+        echo capNhatKhachSan();
         break;
 //    case 'sua-thong-ke':
 //        echo
@@ -161,6 +170,9 @@ case 'cap-nhat-uu-dai':
         break;
     case 'xoa-anh-phong':
         echo xoaAnhPhong();
+        break;
+    case 'xoa-anh-khach-san':
+        echo xoaAnhKhachSan();
         break;
 //    case 'xoa-binh-luan':
 //        echo
