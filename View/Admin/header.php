@@ -143,6 +143,12 @@
                     <i class="mdi mdi-chart-areaspline menu-icon"></i>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?url=quan-ly-dich-vu">
+                    <span class="menu-title">Dịch vụ</span>
+                    <i class="mdi mdi-chart-areaspline menu-icon"></i>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- partial -->
