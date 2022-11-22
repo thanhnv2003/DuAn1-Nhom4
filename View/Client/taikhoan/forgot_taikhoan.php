@@ -12,32 +12,30 @@
 </head>
 
 <body>
-<div class="container">
-    <div class="mk-box">
-        <div class="info-mk">
-            <div class="logo-dn">
-                <a href="index.php?url=trang-chu"> <img
-                        src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"
-                        alt=""></a>
-            </div>
-            <h2>Quên mật khẩu</h2>
-            <form action="index.php?url=quen-mat-khau" method="post" class="frm-mk" >
-                <div class="box-mk">
-                    <p>Email</p>
-                    <input type="email" placeholder="abcxyz@gmail.com" name="email" required>
+    <div class="container">
+        <div class="mk-box">
+            <div class="info-mk">
+                <div class="logo-dn">
+                    <a href="index.php?url=trang-chu"> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
                 </div>
-<!--                <button type="submit">Kiểm tra tài khoản</button>-->
-                <input type="submit" value="Kiểm tra tài khoản" name="quenmatkhau">
-                <?php if (isset($thongbao) && ($thongbao != '')){
-                    echo $thongbao;
-                } ?>
-            </form>
-            <div class="info-mk-a">
-                <a href="index.php?url=dang-nhap" >Đăng nhập</a>
+                <h2>Quên mật khẩu</h2>
+                <form action="index.php?url=quen-mat-khau" method="post" class="frm-mk">
+                    <div class="box-mk">
+                        <p>Email</p>
+                        <input type="email" placeholder="abcxyz@gmail.com" name="email" required>
+                    </div>
+                    <!--                <button type="submit">Kiểm tra tài khoản</button>-->
+                    <input type="submit" value="Kiểm tra tài khoản" name="quenmatkhau" class="info-mk-ip">
+                    <?php if (isset($thongbao) && ($thongbao != '')) { ?>
+                        <h1 style="color: red;"><?php echo $thongbao ?></h1>
+                    <?php   } ?>
+                </form>
+                <div class="info-mk-a">
+                    <a href="index.php?url=dang-nhap">Đăng nhập</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>

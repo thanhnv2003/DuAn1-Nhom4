@@ -13,8 +13,11 @@ function gioiThieu(){
     include_once './View/Client/gioiThieu.php';
 }
 function loaiPhong(){
+    $list_roomss = loaiphong_loadall();
     include_once './View/Client/loaiPhong.php';
-    
+}
+function chitietphong(){
+    include_once './View/Client/chiTietPhong.php';
 }
 function dichVu(){
     include_once './View/Client/dichVu.php';
