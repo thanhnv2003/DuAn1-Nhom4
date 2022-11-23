@@ -22,37 +22,43 @@
                 if (isset($_SESSION['account']) && is_array($_SESSION['account'])) {
                     $account = $_SESSION['account'];
                 ?>
-                    <form action="index.php?url=sua-tai-khoan" method="post">
+                    <form action="index.php?url=sua-tai-khoan" method="post" name="frmupdate" onsubmit=" return validate()">
                         <h2>Cập nhật tài khoản</h2>
                         <div class="box-dk">
                             <p>Họ và tên</p>
-                            <input type="text" value="<?php if (isset($account['fullname']) && ($account['fullname'])) echo $account['fullname'] ?>" name="fullname" required>
+                            <input type="text" value="<?php if (isset($account['fullname']) && ($account['fullname'])) echo $account['fullname'] ?>" name="fullname" id="name">
+                            <p style="color: red; " id="tbname"></p>
                         </div>
                         <div class="box-dk">
                             <p>Số điện thoại</p>
-                            <input type="tel" value="<?php if (isset($account['tel']) && ($account['tel'])) echo $account['tel'] ?>" name="tel" required>
+                            <input type="tel" value="<?php if (isset($account['tel']) && ($account['tel'])) echo $account['tel'] ?>" name="tel" id="number">
+                            <p style="color: red; " id="tbnumber"></p>
                         </div>
                         <div class="box-dk">
                             <p>Địa chỉ</p>
-                            <input type="text" value="<?php if (isset($account['address']) && ($account['address'])) echo $account['address'] ?>" name="address" required>
+                            <input type="text" value="<?php if (isset($account['address']) && ($account['address'])) echo $account['address'] ?>" name="address" id="address">
+                            <p style="color: red; " id="tbaddress"></p>
                         </div>
                         <div class="box-dk">
                             <p>Email</p>
-                            <input type="email" value="<?php if (isset($account['email']) && ($account['email'])) echo $account['email'] ?>" name="email" required>
+                            <input type="email" value="<?php if (isset($account['email']) && ($account['email'])) echo $account['email'] ?>" name="email" id="email">
+                            <p style="color: red; " id="tbemail"></p>
                         </div>
                         <div class="box-dk">
                             <p>Mật khẩu</p>
-                            <input type="password" value="<?php if (isset($account['password']) && ($account['password'])) echo $account['password'] ?>" name="password" required> <br>
+                            <input type="password" value="<?php if (isset($account['password']) && ($account['password'])) echo $account['password'] ?>" name="password" id="password"> <br>
+                            <p style="color: red; " id="tbpassword"></p>
                         </div>
                         <div class="box-dk">
                             <p>Nhập lại mật khẩu</p>
-                            <input type="password" name="repassword" required><br>
+                            <input type="password" name="repassword" id="respassword"><br>
+                            <p style="color: red; " id="tbrespassword"></p>
                         </div>
                         <!--                <button type="submit">CẬP NHẬT</button>-->
                         <input type="hidden" value="<?php if (isset($account['id_account']) && ($account['id_account'])) echo $account['id_account'] ?>" name="id">
                         <input type="submit" value="CẬP NHẬT" name="capnhat" class="info-dk-ip">
                         <?php if (isset($thongbao) && ($thongbao != '')) { ?>
-                            <h1 style="color: red;"><?php echo $thongbao ?></h1>
+                            <h1 style="color: red; text-align: center;"><?php echo $thongbao ?></h1>
                         <?php   } ?>
                     </form>
                 <?php } ?>
@@ -62,6 +68,81 @@
             </div>
         </div>
     </div>
+    <script>
+        function validate() {
+            var ok=true;
+            var name = document.frmupdate.name.value;
+            var email = document.frmupdate.email.value;
+            var password = document.frmupdate.password.value;
+            var number = document.frmupdate.number.value;
+            var respassword = document.frmupdate.respassword.value;
+            var address = document.frmupdate.address.value;
+
+            if (name == "") {
+                document.querySelector("#tbname").innerHTML = "Vui lòng nhập tên đăng nhập !";
+                return false;
+            } else {
+                document.querySelector("#tbname").innerHTML = "";
+            }
+            // email
+            var regemail = /^\w+\@\w+\.\w/;
+            if (email == "") {
+                document.querySelector("#tbemail").innerHTML = "Vui lòng nhập email !";
+                return false;
+            } else if (!email.match(regemail)) {
+                document.querySelector("#tbemail").innerHTML = "Email không đúng định dạng!";
+                return false;
+            } else {
+                document.querySelector("#tbemail").innerHTML = "";
+            }
+            //số điện thoai
+            var regsdt = /^0[1-9]{9}/;
+            if (number == "") {
+                document.querySelector("#tbnumber").innerHTML = "Vui lòng nhập số điện thoại !";
+                return false;
+            } else if (!number.match(regsdt)) {
+                document.querySelector("#tbnumber").innerHTML = "Số điện thoại không đúng định dạng !";
+                return false;
+            } else {
+                document.querySelector("#tbnumber").innerHTML = "";
+            }
+            // địa chỉ
+            if (address == "") {
+                document.querySelector("#tbaddress").innerHTML = "Vui lòng nhập địa chỉ !";
+                return false;
+            } else {
+                document.querySelector("#tbaddress").innerHTML = "";
+
+            }
+            // ,mật khẩu
+            if (password == "") {
+                document.querySelector("#tbpassword").innerHTML = "Vui lòng nhập mật khẩu !";
+                return false;
+            } else if (password.length < 5) {
+                document.querySelector("#tbpassword").innerHTML = "Mật khẩu quá ngắn!";
+                return false;
+            } else {
+                document.querySelector("#tbpassword").innerHTML = "";
+            }
+            // nhập lại mật khẩu
+            if (respassword == "") {
+                document.querySelector("#tbrespassword").innerHTML = "Vui lòng nhập mật khẩu !";
+                return false;
+            } else if (respassword != password) {
+                document.querySelector("#tbrespassword").innerHTML = "Mật khẩu không trùng khớp";
+                return false;
+            } else {
+                document.querySelector("#tbrespassword").innerHTML = "";
+            }
+            // submit
+            if (ok) {
+                alert("Cập nhật thành công");
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 </body>
 
 </html>
