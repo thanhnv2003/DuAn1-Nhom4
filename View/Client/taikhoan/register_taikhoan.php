@@ -19,27 +19,33 @@
                     <a href="index.php?url=trang-chu"> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
                 </div>
                 <!--form đăng kí-->
-                <form action="index.php?url=dang-ky" method="post">
+                <form action="index.php?url=dang-ky" method="post" name="frmdangki" onsubmit="return validate()">
                     <h2>Đăng kí thành viên</h2>
                     <div class="box-dk">
                         <p>Họ và Tên</p>
-                        <input type="text" placeholder="Họ và tên" name="fullname" required>
+                        <input type="text" placeholder="Họ và tên" name="fullname" id="name">
+                        <p id="tbname" style="color:red ;"></p>
                     </div>
                     <div class="box-dk">
                         <p>Email</p>
-                        <input type="email" placeholder="abcxyz@gmail.com" name="email" required>
+                        <input type="text" placeholder="abcxyz@gmail.com" name="email" id="email">
+                        <p id="tbemail" style="color:red ;"></p>
                     </div>
                     <div class="box-dk">
                         <p>Số điện thoại</p>
-                        <input type="number" placeholder="0900000000" name="tel" required>
+                        <input type="text" placeholder="0900000000" name="tel" id="number">
+                        <p id="tbnumber" style="color:red ;"></p>
                     </div>
                     <div class="box-dk">
                         <p>Mật khẩu</p>
-                        <input type="password" placeholder="**********" name="password" required> <br>
+                        <input type="password" placeholder="**********" name="password" id="password"> <br>
+                        <p id="tbpassword" style="color:red ;"></p>
                     </div>
                     <div class="box-dk">
                         <p>Nhập lại mật khẩu</p>
-                        <input type="password" placeholder="**********" name="repassword" required> <br>
+                        <input type="password" placeholder="**********" name="repassword" id="respassword"> <br>
+                        <p id="tbrespassword" style="color:red ;"></p>
+
                     </div>
                     <!--                <button type="submit"> Đăng kí</button>-->
                     <input type="submit" value="Đăng ký" name="dangky" class="info-dk-ip">
@@ -53,6 +59,71 @@
             </div>
         </div>
     </div>
+    <script>
+        function validate() {
+            var name = document.frmdangki.name.value;
+            var email = document.frmdangki.email.value;
+            var password = document.frmdangki.password.value;
+            var number = document.frmdangki.number.value;
+            var respassword = document.frmdangki.respassword.value;
+            var ok = true;
+            if (name == "") {
+                document.querySelector("#tbname").innerHTML = "Vui lòng nhập tên đăng nhập !";
+                return false;
+            } else {
+                document.querySelector("#tbname").innerHTML = "";
+            }
+            // email
+            var regemail = /^\w+\@\w+\.\w/;
+            if (email == "") {
+                document.querySelector("#tbemail").innerHTML = "Vui lòng nhập email !";
+                return false;
+            } else if (!email.match(regemail)) {
+                document.querySelector("#tbemail").innerHTML = "Email không đúng định dạng!";
+                return false;
+            } else {
+                document.querySelector("#tbemail").innerHTML = "";
+            }
+            //số điện thoai
+            var regsdt = /^0[1-9]{9}/;
+            if (number == "") {
+                document.querySelector("#tbnumber").innerHTML = "Vui lòng nhập số điện thoại !";
+                return false;
+            } else if (!number.match(regsdt)) {
+                document.querySelector("#tbnumber").innerHTML = "Số điện thoại không đúng định dạng !";
+                return false;
+            } else {
+                document.querySelector("#tbnumber").innerHTML = "";
+            }
+            // ,mật khẩu
+            if (password == "") {
+                document.querySelector("#tbpassword").innerHTML = "Vui lòng nhập mật khẩu !";
+                return false;
+            } else if (password.length < 5) {
+                document.querySelector("#tbpassword").innerHTML = "Mật khẩu quá ngắn!";
+                return false;
+            } else {
+                document.querySelector("#tbpassword").innerHTML = "";
+            }
+            // nhập lại mật khẩu
+            if (respassword == "") {
+                document.querySelector("#tbrespassword").innerHTML = "Vui lòng nhập mật khẩu !";
+                return false;
+            } else if (respassword != password) {
+                document.querySelector("#tbrespassword").innerHTML = "Mật khẩu không trùng khớp";
+                return false;
+            } else {
+                document.querySelector("#tbrespassword").innerHTML = "";
+            }
+            // submit
+            if (ok) {
+                alert("Đăng kí thành công");
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 </body>
 
 </html>
