@@ -4,7 +4,7 @@ if(is_array($loaiphong)){
 }
 $hinhpast = "View/src/upload/" . $image;
     if (is_file($hinhpast)) {
-        $image = "<img src='" . $hinhpast . "' height='80px'>";
+        $image = "<img src='" .$hinhpast ."' height='80px'>";
     }
     else {
         $image = "không có hình ảnh ";

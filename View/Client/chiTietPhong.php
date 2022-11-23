@@ -1,9 +1,7 @@
 <?php
-//var_dump($list_onerooms);
-  if(in_array($list_onerooms)) {
-      extract($list_onerooms);
-
-  }
+if(is_array($list_onerooms)) {
+    extract($list_onerooms);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
