@@ -2,7 +2,7 @@
 require_once './Models/pdo.php';
 require_once './Models/room.php';
 require_once './Models/account.php';
-
+require_once './Models/dichvu.php';
 function welcome(){
     include_once './View/Client/taikhoan/welcome.php';
 }
@@ -20,6 +20,7 @@ function chitietphong(){
     include_once './View/Client/chiTietPhong.php';
 }
 function dichVu(){
+    $list_dichvu =dichvu_loadall();
     include_once './View/Client/dichVu.php';
 }
 function lienHe(){

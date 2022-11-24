@@ -25,7 +25,14 @@ if(is_array($uudai)){
                         <label for="">Giá ưu đãi</label>
                         <input name="price" value="<?php echo $price; ?>"type="text" class="form-control">
                     </div>
-                    
+                    <div class="form-group">
+                        <label for="">Số lượng mã ưu đãi</label>
+                        <input name="quantity" value="<?php echo $price; ?>"type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Ngày kết thúc ưu đãi</label>
+                        <input name="date_end" value="<?php echo $price; ?>"type="text" class="form-control">
+                    </div>
                     <div class="form-group mt-3">
                         <input type="hidden" name="id" value="<?php echo $id_voucher; ?>">
                         <input class="btn btn-gradient-primary me-2" type="submit" name="capnhat" value="Cập nhật">
