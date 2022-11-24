@@ -100,9 +100,8 @@ switch($url){
     case 'them-moi-anh-khach-san':
         echo themMoiAnhKhachSan();
         break;
-//
-//
-//
+
+
 //        //edit
 //    case 'sua-giao-dien':
 //        echo

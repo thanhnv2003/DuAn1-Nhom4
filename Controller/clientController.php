@@ -2,7 +2,7 @@
 require_once './Models/pdo.php';
 require_once './Models/room.php';
 require_once './Models/account.php';
-
+require_once './Models/comment.php';
 function welcome(){
     include_once './View/Client/taikhoan/welcome.php';
 }

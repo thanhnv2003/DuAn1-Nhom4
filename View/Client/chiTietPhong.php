@@ -1,7 +1,9 @@
 <?php
+
 if(is_array($list_onerooms)) {
     extract($list_onerooms);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,17 +54,6 @@ if(is_array($list_onerooms)) {
                 </div>
                 ';
                  } ?>
-<!--                <div class="mySlides fade">-->
-<!--                    <div class="numbertext">2 / 3</div>-->
-<!--                    <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">-->
-<!--                    <div class="text">Caption Two</div>-->
-<!--                </div>-->
-
-<!--                <div class="mySlides fade">-->
-<!--                    <div class="numbertext">3 / 3</div>-->
-<!--                    <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" style="width:100%">-->
-<!--                    <div class="text">Caption Three</div>-->
-<!--                </div>-->
 
                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                 <a class="next" onclick="plusSlides(1)">❯</a>
@@ -81,20 +72,6 @@ if(is_array($list_onerooms)) {
                 <h1>CHAN MAY</h1>
                 <div class="item-ct">
                     <h2><?php echo $name;?></h2>
-<!--                    <p>Nằm trên cao, các phòng CHAN MAY cho tầm nhìn tuyệt vời ra toàn thành phố Bắc Giang. Được-->
-<!--                        thiết kế bởi các khái niệm khác nhau, dựa trên sự tiện lợi, chu đáo của khách hàng như là ưu-->
-<!--                        tiên hàng đầu, căn phòng cung cấp những trải nghiệm lưu trú tốt nhất cho khách của chúng tôi.-->
-<!--                        Các phòng máy lạnh và đầy đủ tiện nghi chuẩn khách sạn 4 sao, truyền hình cáp, Minibar. Các-->
-<!--                        phòng đều đi kèm với phòng tắm hiện đại được trang bị bồn tắm hoặc tiện nghi tắm vòi sen.-->
-<!---->
-<!--                        Bên cạnh đó, khách sạn gồm nhiều tiện ích phong phú bao gồm: Bơi, Fitness, Bar, Karaoke,-->
-<!--                        Massage, khu vui chơi trẻ em, trò chơi bắn cá,..... sẽ làm cho kỳ nghỉ của bạn ở khách sạn trở-->
-<!--                        nên thật đặc biệt và khác biệt.-->
-<!---->
-<!--                        Du khách có thể thưởng thức các món ăn Việt Nam, Trung Quốc và phương Tây ngon miệng tại hệ-->
-<!--                        thống nhà hàng Rùa Vàng.-->
-<!---->
-<!--                    </p>-->
                   <p><?php echo $description; ?></p>
                 </div>
                 <div class="chitietphong">
@@ -152,6 +129,15 @@ if(is_array($list_onerooms)) {
                     <a href="index.php?url=book-phong"> <input type="button" value="ĐẶT PHÒNG"></a>
                 </form>
                 <!---->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function(){
+                        $("#binhluan").load("./View/Client/binhluan.php", {idpro:<?=$id_cate?>});
+                    });
+                </script>
+                <div class="topproducts" id="binhluan">
+
+                </div>
                 <div class="ct-phongkhac">
                     <div class="ct-phongkhac1">
                         <div class="ct-phongkhac-img">
