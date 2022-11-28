@@ -19,12 +19,13 @@
                     <a href="index.php?url=trang-chu"> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
                 </div>
                 <h2>Quên mật khẩu</h2>
-                <form action="index.php?url=quen-mat-khau" method="post" class="frm-mk">
+                <form action="index.php?url=quen-mat-khau" method="post" class="frm-mk" name="frmquenmk" onsubmit="return validate()">
                     <div class="box-mk">
                         <p>Email</p>
-                        <input type="email" placeholder="abcxyz@gmail.com" name="email" required>
+                        <input type="email" placeholder="abcxyz@gmail.com" name="email" id="email">
+                        <p id="tbemail" style="color:red ;"></p>
                     </div>
-                    <!--                <button type="submit">Kiểm tra tài khoản</button>-->
+                    <!--<button type="submit">Kiểm tra tài khoản</button>-->
                     <input type="submit" value="Kiểm tra tài khoản" name="quenmatkhau" class="info-mk-ip">
                     <?php if (isset($thongbao) && ($thongbao != '')) { ?>
                         <h1 style="color: red;"><?php echo $thongbao ?></h1>
@@ -36,6 +37,18 @@
             </div>
         </div>
     </div>
+    <script>
+        function validate() {
+            var email=document.frmquenmk.email.value;
+            if(email==""){
+                document.getElementById("tbemail").innerHTML="Vui lòng nhập email !";
+                return false;
+            }else{
+                document.getElementById("tbemail").innerHTML="";
+                
+            }
+        }
+    </script>
 </body>
 
 </html>
