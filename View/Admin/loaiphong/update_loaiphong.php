@@ -4,7 +4,7 @@ if(is_array($loaiphong)){
 }
 $hinhpast = "View/src/upload/" . $image;
     if (is_file($hinhpast)) {
-        $image = "<img src='" . $hinhpast . "' height='80px'>";
+        $image = "<img src='" .$hinhpast ."' height='80px'>";
     }
     else {
         $image = "không có hình ảnh ";
@@ -40,6 +40,22 @@ $hinhpast = "View/src/upload/" . $image;
                     <div class="form-group">
                         <label for="">Số lượng</label>
                         <input name="quantity" value="<?php echo $quantity; ?>"type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Số người</label>
+                        <input name="number" value="<?php echo $number; ?>"type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Diện tích</label>
+                        <input name="area" value="<?php echo $area; ?>"type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Giướng ngủ</label>
+                        <input name="bed" value="<?php echo $bed; ?>"type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Views</label>
+                        <input name="views" value="<?php echo $views; ?>"type="text" class="form-control">
                     </div>
                     <div class="form-group mt-3">
                         <input type="hidden" name="id" value="<?php echo $id_cate; ?>">

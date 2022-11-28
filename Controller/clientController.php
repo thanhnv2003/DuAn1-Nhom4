@@ -2,6 +2,7 @@
 require_once './Models/pdo.php';
 require_once './Models/room.php';
 require_once './Models/account.php';
+require_once './Models/comment.php';
 require_once './Models/dichvu.php';
 require_once './Models/home.php';
 
@@ -21,6 +22,10 @@ function loaiPhong(){
     include_once './View/Client/loaiPhong.php';
 }
 function chitietphong(){
+    if(isset($_GET['id']) && ($_GET['id']>0)){
+        $list_onerooms = loaiphong_loadone($_GET['id']);
+        $img_room = list_image_room($_GET['id']);
+    }
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/chiTietPhong.php';
 }

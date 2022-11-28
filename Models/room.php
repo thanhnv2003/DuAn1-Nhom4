@@ -1,6 +1,6 @@
 <?php
-function loaiphong_inset($usename,$hinh,$description,$price,$quantity){
-    $sql = "INSERT INTO `categories_room`(`id_cate`, `name`, `image`, `description`, `price`, `quantity`) VALUES (null,'$usename','$hinh','$description','$price','$quantity')";
+function loaiphong_inset($usename,$hinh,$description,$price,$quantity,$number,$area,$bed,$views){
+    $sql = "INSERT INTO `categories_room`(`id_cate`, `name`, `image`, `description`, `price`, `quantity`,`number`,`area`,`bed`,`views`) VALUES (null,'$usename','$hinh','$description','$price','$quantity','$number','$area','$bed','$views')";
     pdo_execute($sql);
     // return $sql;
 };
@@ -18,11 +18,11 @@ function loaiphong_delete($id_cate){
     $sql = "DELETE FROM `categories_room` WHERE id_cate=".$id_cate;
     pdo_execute($sql);
  }
- function loaiphong_update($id_cate,$nameroom,$hinh,$description,$price,$quantity){
+ function loaiphong_update($id_cate,$nameroom,$hinh,$description,$price,$quantity,$number,$area,$bed,$views){
     if ($hinh!= "")
-    $sql ="UPDATE `categories_room` SET `name`='$nameroom',`image`='$hinh',`description`='$description',`price`='$price',`quantity`='$quantity' WHERE id_cate=".$id_cate;
+    $sql ="UPDATE `categories_room` SET `name`='$nameroom',`image`='$hinh',`description`='$description',`price`='$price',`quantity`='$quantity', `number` = '$number',`area`='$area',`bed`='$bed',`views`='$views' WHERE id_cate=".$id_cate;
     else
-        $sql ="UPDATE `categories_room` SET `name`='$nameroom',`description`='$description',`price`='$price',`quantity`='$quantity' WHERE id_cate=".$id_cate;
+        $sql ="UPDATE `categories_room` SET `name`='$nameroom',`description`='$description',`price`='$price',`quantity`='$quantity', `number` = '$number',`area`='$area',`bed`='$bed',`views`='$views' WHERE id_cate=".$id_cate;
      pdo_execute($sql);
  }
 

@@ -129,6 +129,10 @@ function themLoaiPhong(){
         $description = $_POST["description"];
         $price = $_POST["price"];
         $quantity = $_POST["quantity"];
+        $number=$_POST['number'];
+        $area=$_POST['area'];
+        $bed=$_POST['bed'];
+        $views=$_POST['views'];
         $hinh=$_FILES['hinh']['name'];
         $maxsize = 2000000;
         $allowUpload = true;
@@ -145,7 +149,7 @@ function themLoaiPhong(){
         }if($allowUpload==true){
             move_uploaded_file($_FILES['hinh']['tmp_name'], $target_file);
             $thongbao = "Ảnh của bạn đã được thêm thành công ";
-            loaiphong_inset($usename,$hinh,$description,$price,$quantity);
+            loaiphong_inset($usename,$hinh,$description,$price,$quantity,$number,$area,$bed,$views);
             $thongbao = "Thêm thành công";
         }else{
             $thongbao= "Bạn không thể thêm loại phòng";
@@ -292,7 +296,11 @@ function capNhatLoaiPhong(){
         $nameroom = $_POST['nameroom'];
         $description = $_POST['description'];
         $price = $_POST['price'];
-        $quantity = $_POST['quantity'];      
+        $quantity = $_POST['quantity'];
+        $number=$_POST['number'];
+        $area=$_POST['area'];
+        $bed=$_POST['bed'];
+        $views=$_POST['views'];
         $hinh=$_FILES['hinh']['name'];
         $maxsize = 2000000;
         $allowUpload = true;
@@ -310,7 +318,7 @@ function capNhatLoaiPhong(){
          if($allowUpload==true) {
              move_uploaded_file($_FILES['hinh']['tmp_name'], $target_file);
             $thongbao = "Ảnh của bạn đã được thêm thành công ";
-            loaiphong_update($id_cate, $nameroom, $hinh, $description, $price, $quantity);
+            loaiphong_update($id_cate, $nameroom, $hinh, $description, $price, $quantity,$number,$area,$bed,$views);
             $thongbao = "Bạn đã update thành công ";
          }
     }

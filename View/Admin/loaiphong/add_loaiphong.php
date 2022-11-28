@@ -29,6 +29,22 @@
                         <label for="">Số lượng</label>
                         <input name="quantity" type="text" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="">Số người</label>
+                        <input name="number" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Diện tích</label>
+                        <input name="area" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Giường ngủ</label>
+                        <input name="bed" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Views</label>
+                        <input name="views" type="text" class="form-control">
+                    </div>
                     <div class="form-group mt-3">
                         <!-- <input type = "text" name="id_cate" value="<?php echo $loai_phong['id_cate']?>"> -->
                         <input class="btn btn-gradient-primary me-2" type="submit" name="themmoi" value="Thêm mới">

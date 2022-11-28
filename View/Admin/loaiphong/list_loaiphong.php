@@ -44,7 +44,10 @@
                               <th>Mô tả</th>
                               <th>Gía tiền</th>
                               <th>Số lượng</th>
-                             
+                              <th>Số người</th>
+                              <th>Diện tích</th>
+                              <th>Giường ngủ</th>
+                              <th>Views</th>
                               <th style="width: 22%;">Thao tác</th>
                           </tr>
                         </thead>
@@ -71,6 +74,10 @@
                             <td>' . $description . '</td>
                             <td>' . $price . '</td>
                             <td>' . $quantity . '</td>
+                            <td>' . $number . '</td> 
+                            <td>' . $area . '</td>
+                            <td>' . $bed . '</td>
+                            <td>' . $views . '</td>
                             <td class="btn1">
                                 <a href="index.php?url=chi-tiet-anh-phong&id='.$id_cate.'"><input class="btn btn-primary btn2" type="button" value="Ảnh phòng"></a>
                                 <a href="index.php?url=sua-loai-phong&id='.$id_cate.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
