@@ -17,7 +17,6 @@ switch($url){
         break;
     case 'chi-tiet-phong':
         echo chitietphong();
-//        echo binhluan();
         break;
     case 'dich-vu':
         echo dichVu();
