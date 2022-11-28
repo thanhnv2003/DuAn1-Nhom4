@@ -20,6 +20,14 @@
                         <label for="">Giá ưu đãi</label>
                         <input name="price" type="text" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="">Số lượng ưu đãi</label>
+                        <input name="quantity" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Ngày kết thúc ưu đãi</label>
+                        <input name="date_end" type="text" class="form-control">
+                    </div>
                     <div class="form-group mt-3">
                         
                         <input class="btn btn-gradient-primary me-2" type="submit" name="themmoi" value="Thêm mới">

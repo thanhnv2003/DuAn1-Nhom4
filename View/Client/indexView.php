@@ -20,7 +20,7 @@
         <header>
             <div class="menu">
                 <div class="logo">
-                    <a href="index.php?url=trang-chu"> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>"></a>
                 </div>
                 <nav>
                     <ul>
@@ -86,61 +86,26 @@
                     <p>Cách cổng tốt nhất mà bạn có thể mơ ước. Văn hóa, bãi biển nhân tạo và ẩm thực. Tận hưởng kỳ
                         nghỉ
                         của bạn với gia đình hoặc đối tác của bạn tại một quang cảnh bãi tắm trên cao .</p>
-                    <button><a href="index.php?url=">xem chi tiết</a></button>
+                    <button><a href="index.php?url=loai-phong">Xem chi tiết</a></button>
                 </div>
                 <div class="main-loaiphongs">
 
                     <h1>PHÒNG</h1>
                     <div class="rooms">
+                        <?php foreach($listPhong as $key => $value){ ?>
                         <div class="room">
-                            <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" alt="">
+                            <img src="View/src/upload/<?php echo $value['image']?>" alt="">
                             <div class="information">
                                 <div class="icon">
-                                    <p><i class='bx bxs-user'></i> số người: 2</p><br>
-                                    <p> <i class='bx bxs-area'></i> diện tích : 19m2</p> <br>
-                                    <p> <i class='bx bxs-bed'></i> loại giường: 1 giường đơn</p><br>
+                                    <p><i class='bx bxs-user'></i> Số người: 2</p><br>
+                                    <p> <i class='bx bxs-area'></i> Diện tích : 19m2</p> <br>
+                                    <p> <i class='bx bxs-bed'></i> Loại giường: 1 giường đơn</p><br>
                                     <p><i class='bx bxs-bullseye'></i> Hướng nhìn: nhìn về hướng biển </p> </i>
                                 </div>
-                                <button><a href="#">xem chi tiết</a></button>
+                                <button><a href="index.php?url=chi-tiet-phong&id=<?php echo $value['id_cate']?>">Xem chi tiết</a></button>
                             </div>
                         </div>
-                        <div class="room">
-                            <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" alt="">
-                            <div class="information">
-                                <div class="icon">
-                                    <p><i class='bx bxs-user'></i> số người: 2</p><br>
-                                    <p> <i class='bx bxs-area'></i> diện tích : 19m2</p> <br>
-                                    <p> <i class='bx bxs-bed'></i> loại giường: 1 giường đơn</p><br>
-                                    <p><i class='bx bxs-bullseye'></i> Hướng nhìn: nhìn về hướng biển </p> </i>
-                                </div>
-                                <button><a href="#">xem chi tiết</a></button>
-                            </div>
-                        </div>
-                        <div class="room">
-                            <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" alt="">
-                            <div class="information">
-                                <div class="icon">
-                                    <p><i class='bx bxs-user'></i> số người: 2</p><br>
-                                    <p> <i class='bx bxs-area'></i> diện tích : 19m2</p> <br>
-                                    <p> <i class='bx bxs-bed'></i> loại giường: 1 giường đơn</p><br>
-                                    <p><i class='bx bxs-bullseye'></i> Hướng nhìn: nhìn về hướng biển </p> </i>
-                                </div>
-                                <button><a href="#">xem chi tiết</a></button>
-                            </div>
-                        </div>
-                        <div class="room">
-                            <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" alt="">
-                            <div class="information">
-                                <div class="icon">
-                                    <p><i class='bx bxs-user'></i> số người: 2</p><br>
-                                    <p> <i class='bx bxs-area'></i> diện tích : 19m2</p> <br>
-                                    <p> <i class='bx bxs-bed'></i> loại giường: 1 giường đơn</p><br>
-                                    <p><i class='bx bxs-bullseye'></i> Hướng nhìn: nhìn về hướng biển </p> </i>
-                                </div>
-                                <button><a href="#">xem chi tiết</a></button>
-                            </div>
-                        </div>
-
+                        <?php } ?>
                     </div>
 
                 </div>
@@ -153,7 +118,7 @@
                                 của
                                 chúng tôi
                             </p>
-                            <button><a href="#">xem chi tiết</a></button>
+                            <button><a href="index.php?url=dich-vu">Xem chi tiết</a></button>
                         </div>
                     </div>
                 </div>
@@ -163,23 +128,23 @@
             <div class="footer-box1">
                 <div class="footer-box">
                     <h2>Khách sạn CHAN MAY VN</h2>
-                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> Số 1 Đường Trịnh Văn Bô-Nam Từ Niêm -Hà Nội</p>
-                    <p><i class="fa-sharp fa-solid fa-phone"></i> 0999999899</p>
-                    <p><i class="fa-sharp fa-solid fa-envelope"></i> nhom4duan1@gmail.com</p>
+                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> <?php echo $giaoDien[0]['address']?></p>
+                    <p><i class="fa-sharp fa-solid fa-phone"></i> <?php echo $giaoDien[0]['tel']?></p>
+                    <p><i class="fa-sharp fa-solid fa-envelope"></i> <?php echo $giaoDien[0]['email']?></p>
                 </div>
                 <div class="footer-box">
                     <h2>Về chúng tôi</h2>
                     <a href="index.php?url=lien-he">Liên hệ</a> <br>
-                    <a href="index.php?url=">Vị trí & chỉ đường</a> <br>
-                    <a href="index.php?url=">Tiện ích</a>
+                    <a href="index.php?url=vi-tri-va-chi-duong">Vị trí & chỉ đường</a> <br>
+                    <a href="index.php?url=tien-ich">Tiện ích</a>
                 </div>
                 <div class="footer-box">
                     <h2>Những điều cần biết</h2> <br>
-                    <a href="index.php?url=">Hỏi đáp</a> <br>
-                    <a href="index.php?url=">Điều khoản & điều kiện</a>
+                    <a href="index.php?url=hoi-dap">Hỏi đáp</a> <br>
+                    <a href="index.php?url=dieu-kien-va-dieu-khoan">Điều khoản & điều kiện</a>
                 </div>
                 <div class="footer-box2">
-                    <a href="index.php?url=trang-chu"> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>" alt=""></a>
                     <script lang="javascript">
                         var __vnp = {
                             code: 4505,

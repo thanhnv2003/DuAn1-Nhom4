@@ -3,16 +3,21 @@ require_once './Models/pdo.php';
 require_once './Models/room.php';
 require_once './Models/account.php';
 require_once './Models/comment.php';
-function welcome(){
-    include_once './View/Client/taikhoan/welcome.php';
-}
+require_once './Models/dichvu.php';
+require_once './Models/home.php';
+
+
 function indexRoom(){
+    $giaoDien = giaoDienTrangChu();
+    $listPhong = loaiphong_loadall();
     include_once './View/Client/indexView.php';
 }
 function gioiThieu(){
+    $giaoDien = giaoDienTrangChu();
     include_once './View/Client/gioiThieu.php';
 }
 function loaiPhong(){
+    $giaoDien = giaoDienTrangChu();
     $list_roomss = loaiphong_loadall();
     include_once './View/Client/loaiPhong.php';
 }
@@ -21,12 +26,16 @@ function chitietphong(){
         $list_onerooms = loaiphong_loadone($_GET['id']);
         $img_room = list_image_room($_GET['id']);
     }
+    $giaoDien = giaoDienTrangChu();
     include_once './View/Client/chiTietPhong.php';
 }
 function dichVu(){
+    $list_dichvu =dichvu_loadall();
+    $giaoDien = giaoDienTrangChu();
     include_once './View/Client/dichVu.php';
 }
 function lienHe(){
+    $giaoDien = giaoDienTrangChu();
     include_once './View/Client/lienHe.php';
 }
 function dangNhap(){
@@ -90,6 +99,9 @@ function capNhatTaiKhoan(){
     include_once './View/Client/taikhoan/update_taikhoan.php';
 }
 function datPhong(){
+    $user = $_SESSION['account'];
+    $listPhong = loaiphong_loadall();
+    $giaoDien = giaoDienTrangChu();
     include_once './View/Client/bookPhong.php';
 }
 

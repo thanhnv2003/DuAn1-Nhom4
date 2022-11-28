@@ -14,10 +14,9 @@
 <body>
     <div class="container">
         <header>
-
             <div class="menu">
                 <div class="logo">
-                    <a href="index.php?url=trang-chu"> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png"></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>"></a>
                 </div>
                 <nav>
                     <ul>
@@ -31,7 +30,15 @@
             </div>
             <div class="header_book">
                 <a href="index.php?url=book-phong"><input type="button" value="ĐẶT PHÒNG"></a>
-                <a href="index.php?url=dang-nhap"> <input type="button" value="Đăng nhập"></a>
+                <?php if (isset($_SESSION['account']) && ($_SESSION['account']['role'] > 0)) { ?>
+                    <a href="index.php?url=admin"> <input type="button" value="Admin"></a>
+                    <a href="index.php?url=dang-xuat"> <input type="button" value="Đăng xuất"></a>
+                <?php } elseif (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 0)) { ?>
+                    <a href="index.php?url=sua-tai-khoan"> <input type="button" value="Account"></a>
+                    <a href="index.php?url=dang-xuat"> <input type="button" value="Đăng xuất"></a>
+                <?php } else { ?>
+                    <a href="index.php?url=dang-nhap"> <input type="button" value="Đăng nhập"></a>
+                <?php } ?>
             </div>
         </header>
         <div class="banner">
@@ -70,28 +77,28 @@
         <main>
             <div class="main-bookphong">
                 <h2>Thông tin đặt phòng</h2>
-                <form action="#">
+                <form action="#" method="post">
                     <div class="frm-boxphong">
                         <div class="boxphong-item">
                             <p>Ngày đến</p>
-                            <input type="date" name="">
+                            <input type="date" name="checkin">
                         </div>
                         <div class="boxphong-item">
                             <p>Người lớn</p>
-                            <select name="" id="">
-                                <option value="0">-Lựa chọn-</option>
+                            <select name="nguoilon" id="">
+                                <option value="0">Lựa chọn</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
                         </div>
                         <div class="boxphong-item">
                             <p>Ngày đi</p>
-                            <input type="date" name="">
+                            <input type="date" name="checkout">
                         </div>
                         <div class="boxphong-item">
                             <p>Trẻ em</p>
-                            <select name="" id="">
-                                <option value="0">-Lựa chọn-</option>
+                            <select name="treem" id="">
+                                <option value="0">Lựa chọn</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
@@ -100,104 +107,75 @@
                     <table>
                         <tr>
                             <td>Loại phòng</td>
-                            <td>Gía/đêm</td>
+                            <td>Giá/đêm</td>
                             <td>Số người tối đa</td>
                             <td>Chọn phòng</td>
                         </tr>
+                        <?php
+//                        var_dump($user);
+//                        var_dump($listPhong);
+                        foreach ($listPhong as $key => $value){ ?>
                         <tr>
-
-                            <th>Bình dân</th>
-                            <th>900.000đ/đêm</th>
-                            <th>2</th>
-                            <th><select name="" id="">
-                                    <option value="0">--lựa chọn--</option>
+                            <th><?php echo $value['name']?></th>
+                            <th><?php echo $value['price']?> VND/đêm</th>
+                            <th>2 người lớn</th>
+                            <th><select name="sophong" id="">
+                                    <option value="0">Lựa chọn</option>
                                     <option value="1">1</option>
                                     <option value="1">2</option>
                                     <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="1">5</option>
                                 </select>
                             </th>
-
+                            <input type="hidden" name="id_phong" value="<?php echo $value['id_cate']?>">
                         </tr>
-                        <tr>
-
-                            <th>Bình dân</th>
-                            <th>900.000đ/đêm</th>
-                            <th>2</th>
-                            <th><select name="" id="">
-                                    <option value="0">--lựa chọn--</option>
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="1">5</option>
-                                </select>
-                            </th>
-
-                        </tr>
-                        <tr>
-
-                            <th>Bình dân</th>
-                            <th>900.000đ/đêm</th>
-                            <th>2</th>
-                            <th><select name="" id="">
-                                    <option value="0">--lựa chọn--</option>
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="1">5</option>
-                                </select>
-                            </th>
-
-                        </tr>
-
+                        <?php } ?>
                     </table>
+
                     <div class="frm-boxphong">
                         <div class="boxphong-item">
                             <p>Giới tính</p>
-                            <select name="" id="">
+                            <select name="sex" id="">
                                 <option value="0">Lựa chọn</option>
-                                <option value="">Nam</option>
-                                <option value="">Nữ</option>
+                                <option value="1">Nam</option>
+                                <option value="2">Nữ</option>
                             </select>
                         </div>
                         <div class="boxphong-item">
                             <p>Họ tên</p>
-                            <input type="text" placeholder="Nhạp họ tên">
+                            <input type="text" name="fullname" placeholder="Nhập họ tên" value="<?php echo $user != '' ? $user['fullname']: ''?>">
                         </div>
                         <div class="boxphong-item">
                             <p>Email</p>
-                            <input type="email" placeholder="Email">
+                            <input type="email" name="email" placeholder="Email" value="<?php echo $user != '' ? $user['email']: ''?>">
                         </div>
                         <div class="boxphong-item">
                             <p>Số điện thoại</p>
-                            <input type="number" placeholder="Số điện thoại">
+                            <input type="number" name="tel" placeholder="Số điện thoại" value="<?php echo $user != '' ? $user['tel']: ''?>">
                         </div>
 
                         <div class="boxphong-item">
                             <p>Thời gian đến</p>
-                            <input type="date" name="" id="">
+                            <input type="datetime-local" name="date_time" id="">
 
                         </div>
                         <div class="boxphong-item">
                             <p>Địa chỉ</p>
-                            <input type="text" placeholder="Địa chỉ">
+                            <input type="text" name="address" placeholder="Địa chỉ" value="<?php echo $user != '' ? $user['address']: ''?>">
                         </div>
                         <div class="boxphong-item">
                             <p>Thành phố</p>
-                            <input type="text" placeholder="Thành phố">
+                            <input type="text" name="city" placeholder="Thành phố">
                         </div>
                         <div class="boxphong-item">
                             <p>Yêu cầu khác</p>
-                            <textarea name="" id="" placeholder="NHập yêu cầu của bạn..."></textarea>
+                            <textarea name="yeucau" id="" placeholder="Nhập yêu cầu của bạn..."></textarea>
                         </div>
                     </div>
                     <div class="checkbox-bp">
                         <input type="checkbox" value=""><label>Tôi đồng ý và chấp nhận điều khoản của khách sạn</label>
                         <br>
-                        <button type="submit">Gửi</button>
+<!--                        <button type="submit">Gửi</button>-->
+                        <input type="submit" value="Gửi" name="gui">
                     </div>
 
 
@@ -209,23 +187,23 @@
             <div class="footer-box1">
                 <div class="footer-box">
                     <h2>Khách sạn CHAN MAY VN</h2>
-                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> Số 1 Đường Trịnh Văn Bô-Nam Từ Niêm -Hà Nội</p>
-                    <p><i class="fa-sharp fa-solid fa-phone"></i> 0999999899</p>
-                    <p><i class="fa-sharp fa-solid fa-envelope"></i> nhom4duan1@gmail.com</p>
+                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> <?php echo $giaoDien[0]['address']?></p>
+                    <p><i class="fa-sharp fa-solid fa-phone"></i> <?php echo $giaoDien[0]['tel']?></p>
+                    <p><i class="fa-sharp fa-solid fa-envelope"></i> <?php echo $giaoDien[0]['email']?></p>
                 </div>
                 <div class="footer-box">
                     <h2>Về chúng tôi</h2>
                     <a href="index.php?url=lien-he">Liên hệ</a> <br>
-                    <a href="#">Vị trí & chỉ đường</a> <br>
-                    <a href="#">Tiện ích</a>
+                    <a href="index.php?url=vi-tri-va-chi-duong">Vị trí & chỉ đường</a> <br>
+                    <a href="index.php?url=tien-ich">Tiện ích</a>
                 </div>
                 <div class="footer-box">
                     <h2>Những điều cần biết</h2> <br>
-                    <a href="#">Hỏi đáp</a> <br>
-                    <a href="#">Điều khoản & điều kiện</a>
+                    <a href="index.php?url=hoi-dap">Hỏi đáp</a> <br>
+                    <a href="index.php?url=dieu-kien-va-dieu-khoan">Điều khoản & điều kiện</a>
                 </div>
                 <div class="footer-box2">
-                    <a href=""> <img src="View/src/image/Xanh nước biển và Trắng Cổ điển Đường tròn Thời trang Biểu trưng Thời trang (95 × 98 px) 3.png" alt=""></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>" alt=""></a>
                     <script lang="javascript">
                         var __vnp = {
                             code: 4505,

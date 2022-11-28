@@ -125,8 +125,11 @@ switch($url){
         echo capNhatKhachHang();
         break;
     case 'sua-don-hang':
+            echo edit_DonHang();
+           break;;
+    case 'cap-nhat-don-hang':
         echo capNhatDonHang();
-        break;
+        break;     
     case 'sua-anh-khach-san':
         echo editAnhKhachSan();
         break;
@@ -179,10 +182,10 @@ case 'cap-nhat-uu-dai':
     case 'xoa-binh-luan':
         echo deleBinhluan();
         break;
+    case 'xoa-don-hang':
+        echo deleteDonHang();
+         break;
 
-//    case 'xoa-don-hang':
-//        echo
-//        break;
 //    case 'xoa-thong-ke':
 //        echo
 //        break;
