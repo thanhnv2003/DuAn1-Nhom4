@@ -92,7 +92,7 @@
                                 đơn tự
                                 chọn và gọi món để bạn có trải nghiệm ẩm thực sang trọng giữa thiên nhiên.
                             </p>
-                            <a href="index.php?url=chi-tiet"><input type="button" value="Xem chi tiết"></a>
+                            <a href="index.php?url=trang-chu"><input type="button" value="Xem chi tiết"></a>
                         </div>
                     </div>
                     <div class="dv-product-left">
@@ -104,7 +104,7 @@
                                 thu
                                 hút.
                             </p>
-                            <a href="index.php?url=chi-tiet"><input type="button" value="Xem chi tiết"></a>
+                            <a href="index.php?url=trang-chu"><input type="button" value="Xem chi tiết"></a>
                         </div>
                         <div class="dv-product-img">
                             <a href="#"> <img src="View/src/image/cac-goi-dich-vu-spa-1 1.png" alt=""></a>
