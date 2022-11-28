@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="View/src/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2c37014309.js" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -112,29 +113,18 @@
                 </div>
             </div>
         </main>
+        
         <div class="icon-dv">
-            <a href=""><img src="View/src/icon/air-conditioner.png" alt=""></a>
-            <a href=""><img src="View/src/icon/beds.png" alt=""></a>
-            <a href=""><img src="View/src/icon/calendar.png" alt=""></a>
-            <a href=""><img src="View/src/icon/catering.png" alt=""></a>
-            <a href=""><img src="View/src/icon/cleaning-cart.png" alt=""></a>
-            <a href=""><img src="View/src/icon/customer-service.png" alt=""></a>
-            <a href=""><img src="View/src/icon/door-hanger.png" alt=""></a>
-            <a href=""><img src="View/src/icon/dumbbell.png" alt=""></a>
-            <a href=""><img src="View/src/icon/free-wifi.png" alt=""></a>
-            <a href=""><img src="View/src/icon/hair-dryer.png" alt=""></a>
-            <a href=""><img src="View/src/icon/hotel.png" alt=""></a>
-            <a href=""><img src="View/src/icon/laundry-service.png" alt=""></a>
-            <a href=""><img src="View/src/icon/laundry.png" alt=""></a>
-            <a href=""><img src="View/src/icon/minibar.png" alt=""></a>
-            <a href=""><img src="View/src/icon/parking.png" alt=""></a>
-            <a href=""><img src="View/src/icon/safe-box.png" alt=""></a>
-            <a href=""><img src="View/src/icon/shoeshine.png" alt=""></a>
-            <a href=""><img src="View/src/icon/shower.png" alt=""></a>
-            <a href=""><img src="View/src/icon/support.png" alt=""></a>
-            <a href=""><img src="View/src/icon/truck.png" alt=""></a>
-            <a href=""><img src="View/src/icon/valet.png" alt=""></a>
-
+            <?php 
+             foreach ($list_dichvu as $value) {
+                extract ($value);
+                echo '
+            
+            <a href=""><img src="View/src/upload/'.$image.'" alt=""></a>
+            
+          ';
+        }
+        ?>
         </div>
         <footer>
             <div class="footer-box1">

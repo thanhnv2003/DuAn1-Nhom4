@@ -2,7 +2,9 @@
 require_once './Models/pdo.php';
 require_once './Models/room.php';
 require_once './Models/account.php';
+require_once './Models/dichvu.php';
 require_once './Models/home.php';
+
 
 function indexRoom(){
     $giaoDien = giaoDienTrangChu();
@@ -23,6 +25,7 @@ function chitietphong(){
     include_once './View/Client/chiTietPhong.php';
 }
 function dichVu(){
+    $list_dichvu =dichvu_loadall();
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/dichVu.php';
 }

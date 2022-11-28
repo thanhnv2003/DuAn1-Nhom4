@@ -41,6 +41,8 @@
                             <th>Tên</th>
                             <th>Mã voucher</th>
                             <th>Giá tiền</th>
+                            <th>Số lượng mã ưu đãi</th>
+                            <th>Ngày kết thúc ưu đãi</th>
                             <th style="width: 22%;">Thao tác</th>
                         </tr>
                         </thead>
@@ -55,6 +57,8 @@
                             <td>' .$name . '</td>
                             <td>' . $giftcode. '</td>
                             <td>' . $price. '</td>
+                            <td>' . $quantity. '</td>
+                            <td>' . $date_end. '</td>
                             <td class="btn1"><a href="index.php?url=sua-uu-dai&id='.$id_voucher.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a><a href="index.php?url=xoa-uu-dai&id='.$id_voucher.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
                         </tr>
                         ';

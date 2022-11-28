@@ -50,15 +50,8 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="card-title">Danh sách đơn hàng</h2>
-                <form class="boloc" action="index.php?act=list_bill" method="post">
-                    <div class="boloc2 form-group">
-                        <select style="width: 11rem;" class="form-select" name="id_search_bill" id="tt">
-                            <option value="0" selected>Tất cả</option>
-                            <option value="">Giày nam</option>
-                            <option value="">Giày nam</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary" name="search_bill" value="Search">Tìm kiếm</button>
-                    </div>
+                <form class="boloc" action="index.php?url=" method="post">
+                
                 </form>
                 <div class="table-responsive">
                     <table class="table text-center">
@@ -79,25 +72,33 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                                <?php 
+                                // var_dump($list_book);
+                                foreach ($list_donhang as $value) {
+                                  extract($value);
+                                  echo'
+                                
                             <tr>
-                                <td>id_book</td>
-                                <td>Họ tên</td>
-                                <td>Số điện thoại</td>
-                                <td>email</td>
-                                <td>id_voucher</td>
-                                <td>tổng giá</td>
-                                <td>trạng thái</td>
-                                <td>ngày đặt</td>
-                                <td>check-in</td>
-                                <td>check-out</td>
+                            
+                                <td>' .$id_book . '</td>
+                                <td>' .$fullname. '</td>
+                                <td>' .$tel . '</td>
+                                <td>' .$email . '</td>
+                                <td>' .$id_voucher . '</td>
+                                <td>' .$total_price . '</td>
+                                <td>' .$status . '</td>
+                                <td>' .$date_time . '</td>
+                                <td>' .$check_in_date . '</td>
+                                <td>' .$check_out_date . '</td>
 
                                 <td class="btn1">
-                                    <a href="index.php?url=sua-don-hang"><input class="btn btn-primary btn2" type="button" value="Update"></a>
-                                    <a><input type="button" class="btn btn-primary btn2" value="Detail"></a>
-                                    <input type="button" class="btn btn-primary btn2" value="Delete" onclick="confirm('Bạn có muốn xóa đơn hàng \( <?php echo $value['name']?> \) hay không!') == true ? location.href='index.php?url=xoa-don-hang&id=<?php echo $value['id']?>' : '' ">
+                                <a href="index.php?url=sua-don-hang&id='.$id_book.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
+                                <a href="index.php?url=xoa-don-hang&id='.$id_book.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a>
                                 </td>
                             </tr>
+                            ';
+                        } 
+                        ?>
                             </tbody>
                         </table>
                 </div>
