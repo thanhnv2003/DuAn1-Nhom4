@@ -97,7 +97,8 @@ if(is_array($list_onerooms)) {
                             Giặt là theo yêu cầu <br>
                             Karaoke <br>
                             Massage, xông hơi <br>
-                            Trẻ 6-12 tuổi, phụ thu 100.000 VND bữa sáng <br>
+                            Ngoại trừ phòng đã quy định với số người là :  <?php echo $number;?> <br>
+                            Thì trẻ 6-12 tuổi, phụ thu 100.000 VND bữa sáng <br>
                             Trẻ 12 tuổi trở lên, kê thêm giường Extrabeb: 200.000 VND <br>
                             06-12 tuổi phụ thu 100.000 VNĐ <br>
                             Ở ghép: 150.000/khách <br>
@@ -107,7 +108,8 @@ if(is_array($list_onerooms)) {
                     <div class="ct-info">
                         <h4>3. Thiết bị trong phòng</h4>
                         <p>
-                            Một giường đơn <br>
+                            phòng có diện tích  <?php echo $area;?> m2 và <?php echo $bed;?> <br>
+                            Bên cạnh đó còn có views  <?php echo $views;?> <br>
                             Máy giặt Aqua Nhật Bản (7kg), Giá phơi quần áo <br>
                             Truyền hình Internet, Smart TV với hệ thống kênh truyền hình Quốc tế <br>
                             Điện thoại có thể gọi Quốc tế <br>
@@ -132,57 +134,33 @@ if(is_array($list_onerooms)) {
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script>
                     $(document).ready(function(){
-                        $("#binhluan").load("./View/Client/binhluan.php", {idpro:<?=$id_cate?>});
+                        $("#binhluan").load("./View/Client/binhluan.php", {id_room:<?=$id_cate?>});
                     });
                 </script>
                 <div class="topproducts" id="binhluan">
 
                 </div>
                 <div class="ct-phongkhac">
+                    <?php
+                    foreach ($list_roomss as $values){
+                        extract($values);
+                        echo '
+         
                     <div class="ct-phongkhac1">
-                        <div class="ct-phongkhac-img">
-                            <a href="#"><img src="View/src/image/Rectangle 48.png" alt=""></a>
+                        <div class="ct-phongkhac-img anh">
+                            <a href="index.php?url=chi-tiet-phong&id='.$id_cate .'"><img src="./View/src/upload/'.$image.'" alt=""></a>
                         </div>
                         <div class="ctphongkhac-info">
-                            <a href="#">
-                                <h4>DELUXE</h4>
+                            <a href="index.php?url=chi-tiet-phong&id='.$id_cate .'">
+                                <h4>'.$name.'</h4>
                             </a>
-                            <span>Price : 900.000đ</span>
+                            <span>Price : '.$price.'/ ngày </span>
                         </div>
                     </div>
-                    <div class="ct-phongkhac1">
-                        <div class="ct-phongkhac-img">
-                            <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                        </div>
-                        <div class="ctphongkhac-info">
-                            <a href="index.php?url=chi-tiet">
-                                <h4>DELUXE</h4>
-                            </a>
-                            <span>Price : 900.000đ</span>
-                        </div>
-                    </div>
-                    <div class="ct-phongkhac1">
-                        <div class="ct-phongkhac-img">
-                            <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                        </div>
-                        <div class="ctphongkhac-info">
-                            <a href="index.php?url=chi-tiet">
-                                <h4>DELUXE</h4>
-                            </a>
-                            <span>Price : 900.000đ</span>
-                        </div>
-                    </div>
-                    <div class="ct-phongkhac1">
-                        <div class="ct-phongkhac-img">
-                            <a href="index.php?url=chi-tiet"><img src="View/src/image/Rectangle 48.png" alt=""></a>
-                        </div>
-                        <div class="ctphongkhac-info">
-                            <a href="index.php?url=chi-tiet">
-                                <h4>DELUXE</h4>
-                            </a>
-                            <span>Price : 900.000đ</span>
-                        </div>
-                    </div>
+                    ';
+                     }
+                    ?>
+
                 </div>
 
             </div>
