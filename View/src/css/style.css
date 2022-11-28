@@ -688,12 +688,15 @@ table tr th {
 
 .room {
     position: relative;
-    width: 30%;
+    /*width: 30%;*/
+    width: 289px;
     margin: 0 20px;
 }
 
 .room img {
     width: 100%;
+    height: 288px;
+
 }
 
 .information {

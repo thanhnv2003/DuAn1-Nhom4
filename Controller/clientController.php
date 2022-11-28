@@ -91,6 +91,8 @@ function capNhatTaiKhoan(){
     include_once './View/Client/taikhoan/update_taikhoan.php';
 }
 function datPhong(){
+    $user = $_SESSION['account'];
+    $listPhong = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/bookPhong.php';
 }
