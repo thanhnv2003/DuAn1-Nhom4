@@ -7,6 +7,7 @@ require_once './Models/room.php';
 require_once './Models/dichvu.php';
 require_once "./Models/comment.php";
 require_once './Models/uudai.php';
+require_once './Models/book.php';
 function indexAdmin(){
     include_once './View/Admin/header.php';
     $giaoDienTrangChu = giaoDienTrangChu();
@@ -47,6 +48,7 @@ function listBinhluan(){
 }
 function listDonHang(){
     include_once './View/Admin/header.php';
+    $list_donhang=donhang_loadall();
     include_once './View/Admin/donhang/list_donhang.php';
     include_once './View/Admin/footer.php';
 }
@@ -162,7 +164,9 @@ function themUuDai(){
         $usename = $_POST["usename"];
         $giftcode = $_POST["giftcode"];
         $price = $_POST["price"];
-        uudai_inset($usename,$giftcode,$price);
+        $quantity = $_POST["quantity"];
+        $date_end = $_POST["date_end"];
+        uudai_inset($usename,$giftcode,$price,$quantity,$date_end);
         $thongbao = "Bạn đã thêm ưu đãi thành công";
     }
     include_once './View/Admin/uudai/add_uudai.php';
@@ -273,7 +277,16 @@ function suaTrangChu(){
 //Update
 function capNhatDonHang(){
     include_once './View/Admin/header.php';
-    include_once './View/Admin/donhang/update_donhang.php';
+    if(isset($_POST['capnhat']) && $_POST['capnhat']){
+        $id_book = $_POST['id'];                            
+        $check_in_date = $_POST["check_in_date"];
+        $status = $_POST['status']; 
+        $check_out_date = $_POST["check_out_date"];
+        donhang_update($id_book,$status,$check_in_date,$check_out_date);
+        $thongbao = "Update thành công";
+    }
+    $list_donhang=donhang_loadall();
+    include_once './View/Admin/donhang/list_donhang.php';
     include_once './View/Admin/footer.php';
 }
 function capNhatLoaiPhong(){
@@ -319,6 +332,15 @@ function edit_LoaiPhong(){
         $loaiphong = loaiphong_loadone($_GET['id']);
     }
     include_once './View/Admin/loaiphong/update_loaiphong.php';
+    include_once './View/Admin/footer.php';
+}
+function edit_DonHang(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id'])&& ($_GET['id']>0)){
+        
+        $donhang = donhang_loadone($_GET['id']);
+    }
+    include_once './View/Admin/donhang/update_donhang.php';
     include_once './View/Admin/footer.php';
 }
 function edit_DichVu(){
@@ -409,7 +431,9 @@ function capNhatUuDai(){
         $tenuudai = $_POST['tenuudai'];
         $giftcode = $_POST['giftcode'];
         $price = $_POST['price'];
-        uudai_update($id_voucher,$tenuudai,$giftcode,$price);
+        $quantity = $_POST["quantity"];
+        $date_end = $_POST["date_end"];
+        uudai_update($id_voucher,$tenuudai,$giftcode,$price, $quantity,$date_end);
         $thongbao = "Update thành công";
     }
     $list_uudai = uudai_loadall() ;
@@ -620,4 +644,12 @@ function deleBinhluan(){
     include_once './View/Admin/binhluan/list_binhluan.php';
     include_once './View/Admin/footer.php';
 }
+function deleteDonHang(){
+    include_once './View/Admin/header.php'; 
+    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+        donhang_delete($_GET['id']);
+     } 
+     $list_donhang = donhang_loadall() ;
+     include_once './View/Admin/donhang/list_donhang.php';
+    }
 ?>
