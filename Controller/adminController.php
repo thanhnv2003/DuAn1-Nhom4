@@ -8,6 +8,7 @@ require_once './Models/dichvu.php';
 require_once "./Models/comment.php";
 require_once './Models/uudai.php';
 require_once './Models/book.php';
+require_once './Models/contact.php';
 function indexAdmin(){
     include_once './View/Admin/header.php';
     $giaoDienTrangChu = giaoDienTrangChu();
