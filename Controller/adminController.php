@@ -19,6 +19,13 @@ function indexAdmin(){
     include_once './View/Admin/home.php';
     include_once './View/Admin/footer.php';
 }
+function chiTietDonHang(){
+    include_once './View/Admin/header.php';
+
+
+    include_once './View/Admin/donhang/chitiet_donhang.php';
+    include_once './View/Admin/footer.php';
+}
 function listLoaiPhong(){
     include_once './View/Admin/header.php';  
     $list_loaiphong=loaiphong_loadall();
@@ -279,12 +286,10 @@ function suaTrangChu(){
 //Update
 function capNhatDonHang(){
     include_once './View/Admin/header.php';
-    if(isset($_POST['capnhat']) && $_POST['capnhat']){
-        $id_book = $_POST['id'];                            
-        $check_in_date = $_POST["check_in_date"];
-        $status = $_POST['status']; 
-        $check_out_date = $_POST["check_out_date"];
-        donhang_update($id_book,$status,$check_in_date,$check_out_date);
+    if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
+        $id_book = $_POST['id'];
+        $status = $_POST['status'];
+        donhang_update($id_book,$status);
         $thongbao = "Update thành công";
     }
     $list_donhang=donhang_loadall();
