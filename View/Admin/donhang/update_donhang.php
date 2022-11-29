@@ -28,24 +28,17 @@ if(is_array($donhang)){
                         <input disabled name="email" type="text" value="<?php echo $email; ?>" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">Voucher</label>
-                        <input disabled name="id_voucher" type="text" value="<?php echo $id_voucher; ?>" class="form-control">
-                    </div>
-                    <div class="form-group">
                         <label for="">Tổng giá</label>
                         <input disabled name="total_price" type="text" value="<?php echo $total_price; ?>" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">Trạng thái</label>
-                        <input name="status" type="text" value="<?php echo $status; ?>" class="form-control">
-                        <div class="form-group">
-                        <label for="bill_status">Tình trạng đơn hàng</label>
+                        <label for="bill_status">Trạng thái phòng</label>
                         <select name="status" id="" class="form-select">
-                            <option value="0">Trống</option>
-                            <option value="1">Đang được thuê </option>
+                            <option value="0" <?php echo $status == 0 ? 'selected': ''?>>Vừa đặt</option>
+                            <option value="1" <?php echo $status == 1 ? 'selected': ''?>>Đang được thuê </option>
+                            <option value="2" <?php echo $status == 2 ? 'selected': ''?>>Đã trả phòng </option>
 
                         </select>
-                    </div>
                     </div>
                     <div class="form-group">
                         <label for="">Ngày đặt</label>
@@ -53,11 +46,11 @@ if(is_array($donhang)){
                     </div>
                     <div class="form-group">
                         <label for="">Check-in</label>
-                        <input name="check_in_date" type="text" value="<?php echo $check_in_date; ?>" class="form-control">
+                        <input disabled name="check_in_date" type="text" value="<?php echo $check_in_date; ?>" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Check-out</label>
-                        <input name="check_out_date" type="text" value="<?php echo $check_out_date; ?>" class="form-control">
+                        <input disabled name="check_out_date" type="text" value="<?php echo $check_out_date; ?>" class="form-control">
                     </div>
                     
                     <div class="form-group mt-3">

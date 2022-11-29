@@ -1,3 +1,4 @@
+<?php var_dump($_SESSION['account']); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,19 +47,16 @@
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
                     <img src="View/src/image/chup-hinh-khach-san-nha-hang-mimosa-06-1 1.png" style="width:100%">
-                    <div class="text">Caption Text</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
                     <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">
-                    <div class="text">Caption Two</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
                     <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" style="width:100%">
-                    <div class="text">Caption Three</div>
                 </div>
 
                 <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -76,16 +74,54 @@
         <!--Main-->
         <main>
             <div class="main-bookphong">
-                <h2>Thông tin đặt phòng</h2>
-                <form action="#" method="post">
+                <h2>Thông tin phòng đặt</h2>
+                <table>
+                    <tr>
+                        <td>STT</td>
+                        <td>Loại Phòng</td>
+                        <td>Giá / Đêm</td>
+                        <td>Ảnh phòng</td>
+                        <td>Số lượng</td>
+                        <td>Thành tiền</td>
+                        <td>Thao tác</td>
+                    </tr>
+                    <?php
+//                    var_dump($_SESSION['mycard']);
+                    $tong = 0;
+                    foreach ($_SESSION['mycard'] as $key => $value){
+                    $tong += $value[5];
+                     ?>
+                    <tr class="cart-row">
+                        <td><?php echo $key+1 ?></td>
+                        <td><?php echo $value[1]?></td>
+                        <td><?php echo $value[3]?></td>
+                        <td><img src="View/src/upload/<?php echo $value[2]?>" alt="Lỗi tải ảnh" width="300px"></td>
+                        <td><?php echo $value[4]?></td>
+                        <td class="price"><?php echo $value[5]?></td>
+                        <td>
+                            <a href="index.php?url=xoa-phong&id=<?php echo $key ?>"><input type="button" value="Xóa"></a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                    <tr>
+                        <td colspan="5">Tổng tiền</td>
+                        <td ><?php echo $tong ?> VNĐ</td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="main-bookphong">
+                <h2>Thông tin khách hàng</h2>
+                <form action="index.php?url=bill" method="post" onsubmit="return validateKiemTra()">
                     <div class="frm-boxphong">
                         <div class="boxphong-item">
                             <p>Ngày đến</p>
-                            <input type="date" name="checkin">
+                            <input type="date" id="ngayden" name="checkin" value="" required>
                         </div>
                         <div class="boxphong-item">
                             <p>Người lớn</p>
-                            <select name="nguoilon" id="">
+                            <select name="nguoilon" id="" required>
                                 <option value="0">Lựa chọn</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -93,78 +129,78 @@
                         </div>
                         <div class="boxphong-item">
                             <p>Ngày đi</p>
-                            <input type="date" name="checkout">
+                            <input type="date" id="ngaydi" name="checkout" value="" required>
                         </div>
                         <div class="boxphong-item">
                             <p>Trẻ em</p>
-                            <select name="treem" id="">
+                            <select name="treem" id="" required>
                                 <option value="0">Lựa chọn</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
                         </div>
                     </div>
-                    <table>
-                        <tr>
-                            <td>Loại phòng</td>
-                            <td>Giá/đêm</td>
-                            <td>Số người tối đa</td>
-                            <td>Chọn phòng</td>
-                        </tr>
-                        <?php
-//                        var_dump($user);
-//                        var_dump($listPhong);
-                        foreach ($listPhong as $key => $value){ ?>
-                        <tr>
-                            <th><?php echo $value['name']?></th>
-                            <th><?php echo $value['price']?> VND/đêm</th>
-                            <th>2 người lớn</th>
-                            <th><select name="sophong" id="">
-                                    <option value="0">Lựa chọn</option>
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                </select>
-                            </th>
-                            <input type="hidden" name="id_phong" value="<?php echo $value['id_cate']?>">
-                        </tr>
-                        <?php } ?>
-                    </table>
+<!--                    <table>-->
+<!--                        <tr>-->
+<!--                            <td>Loại phòng</td>-->
+<!--                            <td>Giá/đêm</td>-->
+<!--                            <td>Số người tối đa</td>-->
+<!--                            <td>Chọn phòng</td>-->
+<!--                        </tr>-->
+<!--                        --><?php
+////                        var_dump($user);
+////                        var_dump($listPhong);
+//                        foreach ($listPhong as $key => $value){ ?>
+<!--                        <tr>-->
+<!--                            <th>--><?php //echo $value['name']?><!--</th>-->
+<!--                            <th>--><?php //echo $value['price']?><!-- VND/đêm</th>-->
+<!--                            <th>2 người lớn</th>-->
+<!--                            <th><select name="sophong" id="">-->
+<!--                                    <option value="0">Lựa chọn</option>-->
+<!--                                    <option value="1">1</option>-->
+<!--                                    <option value="1">2</option>-->
+<!--                                    <option value="1">3</option>-->
+<!--                                </select>-->
+<!--                            </th>-->
+<!--                            <input type="hidden" name="id_phong" value="--><?php //echo $value['id_cate']?><!--">-->
+<!--                        </tr>-->
+<!--                        --><?php //} ?>
+<!--                    </table>-->
 
                     <div class="frm-boxphong">
                         <div class="boxphong-item">
                             <p>Giới tính</p>
-                            <select name="sex" id="">
-                                <option value="0">Lựa chọn</option>
+                            <select name="sex" id="" required>
+                                <option value="0" >Lựa chọn</option>
                                 <option value="1">Nam</option>
                                 <option value="2">Nữ</option>
                             </select>
                         </div>
                         <div class="boxphong-item">
                             <p>Họ tên</p>
-                            <input type="text" name="fullname" placeholder="Nhập họ tên" value="<?php echo $user != '' ? $user['fullname']: ''?>">
+                            <input type="text" name="fullname" placeholder="Nhập họ tên" value="<?php echo $user != '' ? $user['fullname']: ''?>" required>
                         </div>
                         <div class="boxphong-item">
                             <p>Email</p>
-                            <input type="email" name="email" placeholder="Email" value="<?php echo $user != '' ? $user['email']: ''?>">
+                            <input type="email" name="email" placeholder="Email" value="<?php echo $user != '' ? $user['email']: ''?>" required>
                         </div>
                         <div class="boxphong-item">
                             <p>Số điện thoại</p>
-                            <input type="number" name="tel" placeholder="Số điện thoại" value="<?php echo $user != '' ? $user['tel']: ''?>">
+                            <input type="number" name="tel" placeholder="Số điện thoại" value="<?php echo $user != '' ? $user['tel']: ''?>" required>
                         </div>
 
                         <div class="boxphong-item">
                             <p>Thời gian đến</p>
-                            <input type="datetime-local" name="date_time" id="">
+                            <input type="datetime-local" name="date_time" id="" required>
 
                         </div>
                         <div class="boxphong-item">
                             <p>Địa chỉ</p>
-                            <input type="text" name="address" placeholder="Địa chỉ" value="<?php echo $user != '' ? $user['address']: ''?>">
+                            <input type="text" name="address" placeholder="Địa chỉ" value="<?php echo $user != '' ? $user['address']: ''?>" required>
                         </div>
                         <div class="boxphong-item">
                             <p>Thành phố</p>
-                            <input type="text" name="city" placeholder="Thành phố">
+                            <input type="text" name="city" id="city" placeholder="Thành phố" required>
                         </div>
                         <div class="boxphong-item">
                             <p>Yêu cầu khác</p>
@@ -176,9 +212,8 @@
                         <br>
 <!--                        <button type="submit">Gửi</button>-->
                         <input type="submit" value="Gửi" name="gui">
+<!--                        <button type="submit">Gui</button>-->
                     </div>
-
-
                 </form>
             </div>
         </main>
@@ -275,6 +310,46 @@
             }
         </script>
     </div>
+    <script>
+
+        var today = new Date();
+        var dateToday = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        // document.querySelector("#ngayden").value = dateToday;
+        var dateNext = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()+1);
+        // inputdateObject.value = YYYY-MM-DD;
+        // document.querySelector("#ngaydi").value = dateNext;
+        // var ngayden = document.querySelector("#ngayden").value = '2023-11-20';
+        var ngayden = document.getElementById('ngayden').value;
+        console.log(ngayden);
+        // var ngaydi = document.querySelector("#ngaydi").value = '2022-11-20';
+        var flag = true;
+        // console.log(ngayden);
+        //
+        //
+        // var ngayden = document.querySelector("#ngayden").value;
+        var ngaydi = document.querySelector("#ngaydi").value;
+
+
+        // function validateKiemTra(){
+        //     // if (ngayden == '' || ngaydi == ''){
+        //     //     alert('Bạn cần nhập ngày đến và đi');
+        //     //     flag = false;
+        //     // }
+        //
+        //     // var flag = true;
+        //     if (ngayden < dateToday){
+        //         console.log(ngayden);
+        //         alert('Không nhập được ngày đến cũ hơn ngày ' +dateToday);
+        //         flag = false;
+        //     }
+        //     if(ngayden > ngaydi){
+        //         alert('Ngày đến không thể lớn hơn ngày đi');
+        //         flag = false;
+        //     }
+        //     return flag;
+        // }
+        // console.log(ngayden > ngaydi);
+    </script>
 </body>
 
 </html>
