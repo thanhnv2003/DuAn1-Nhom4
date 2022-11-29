@@ -25,10 +25,12 @@ function chitietphong(){
     if(isset($_GET['id']) && ($_GET['id']>0)){
         $list_onerooms = loaiphong_loadone($_GET['id']);
         $img_room = list_image_room($_GET['id']);
-    }
+
+      }
+    $list_roomss = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/chiTietPhong.php';
-}
+    }
 function dichVu(){
     $list_dichvu =dichvu_loadall();
     $giaoDien = giaoDienTrangChu();
