@@ -30,8 +30,9 @@ $loadone_comment = loadall_binhluan($id_room);
             </table>
         </div>
         <div class="frombinhlian">
+
             <?php
-            if(isset($_SESSION['user'])){
+            if(isset( $_SESSION['account'] )){
             ?>
             <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
                 <input type="hidden" name="id_room" id="" value="<?=$id_room?>">
@@ -49,11 +50,11 @@ $loadone_comment = loadall_binhluan($id_room);
         if(isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])){
             $content = $_POST['content'];
             $id_room = $_POST['id_room'];
-            $id_user = $_SESSION['user']['id_account'];
+            $id_user = $_SESSION['account']['id_account'];
             $date_time = date('h:i:sa d/m/Y');
             insert_comment($content,$id_room,$id_user,$date_time);
             header("location:  ".$_SERVER['HTTP_REFERER']);
-            
+
         }
         ?>
 

@@ -84,20 +84,20 @@
                     <p><i class="fa-regular fa-envelope"></i> Duan1nhom4@gmail.com</p>
                 </div>
                 <div class="lh-box-right">
-                    <form action="">
+                    <form action="index.php?url=lien-he" method="post">
                         <div class="frm-boxright">
-                            <select name="" id="">
+                            <select name="sex" id="">
                                 <option value="0">--Lựa chọn--</option>
                                 <option value="1">Ông </option>
                                 <option value="2">Bà</option>
 
                             </select>
-                            <input type="text" value="" placeholder="Họ tên">
-                            <input type="number" value="" placeholder="Số điện thoại" min="0">
-                            <input type="email" placeholder="Email">
+                            <input type="text" name="name" value="" placeholder="Họ tên">
+                            <input type="number" name="phone" value="" placeholder="Số điện thoại" min="0">
+                            <input type="email" name="email" placeholder="Email">
                         </div>
-                        <textarea placeholder="Yêu cầu khác"></textarea> <br>
-                        <button type="submit">Gửi</button>
+                        <textarea name="content" placeholder="Yêu cầu khác"></textarea> <br>
+                        <input type="submit" id="submit" name="gui" value="Gửi">
                     </form>
                 </div>
             </div>
