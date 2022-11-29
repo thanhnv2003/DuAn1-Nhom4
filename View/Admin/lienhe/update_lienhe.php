@@ -45,7 +45,7 @@ if(is_array($lienhe)){
                         <div class="form-group">
                         <label for="">trạng thái</label> <br>
                         <select name="status">
-                           <option value="0">Chửa trả lời</option>
+                           <option value="0">Chưa trả lời</option>
                             <option value="1">Đã trả lời</option>
                         </select>
                     </div>
