@@ -47,19 +47,16 @@
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
                     <img src="View/src/image/chup-hinh-khach-san-nha-hang-mimosa-06-1 1.png" style="width:100%">
-                    <div class="text">Caption Text</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
                     <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">
-                    <div class="text">Caption Two</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
                     <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" style="width:100%">
-                    <div class="text">Caption Three</div>
                 </div>
 
                 <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -92,7 +89,7 @@
                                 đơn tự
                                 chọn và gọi món để bạn có trải nghiệm ẩm thực sang trọng giữa thiên nhiên.
                             </p>
-                            <a href="index.php?url=chi-tiet"><input type="button" value="Xem chi tiết"></a>
+                            <a href="index.php?url=trang-chu"><input type="button" value="Xem chi tiết"></a>
                         </div>
                     </div>
                     <div class="dv-product-left">
@@ -104,7 +101,7 @@
                                 thu
                                 hút.
                             </p>
-                            <a href="index.php?url=chi-tiet"><input type="button" value="Xem chi tiết"></a>
+                            <a href="index.php?url=trang-chu"><input type="button" value="Xem chi tiết"></a>
                         </div>
                         <div class="dv-product-img">
                             <a href="#"> <img src="View/src/image/cac-goi-dich-vu-spa-1 1.png" alt=""></a>

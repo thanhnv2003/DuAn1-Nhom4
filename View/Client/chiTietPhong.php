@@ -2,6 +2,7 @@
 
 if(is_array($list_onerooms)) {
     extract($list_onerooms);
+     var_dump($list_onerooms);
 }
 
 ?>
@@ -52,11 +53,11 @@ if(is_array($list_onerooms)) {
             <div class="slideshow-container">
                 <?php foreach ($img_room as $value ){
                     extract($value);
+//                    var_dump($img_room);
                echo '
                 <div class="mySlides fade">
                     <div class="numbertext"></div>
                     <img src="View/src/upload/'.$image.'" style="width:100%">
-                    <div class="text">Caption Text</div>
                 </div>
                 ';
                  } ?>
@@ -133,8 +134,14 @@ if(is_array($list_onerooms)) {
                     </div>
                 </div>
                 <!--book phòng-->
-                <form action="">
-                    <a href="index.php?url=book-phong"> <input type="button" value="ĐẶT PHÒNG"></a>
+                <form action="index.php?url=them-moi-gio-hang" method="post">
+                    <input type="hidden" name="id" value="<?php echo $id_cate;?>">
+                    <input type="hidden" name="name" value="<?php echo $name;?>">
+                    <input type="hidden" name="image" value="<?php echo $image;?>">
+                    <input type="hidden" name="price" value="<?php echo $price;?>">
+                    <input type="number" name="quantity" min="0" max="3" value="1">
+<!--                    <a href="index.php?url=themmoi"><input type="button" value="ĐẶT PHÒNG"></a>-->
+                    <input type="submit" name="themmoi" value="Đặt Phòng">
                 </form>
                 <!---->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
