@@ -2,6 +2,10 @@
 session_start();
 require_once './Controller/clientController.php';
 require_once './Controller/adminController.php';
+
+if (!isset($_SESSION['mycard'])) $_SESSION['mycard'] = [];
+if (!isset($_SESSION['bill'])) $_SESSION['bill'] = [];
+
 $url = isset($_GET['url']) ? $_GET['url'] : 'trang-chu';
 
 switch($url){
@@ -43,13 +47,27 @@ switch($url){
         session_unset();
         header('location: index.php');
         break;
-    case 'welcome':
-        echo welcome();
+    case 'them-moi-gio-hang':
+//        var_dump($_SESSION['mycard']);
+        echo themMoiGioHang();
         break;
+    case 'xoa-phong':
+        echo xoaPhong();
+        break;
+    case 'bill':
+        echo bill();
+        break;
+    case 'bill-confirm':
+        echo billConfirm();
+        break;
+
     //Admin
 //    if (isset($_SESSION['account'])){
     case 'admin':
         echo indexAdmin();
+        break;
+    case 'chi-tiet-don-hang':
+        echo chiTietDonHang();
         break;
     case 'quan-ly-loai-phong':
         echo listLoaiPhong();

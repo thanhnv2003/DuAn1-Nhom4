@@ -63,7 +63,7 @@
                     <input type="date" name="" id="deprture-date">
                     <label for="">Number of people</label>
                     <input type="number" name="" id="number">
-                    <input type="submit" name="" id="book" value="BOOK A STAY">
+                    <a href="index.php?url=loai-phong"><input type="button" name="" id="book" value="BOOK A STAY"></a>
                 </form>
             </div>
             <div class="header-conten">
@@ -92,15 +92,17 @@
 
                     <h1>PHÒNG</h1>
                     <div class="rooms">
-                        <?php foreach($listPhong as $key => $value){ ?>
+                        <?php
+//                        var_dump($listPhong);
+                        foreach($listPhong as $key => $value){ ?>
                         <div class="room">
                             <img src="View/src/upload/<?php echo $value['image']?>" alt="">
                             <div class="information">
                                 <div class="icon">
-                                    <p><i class='bx bxs-user'></i> Số người: 2</p><br>
-                                    <p> <i class='bx bxs-area'></i> Diện tích : 19m2</p> <br>
-                                    <p> <i class='bx bxs-bed'></i> Loại giường: 1 giường đơn</p><br>
-                                    <p><i class='bx bxs-bullseye'></i> Hướng nhìn: nhìn về hướng biển </p> </i>
+                                    <p><i class='bx bxs-user'></i> Số người: <?php echo $value['number']?></p><br>
+                                    <p> <i class='bx bxs-area'></i> Diện tích : <?php echo $value['area']?></p> <br>
+                                    <p> <i class='bx bxs-bed'></i> Loại giường: <?php echo $value['bed']?></p><br>
+                                    <p><i class='bx bxs-bullseye'></i> Hướng nhìn: <?php echo $value['views']?></p> </i>
                                 </div>
                                 <button><a href="index.php?url=chi-tiet-phong&id=<?php echo $value['id_cate']?>">Xem chi tiết</a></button>
                             </div>

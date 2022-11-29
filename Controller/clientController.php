@@ -5,6 +5,7 @@ require_once './Models/account.php';
 require_once './Models/comment.php';
 require_once './Models/dichvu.php';
 require_once './Models/home.php';
+require_once './Models/cart.php';
 
 
 function indexRoom(){
@@ -99,10 +100,111 @@ function capNhatTaiKhoan(){
     include_once './View/Client/taikhoan/update_taikhoan.php';
 }
 function datPhong(){
-    $user = $_SESSION['account'];
+    if (isset($_SESSION['account'])){
+        $user = $_SESSION['account'];
+    }else{
+        $user = '';
+    }
     $listPhong = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/bookPhong.php';
+}
+function themMoiGioHang(){
+    if (isset($_POST['themmoi']) && ($_POST['themmoi'])){
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $image = $_POST['image'];
+        $price = $_POST['price'];
+        $quantity = $_POST['quantity'];
+
+        $thanhtien = $price * $quantity;
+        $room_add = [$id, $name, $image, $price, $quantity, $thanhtien];
+        array_push($_SESSION['mycard'], $room_add);
+    }
+    if (isset($_SESSION['account'])){
+        $user = $_SESSION['account'];
+    }else{
+        $user = '';
+    }
+//    $listPhong = loaiphong_loadall();
+    $giaoDien = giaoDienTrangChu();
+    include_once './View/Client/bookPhong.php';
+}
+function xoaPhong(){
+    if (isset($_GET['id'])){
+        array_splice($_SESSION['mycard'],$_GET['id'],1);
+    }else{
+        $_SESSION['mycard'] = [];
+    };
+    header('location: index.php?url=book-phong');
+}
+function bill(){
+    if (isset($_POST['gui']) && ($_POST['gui'])){
+        if (isset($_SESSION['account'])){
+            $idAccount = $_SESSION['account']['id_account'];
+        }else{
+            $idAccount = 0;
+        }
+        $checkin = $_POST['checkin'];
+        $checkout = $_POST['checkout'];
+        $nguoilon = $_POST['nguoilon'];
+        $treem = $_POST['treem'];
+        $gioitinh = $_POST['sex'];
+        $hoten = $_POST['fullname'];
+        $email = $_POST['email'];
+        $tel = $_POST['tel'];
+        $thoigianden = $_POST['date_time'];
+        $diachi = $_POST['address'];
+        $thanhpho = $_POST['city'];
+        $yeucaukhac =$_POST['yeucau'];
+        $bill_add = [$checkin, $checkout, $nguoilon, $treem, $gioitinh, $hoten, $email, $tel, $thoigianden, $diachi, $thanhpho, $yeucaukhac];
+        array_push($_SESSION['bill'], $bill_add);
+    }
+    if (isset($_SESSION['bill'])){
+        $bill = $_SESSION['bill'];
+        $count_arr = count($_SESSION['bill']);
+        $bill_detail = $bill[$count_arr-1];
+    }else{
+        $bill = '';
+    }
+    var_dump($_SESSION['mycard']);
+    if (isset($_SESSION['account'])){
+        $user = $_SESSION['account'];
+    }else{
+        $user = '';
+    }
+//    $listPhong = loaiphong_loadall();
+    $giaoDien = giaoDienTrangChu();
+    include_once './View/Client/cart/bill.php';
+}
+function billConfirm(){
+    if (isset($_POST['gui']) && $_POST['gui']){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $ngaydathang = date('h:i:sa d/m/Y');
+        $tongdonhang = tongdonhang();
+
+        if (isset($_SESSION['account'])){
+            $idAccount = $_SESSION['account']['id_account'];
+        }else{
+            $idAccount = 0;
+        }
+        if (isset($_SESSION['bill'])){
+            $bill = $_SESSION['bill'];
+            $count_arr = count($_SESSION['bill']);
+            $bill_detail = $bill[$count_arr-1];
+        }else{
+            $bill = '';
+        }
+        $id_bill = themMoiDonHang($bill_detail[5], $bill_detail[7], $bill_detail[6], $bill_detail[2], $bill_detail[3], $tongdonhang, null, $bill_detail[8], $bill_detail[0], $bill_detail[1]);
+
+        foreach ($_SESSION['mycard'] as $cart){
+            themMoiBookDetail($cart[0],$id_bill,$cart[3], $cart[4], $cart[5]);
+        }
+        $_SESSION['mycard'] = [];
+    }
+    $ctbill = listDonHangkh($id_bill);
+    $giaoDien = giaoDienTrangChu();
+    include_once './View/Client/cart/billConFirm.php';
 }
 
 

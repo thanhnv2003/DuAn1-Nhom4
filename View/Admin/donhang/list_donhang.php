@@ -62,7 +62,6 @@
                                 <th>Họ tên</th>
                                 <th>Số điện thoại</th>
                                 <th>Email</th>
-                                <th>Id_voucher</th>
                                 <th>Tổng giá</th>
                                 <th>Trạng thái</th>
                                 <th>Ngày đặt</th>
@@ -76,6 +75,13 @@
                                 // var_dump($list_book);
                                 foreach ($list_donhang as $value) {
                                   extract($value);
+                                  if ($status == 0){
+                                      $trangthai = 'Vừa đặt';
+                                  }elseif ($status == 1){
+                                      $trangthai = 'Đang thuê';
+                                  }elseif ($status == 2){
+                                      $trangthai = 'Đã trả';
+                                  }
                                   echo'
                                 
                             <tr>
@@ -84,14 +90,14 @@
                                 <td>' .$fullname. '</td>
                                 <td>' .$tel . '</td>
                                 <td>' .$email . '</td>
-                                <td>' .$id_voucher . '</td>
                                 <td>' .$total_price . '</td>
-                                <td>' .$status . '</td>
+                                <td>' .$trangthai . '</td>
                                 <td>' .$date_time . '</td>
                                 <td>' .$check_in_date . '</td>
                                 <td>' .$check_out_date . '</td>
 
                                 <td class="btn1">
+                                <a href="index.php?url=chi-tiet-don-hang&id='.$id_book.'"><input class="btn btn-primary btn2" type="button" value="Chi tiết"></a>
                                 <a href="index.php?url=sua-don-hang&id='.$id_book.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
                                 <a href="index.php?url=xoa-don-hang&id='.$id_book.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a>
                                 </td>

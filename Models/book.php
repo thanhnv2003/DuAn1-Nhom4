@@ -9,10 +9,9 @@ function donhang_loadone($id_book){
     $donhang=pdo_query_one($sql);
     return $donhang;
 }
-function donhang_update($id_book,$status,$check_in_date,$check_out_date){
-    $sql = "UPDATE `book` SET `status`='$status',`check_in_date`='$check_in_date',`check_out_date`='$check_out_date' WHERE id_book=".$id_book;
+function donhang_update($id_book,$status){
+    $sql = "UPDATE `book` SET `status`='$status' WHERE id_book=".$id_book;
     pdo_execute($sql);
-    
  }
  function donhang_delete($id_book){
     $sql = "DELETE FROM `book` WHERE id_book=".$id_book;
