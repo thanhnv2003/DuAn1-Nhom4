@@ -2,7 +2,7 @@
 
 if(is_array($list_onerooms)) {
     extract($list_onerooms);
-     var_dump($list_onerooms);
+//     var_dump($list_onerooms);
 }
 
 ?>

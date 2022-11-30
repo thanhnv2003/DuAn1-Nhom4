@@ -64,7 +64,11 @@ switch($url){
     //Admin
 //    if (isset($_SESSION['account'])){
     case 'admin':
-        echo indexAdmin();
+        if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
+            echo indexAdmin();
+        }else{
+            echo 'Bạn không phải Admin. Vui lòng quay trở lại!<br><a href="index.php">Trở về trang chủ</a>';
+        }
         break;
     case 'chi-tiet-don-hang':
         echo chiTietDonHang();

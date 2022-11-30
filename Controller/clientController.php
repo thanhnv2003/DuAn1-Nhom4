@@ -84,7 +84,6 @@ function quenMatKhau(){
     if (isset($_POST['quenmatkhau']) && ($_POST['quenmatkhau'])){
         $email = $_POST['email'];
         $checkemail = check_email($email);
-//        var_dump($checkemail);
         if (is_array($checkemail) && $checkemail != null){
             $thongbao = 'Mật khẩu của bạn là: '.$checkemail['password'];
         }else{
@@ -128,7 +127,6 @@ function themMoiGioHang(){
         $image = $_POST['image'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
-
         $thanhtien = $price * $quantity;
         $room_add = [$id, $name, $image, $price, $quantity, $thanhtien];
         array_push($_SESSION['mycard'], $room_add);
@@ -179,7 +177,7 @@ function bill(){
     }else{
         $bill = '';
     }
-    var_dump($_SESSION['mycard']);
+//    var_dump($_SESSION['mycard']);
     if (isset($_SESSION['account'])){
         $user = $_SESSION['account'];
     }else{
