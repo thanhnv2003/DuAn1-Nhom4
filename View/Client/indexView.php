@@ -58,9 +58,9 @@
             <div class="book-date">
                 <form action="">
                     <label for="">Arival date</label>
-                    <input type="date" id="arival-date">
+                    <input type="date" class="input-date" id="arival-date">
                     <label for="">Deprture date</label>
-                    <input type="date" name="" id="deprture-date">
+                    <input type="date" name="" class="input-date" id="deprture-date">
                     <label for="">Number of people</label>
                     <input type="number" name="" id="number">
                     <a href="index.php?url=loai-phong"><input type="button" name="" id="book" value="BOOK A STAY"></a>

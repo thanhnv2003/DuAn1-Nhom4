@@ -158,11 +158,17 @@ switch($url){
     case 'cap-nhat-anh-khach-san':
         echo capNhatKhachSan();
         break;
-//    case 'sua-thong-ke':
-//        echo
-//        break;
+    case 'cap-nhat-lien-he':
+        echo capnhatLienhe();
+        break;
+
+
+
     case 'sua-uu-dai':
         echo edit_uudai();
+        break;
+    case 'sua-lien-he':
+        echo  edit_Lienhe();
         break;
     case 'sua-dich-vu':
         echo edit_DichVu();
@@ -220,9 +226,9 @@ case 'cap-nhat-uu-dai':
    case 'xoa-dich-vu':
        echo deleteDichVu();
        break;
-//    case '':
-//        echo
-//        break;
+    case 'xoa-lien-he':
+        echo deletelienhe();
+        break;
 //    case '':
 //        echo
 //        break;

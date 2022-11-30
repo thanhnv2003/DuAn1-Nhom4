@@ -1,7 +1,9 @@
 <?php
 session_start();
-$id_user = $_REQUEST['id_user'];
-$dsbl = loadall_binhluan($id_user);
+require_once '../../Models/pdo.php';
+require_once '../../Models/comment.php';
+$id_room = $_REQUEST['id_room'];
+$loadone_comment = loadall_binhluan($id_room);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,20 +18,45 @@ $dsbl = loadall_binhluan($id_user);
         <h3>Bình luận </h3>
         <div class="thanhphan">
             <table>
-                <tr>
-                    <td>id_user</td>
-                    <td>nội dung</td>
-                    <td>ngày bình luận </td>
-                </tr>
+                    <?php
+                    foreach ($loadone_comment as $item){
+                        extract($item);
+                        echo '<tr> <td>'.$content.'</td>' ;
+                        echo '<td>'.$Id_user.'</td>' ;
+                        echo '<td>'.$date_time	.'</td></tr>' ;
+                    }
+                    ?>
+
             </table>
         </div>
         <div class="frombinhlian">
+
+            <?php
+            if(isset( $_SESSION['account'] )){
+            ?>
             <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-                <input type="hidden" name="id_user" id="" value="<?=$id_user?>">
+                <input type="hidden" name="id_room" id="" value="<?=$id_room?>">
                 <input type="text" name="content">
                 <input type="submit" name="guibinhluan" value="gửi bình luận ">
             </form>
+                <?php
+            }
+            else{
+                echo 'bạn cần đăng ký tài khoản ';
+            }
+            ?>
         </div>
+        <?php
+        if(isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])){
+            $content = $_POST['content'];
+            $id_room = $_POST['id_room'];
+            $id_user = $_SESSION['account']['id_account'];
+            $date_time = date('h:i:sa d/m/Y');
+            insert_comment($content,$id_room,$id_user,$date_time);
+            header("location:  ".$_SERVER['HTTP_REFERER']);
+        }
+        ?>
+
     </div>
 </body>
 </html>

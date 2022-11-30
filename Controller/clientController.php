@@ -5,6 +5,7 @@ require_once './Models/account.php';
 require_once './Models/comment.php';
 require_once './Models/dichvu.php';
 require_once './Models/home.php';
+require_once './Models/contact.php';
 require_once './Models/cart.php';
 
 
@@ -26,10 +27,12 @@ function chitietphong(){
     if(isset($_GET['id']) && ($_GET['id']>0)){
         $list_onerooms = loaiphong_loadone($_GET['id']);
         $img_room = list_image_room($_GET['id']);
-    }
+
+      }
+    $list_roomss = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/chiTietPhong.php';
-}
+    }
 function dichVu(){
     $list_dichvu =dichvu_loadall();
     $giaoDien = giaoDienTrangChu();
@@ -37,6 +40,15 @@ function dichVu(){
 }
 function lienHe(){
     $giaoDien = giaoDienTrangChu();
+    if(isset($_POST['gui']) && $_POST['gui']){
+        $sex=$_POST['sex'];
+        $name=$_POST['name'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $content = $_POST['content'];
+        insert_contact($sex,$name,$phone, $email,$content);
+        $thongbao = "cảm ơn bạn đã để lại liên hệ";
+    }
     include_once './View/Client/lienHe.php';
 }
 function dangNhap(){

@@ -134,7 +134,11 @@ nav ul li a:hover,
     grid-gap: 20px;
     margin-left: 70px;
 }
-
+/*//date*/
+/*.input-date{*/
+/*    padding: 10px !important;*/
+/*   border-radius: 10px;*/
+/*}*/
 .icon-dv img {
     width: 150px;
 }
@@ -229,7 +233,15 @@ nav ul li a:hover,
 .footer-box a:hover {
     box-shadow: 0 2px #8E1E20;
 }
-
+/* chi tiết phòng */
+.anh{
+    
+    height: 300px;
+}
+.anh img{
+    width: 100%;
+    height: 100%;
+}
 /*Đăng nhập-đăng kí*/
 .dn-box,
 .dk-box {
@@ -504,7 +516,7 @@ table tr th {
     font-size: 20px;
 }
 
-.lh-box-right button {
+.lh-box-right #submit{
     margin-left: 10px;
     margin-top: 20px;
     width: 70px;
