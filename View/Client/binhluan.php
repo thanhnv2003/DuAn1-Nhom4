@@ -54,7 +54,6 @@ $loadone_comment = loadall_binhluan($id_room);
             $date_time = date('h:i:sa d/m/Y');
             insert_comment($content,$id_room,$id_user,$date_time);
             header("location:  ".$_SERVER['HTTP_REFERER']);
-
         }
         ?>
 

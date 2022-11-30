@@ -73,6 +73,7 @@ function listUuDai(){
 }
 function listLienHe(){
     include_once './View/Admin/header.php';
+    $list_contact= loadall_contact();
     include_once './View/Admin/lienhe/list_lienhe.php';
     include_once './View/Admin/footer.php';
 }
@@ -349,12 +350,32 @@ function edit_DonHang(){
     include_once './View/Admin/donhang/update_donhang.php';
     include_once './View/Admin/footer.php';
 }
+function edit_Lienhe(){
+    include_once './View/Admin/header.php';
+    if(isset($_GET['id'])&& ($_GET['id']>0)){
+        $lienhe = lienhe_loadone($_GET['id']);
+    }
+    include_once './View/Admin/lienhe/update_lienhe.php';
+    include_once './View/Admin/footer.php';
+}
 function edit_DichVu(){
     include_once './View/Admin/header.php';
     if(isset($_GET['id'])&& ($_GET['id']>0)){
         $dichvu = dichvu_loadone($_GET['id']);
     }
     include_once './View/Admin/dichvu/update_dichvu.php';
+    include_once './View/Admin/footer.php';
+}
+function capnhatLienhe(){
+    include_once './View/Admin/header.php';
+    if(isset($_POST['capnhat']) && $_POST['capnhat']){
+        $id_contact = $_POST['id_contact'];
+        $status = $_POST['status'];
+        update_liennhe($id_contact,$status);
+        $thongbao = "Update thành công";
+    }
+    $list_contact= loadall_contact();
+    include_once './View/Admin/lienhe/list_lienhe.php';
     include_once './View/Admin/footer.php';
 }
 function capNhatKhachHang(){
@@ -657,5 +678,15 @@ function deleteDonHang(){
      } 
      $list_donhang = donhang_loadall() ;
      include_once './View/Admin/donhang/list_donhang.php';
+    }
+    function deletelienhe(){
+            include_once './View/Admin/header.php';
+            if(isset($_GET['id'])&& ($_GET['id']>0)){
+                $xoalienhe = delete_contact($_GET['id']);
+            }
+        $list_contact= loadall_contact();
+            include_once './View/Admin/lienhe/list_lienhe.php';
+            include_once './View/Admin/footer.php';
+
     }
 ?>
