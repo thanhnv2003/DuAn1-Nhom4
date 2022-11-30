@@ -17,7 +17,7 @@
         <header>
             <div class="menu">
                 <div class="logo">
-                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>"></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo'] ?>"></a>
                 </div>
                 <nav>
                     <ul>
@@ -42,49 +42,65 @@
                 <?php } ?>
             </div>
         </header>
-        <div class="">
+        <div class="banner">
             <div class="slideshow-container">
-                <div class="mySlides fade imgSlider">
+                <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
                     <img src="View/src/image/chup-hinh-khach-san-nha-hang-mimosa-06-1 1.png" style="width:100%">
-                    <div class="text">Caption Text</div>
                 </div>
 
-                <div class="mySlides fade imgSlider">
+                <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
                     <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">
-                    <div class="text">Caption Two</div>
-            </div>    
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" style="width:100%">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+        <main>
             <div class="lp-product">
-              <?php
-               foreach ($list_roomss as $value) {
-                extract($value);
-                   echo '
+                <?php
+                foreach ($list_roomss as $value) {
+                    extract($value);
+                    echo '
                 <div class="lp-product1" >
                    <div class="lp-product-img" >
-                       <a href = "index.php?url=chi-tiet-phong&id='.$id_cate .'" ><img src = "./View/src/upload/'.$image.'" alt = "" class="img-room" ></a >
+                       <a href = "index.php?url=chi-tiet-phong&id=' . $id_cate . '" ><img src = "./View/src/upload/' . $image . '" alt = "" class="img-room" ></a >
                    </div >
                    <div class="lp-product-info" >
-                       <a href = "index.php?url=chi-tiet-phong&id='.$id_cate .'" >
-                           <h4>'.$name.'</h4 >
+                       <a href = "index.php?url=chi-tiet-phong&id=' . $id_cate . '" >
+                           <h4>' . $name . '</h4 >
                        </a >
-                       <span > Price :'.$price.'/ ngày </span >
+                       <span > Price :' . $price . '/ ngày </span >
                    </div >
                </div >
                 ';
                 }
-             ?>
-             </div>
-          </div>
-        </div>
-    </main>
+                ?>
+            </div>
+        </main>
+        </main>
         <footer>
             <div class="footer-box1">
                 <div class="footer-box">
                     <h2>Khách sạn CHAN MAY VN</h2>
-                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> <?php echo $giaoDien[0]['address']?></p>
-                    <p><i class="fa-sharp fa-solid fa-phone"></i> <?php echo $giaoDien[0]['tel']?></p>
-                    <p><i class="fa-sharp fa-solid fa-envelope"></i> <?php echo $giaoDien[0]['email']?></p>
+                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> <?php echo $giaoDien[0]['address'] ?></p>
+                    <p><i class="fa-sharp fa-solid fa-phone"></i> <?php echo $giaoDien[0]['tel'] ?></p>
+                    <p><i class="fa-sharp fa-solid fa-envelope"></i> <?php echo $giaoDien[0]['email'] ?></p>
                 </div>
                 <div class="footer-box">
                     <h2>Về chúng tôi</h2>
@@ -98,7 +114,7 @@
                     <a href="index.php?url=dieu-kien-va-dieu-khoan">Điều khoản & điều kiện</a>
                 </div>
                 <div class="footer-box2">
-                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>" alt=""></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo'] ?>" alt=""></a>
                     <script lang="javascript">
                         var __vnp = {
                             code: 4505,
@@ -167,7 +183,7 @@
             }
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
-            setTimeout(showSlides, 2000); 
+            setTimeout(showSlides, 2000);
         }
     </script>
 </body>

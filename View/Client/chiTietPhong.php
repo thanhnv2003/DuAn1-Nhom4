@@ -134,7 +134,7 @@ if(is_array($list_onerooms)) {
                     </div>
                 </div>
                 <!--book phòng-->
-                <form action="index.php?url=them-moi-gio-hang" method="post">
+                <form action="index.php?url=them-moi-gio-hang" method="post" class="frm-ctp">
                     <input type="hidden" name="id" value="<?php echo $id_cate;?>">
                     <input type="hidden" name="name" value="<?php echo $name;?>">
                     <input type="hidden" name="image" value="<?php echo $image;?>">
@@ -143,7 +143,7 @@ if(is_array($list_onerooms)) {
 <!--                    <a href="index.php?url=themmoi"><input type="button" value="ĐẶT PHÒNG"></a>-->
                     <input type="submit" name="themmoi" value="Đặt Phòng">
                 </form>
-                <!---->
+                <!--frm binh luan-->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script>
                     $(document).ready(function(){
@@ -151,7 +151,7 @@ if(is_array($list_onerooms)) {
                     });
                 </script>
                 <div class="topproducts" id="binhluan">
-
+                    
                 </div>
                 <div class="ct-phongkhac">
                     <?php
