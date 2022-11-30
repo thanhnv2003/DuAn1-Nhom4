@@ -1,4 +1,4 @@
-<?php var_dump($_SESSION['account']); ?>
+<?php //var_dump($_SESSION['mycard']); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,6 +73,7 @@
         </div>
         <!--Main-->
         <main>
+            <?php if (is_array($_SESSION['mycard']) && (count($_SESSION['mycard']) > 0) ){ ?>
             <div class="main-bookphong">
                 <h2>Thông tin phòng đặt</h2>
                 <table>
@@ -109,6 +110,9 @@
                     </tr>
                 </table>
             </div>
+            <?php }else{ ?>
+                <h2 align="center">Giỏ hàng chưa có phòng</h2>
+         <?php } ?>
 
 
             <div class="main-bookphong">
@@ -211,7 +215,9 @@
                         <input type="checkbox" value=""><label>Tôi đồng ý và chấp nhận điều khoản của khách sạn</label>
                         <br>
 <!--                        <button type="submit">Gửi</button>-->
+                        <?php if (is_array($_SESSION['mycard']) && (count($_SESSION['mycard']) > 0) ){ ?>
                         <input type="submit" value="Gửi" name="gui">
+                        <?php } ?>
 <!--                        <button type="submit">Gui</button>-->
                     </div>
                 </form>

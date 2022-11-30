@@ -65,13 +65,24 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <?php
+                            $tong = 0;
+                            foreach ($listDonHang as $key => $value){
+                                $listphong = loaiphong_loadone($value[0]);
+                                $tong += $value[4];
+                                ?>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php echo $key+1?></td>
+                                <td><?php echo $listphong['name']?></td>
+                                <td><?php echo $listphong['price']?></td>
+                                <td><img src="View/src/upload/<?php echo $listphong['image']?>" alt="Lỗi tải ảnh" width="300px"></td>
+                                <td><?php echo $value[3]?></td>
+                                <td><?php echo $value[4]?></td>
+                            </tr>
+                            <?php } ?>
+                            <tr>
+                                <td colspan="5">Tổng tiền</td>
+                                <td ><?php echo $tong ?> VNĐ</td>
                             </tr>
                             </tbody>
                         </table>
