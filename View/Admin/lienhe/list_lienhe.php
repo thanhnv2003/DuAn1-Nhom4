@@ -43,20 +43,34 @@
                             <th>Email</th>
                             <th>Số điện thoại</th>
                             <th>Nội dung</th>
+                            <th>trạng thái</th>
                             <th style="width: 22%;">Thao tác</th>
                         </tr>
                         </thead>
                         <tbody>
+                        <?php
+                        foreach ($list_contact as $value){
+                            extract($value);
+                            echo '
+                     
                         <tr>
                             <td><input class="form-check-input" type="checkbox" name="" id=""></td>
-                            <td>' . $danhmuc_id . '</td>
-                            <td>' . $danhmuc_name . '</td>
-                            <td>' . $danhmuc_id . '</td>
-                            <td>' . $danhmuc_name . '</td>
-                            <td>' . $danhmuc_id . '</td>
-                            <td>' . $danhmuc_name . '</td>
-                            <td class="btn1"><a href="' . $update_dm . '"><input class="btn btn-primary btn2" type="button" value="Sửa"></a><a href="' . $delete_dm . '" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a></td>
+                            <td>' . $id_contact  . '</td>
+                            <td>' . $sex . '</td>
+                            <td>'.$fullname.'</td>
+                            <td>'.$email . '</td>
+                            <td>' . $tel. '</td>
+                            <td>' . $content . '</td>
+                            <td>'.$status.'</td>
+                            <td class="btn1">
+                                <a href="index.php?url=sua-lien-he&id='.$id_contact .'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
+                                <a href="index.php?url=xoa-lien-he&id='.$id_contact .'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
+                                    <input class="btn btn-danger btn2" type="button" value="Xóa"></a>
+                            </td>
                         </tr>
+                               ';
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div>
@@ -64,6 +78,7 @@
         </div>
     </div>
 </div>
+
 <div class="thaotac">
     <div class="">
         <a href="index.php?act=add_danhmuc"><input class="btn btn-primary" type="button" value="Thêm danh mục"></a>

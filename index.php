@@ -64,7 +64,11 @@ switch($url){
     //Admin
 //    if (isset($_SESSION['account'])){
     case 'admin':
-        echo indexAdmin();
+        if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
+            echo indexAdmin();
+        }else{
+            echo 'Bạn không phải Admin. Vui lòng quay trở lại!<br><a href="index.php">Trở về trang chủ</a>';
+        }
         break;
     case 'chi-tiet-don-hang':
         echo chiTietDonHang();
@@ -102,9 +106,6 @@ switch($url){
         break;
     case 'them-moi-tai-khoan':
         echo themTaiKhoan();
-        break;
-    case 'them-moi-uu-dai':
-        echo themUuDai();
         break;
     case 'them-moi-dich-vu':
          echo themDichVu();
@@ -154,11 +155,14 @@ switch($url){
     case 'cap-nhat-anh-khach-san':
         echo capNhatKhachSan();
         break;
-//    case 'sua-thong-ke':
-//        echo
-//        break;
-    case 'sua-uu-dai':
-        echo edit_uudai();
+    case 'cap-nhat-lien-he':
+        echo capnhatLienhe();
+        break;
+
+
+
+    case 'sua-lien-he':
+        echo  edit_Lienhe();
         break;
     case 'sua-dich-vu':
         echo edit_DichVu();
@@ -173,9 +177,6 @@ switch($url){
         echo capNhatAnhSlider();
         break;
 //
-case 'cap-nhat-uu-dai':
-    echo capNhatUuDai();
-    break;
 //
 //
 //        //delete
@@ -203,22 +204,12 @@ case 'cap-nhat-uu-dai':
     case 'xoa-don-hang':
         echo deleteDonHang();
          break;
-
-//    case 'xoa-thong-ke':
-//        echo
-//        break;
-   case 'xoa-uu-dai':
-       echo  deleteUuDai();
-       break;
-//    case 'xoa-lien-he':
-//        echo
-//        break;
    case 'xoa-dich-vu':
        echo deleteDichVu();
        break;
-//    case '':
-//        echo
-//        break;
+    case 'xoa-lien-he':
+        echo deletelienhe();
+        break;
 //    case '':
 //        echo
 //        break;
