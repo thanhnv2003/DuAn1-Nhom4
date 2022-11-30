@@ -107,9 +107,6 @@ switch($url){
     case 'them-moi-tai-khoan':
         echo themTaiKhoan();
         break;
-    case 'them-moi-uu-dai':
-        echo themUuDai();
-        break;
     case 'them-moi-dich-vu':
          echo themDichVu();
          break;
@@ -164,9 +161,6 @@ switch($url){
 
 
 
-    case 'sua-uu-dai':
-        echo edit_uudai();
-        break;
     case 'sua-lien-he':
         echo  edit_Lienhe();
         break;
@@ -183,9 +177,6 @@ switch($url){
         echo capNhatAnhSlider();
         break;
 //
-case 'cap-nhat-uu-dai':
-    echo capNhatUuDai();
-    break;
 //
 //
 //        //delete
@@ -213,16 +204,6 @@ case 'cap-nhat-uu-dai':
     case 'xoa-don-hang':
         echo deleteDonHang();
          break;
-
-//    case 'xoa-thong-ke':
-//        echo
-//        break;
-   case 'xoa-uu-dai':
-       echo  deleteUuDai();
-       break;
-//    case 'xoa-lien-he':
-//        echo
-//        break;
    case 'xoa-dich-vu':
        echo deleteDichVu();
        break;

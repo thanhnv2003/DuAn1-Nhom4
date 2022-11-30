@@ -4,7 +4,7 @@ function insert_contact($sex,$name,$phone, $email,$content){
     pdo_execute($sql);
 }
 function loadall_contact(){
-    $result = "Select * from contact order by id_contact ";
+    $result = "Select * from contact order by id_contact desc";
     $comment = pdo_query($result);
     return $comment;
 }

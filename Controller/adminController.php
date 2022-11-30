@@ -80,17 +80,10 @@ if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
         include_once './View/Admin/footer.php';
     }
 
-    function listUuDai()
-    {
-        include_once './View/Admin/header.php';
-        $list_uudai = uudai_loadall();
-        include_once './View/Admin/uudai/list_uudai.php';
-        include_once './View/Admin/footer.php';
-    }
-
     function listLienHe()
     {
         include_once './View/Admin/header.php';
+        $list_contact= loadall_contact();
         include_once './View/Admin/lienhe/list_lienhe.php';
         include_once './View/Admin/footer.php';
     }
@@ -196,21 +189,7 @@ if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
         include_once './View/Admin/footer.php';
     }
 
-function themUuDai()
-{
-    include_once './View/Admin/header.php';
-    if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
-        $usename = $_POST["usename"];
-        $giftcode = $_POST["giftcode"];
-        $price = $_POST["price"];
-        $quantity = $_POST["quantity"];
-        $date_end = $_POST["date_end"];
-        uudai_inset($usename, $giftcode, $price, $quantity, $date_end);
-        $thongbao = "Bạn đã thêm ưu đãi thành công";
-    }
-    include_once './View/Admin/uudai/add_uudai.php';
-    include_once './View/Admin/footer.php';
-}
+
 
 function themTaiKhoan()
 {
@@ -353,6 +332,7 @@ function capnhatLienhe(){
         $thongbao = "Update thành công";
     }
     $list_contact= loadall_contact();
+//    var_dump($list_contact);
     include_once './View/Admin/lienhe/list_lienhe.php';
     include_once './View/Admin/footer.php';
 }
@@ -504,23 +484,6 @@ function capNhatLoaiPhong()
           include_once './View/Admin/footer.php';
       }
 
-      function capNhatUuDai()
-      {
-          include_once './View/Admin/header.php';
-          if (isset($_POST['capnhat']) && $_POST['capnhat']) {
-              $id_voucher = $_POST['id'];
-              $tenuudai = $_POST['tenuudai'];
-              $giftcode = $_POST['giftcode'];
-              $price = $_POST['price'];
-              $quantity = $_POST["quantity"];
-              $date_end = $_POST["date_end"];
-              uudai_update($id_voucher, $tenuudai, $giftcode, $price, $quantity, $date_end);
-              $thongbao = "Update thành công";
-          }
-          $list_uudai = uudai_loadall();
-          include_once './View/Admin/uudai/list_uudai.php';
-          include_once './View/Admin/footer.php';
-      }
 
       function editAnhKhachSan()
       {
@@ -571,15 +534,7 @@ function capNhatLoaiPhong()
           include_once './View/Admin/footer.php';
       }
 
-      function edit_uudai()
-      {
-          include_once './View/Admin/header.php';
-          if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-              $uudai = uudai_loadone($_GET['id']);
-          }
-          include_once './View/Admin/uudai/update_uudai.php';
-          include_once './View/Admin/footer.php';
-      }
+
 
       function capNhatDichVu()
       {
@@ -730,15 +685,7 @@ function capNhatLoaiPhong()
           include_once './View/Admin/footer.php';
       }
 
-      function deleteUuDai()
-      {
-          include_once './View/Admin/header.php';
-          if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-              uudai_delete($_GET['id']);
-          }
-          $list_uudai = uudai_loadall();
-          include_once './View/Admin/uudai/list_uudai.php';
-      }
+
 
       function deleBinhluan()
       {
