@@ -85,7 +85,7 @@
                 document.querySelector("#tbemail").innerHTML = "";
             }
             //số điện thoai
-            var regsdt = /^0[1-9]{9}/;
+            var regsdt = /^0[0-9]{9}$/;
             if (number == "") {
                 document.querySelector("#tbnumber").innerHTML = "Vui lòng nhập số điện thoại !";
                 return false;
