@@ -7,7 +7,7 @@ require_once './Models/dichvu.php';
 require_once './Models/home.php';
 require_once './Models/contact.php';
 require_once './Models/cart.php';
-
+include_once './Email/sendmail.php';
 
 function indexRoom(){
     $giaoDien = giaoDienTrangChu();
@@ -81,17 +81,28 @@ function dangKy(){
     include_once './View/Client/taikhoan/register_taikhoan.php';
 }
 function quenMatKhau(){
+  
     if (isset($_POST['quenmatkhau']) && ($_POST['quenmatkhau'])){
         $email = $_POST['email'];
         $checkemail = check_email($email);
+        
         if (is_array($checkemail) && $checkemail != null){
-            $thongbao = 'Mật khẩu của bạn là: '.$checkemail['password'];
+            
+            $mail = $checkemail['password'];
+        $title= "Quên mật khẩu ";
+        $content = "Xin mời bạn nhập nội dung" ."<b>$mail<\b>";
+        Send_email($title,$content,$email);
         }else{
             $thongbao = 'Email này không tồn tại!';
         }
+        
+        
     }
+    
     include_once './View/Client/taikhoan/forgot_taikhoan.php';
+    
 }
+
 function capNhatTaiKhoan(){
     if (isset($_POST['capnhat']) && ($_POST['capnhat'])){
         $id = $_POST['id'];
