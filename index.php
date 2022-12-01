@@ -88,6 +88,9 @@ switch($url){
     case 'quan-ly-thong-ke':
         echo listThongKe();
         break;
+    case 'chart-thong-ke':
+        echo chartThongKe();
+        break;
     case 'quan-ly-uu-dai':
         echo listUuDai();
         break;

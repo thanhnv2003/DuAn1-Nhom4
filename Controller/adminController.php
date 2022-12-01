@@ -10,6 +10,7 @@ require_once './Models/uudai.php';
 require_once './Models/book.php';
 require_once './Models/contact.php';
 require_once './Models/cart.php';
+require_once './Models/thongke.php';
 
 if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
   function indexAdmin(){
@@ -76,7 +77,17 @@ if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
     function listThongKe()
     {
         include_once './View/Admin/header.php';
-        include_once './View/Admin/home.php';
+        $thongKe = loaad_all_thongke();
+        $soLuong = soluong_cacPhong();
+        include_once './View/Admin/thongke/list_ThongKe.php';
+        include_once './View/Admin/footer.php';
+    }
+    function chartThongKe()
+    {
+        include_once './View/Admin/header.php';
+        $soLuong = soluong_cacPhong();
+//        var_dump($soLuong);
+        include_once './View/Admin/thongke/chart.php';
         include_once './View/Admin/footer.php';
     }
 
