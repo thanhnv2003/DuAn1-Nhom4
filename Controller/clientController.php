@@ -155,6 +155,8 @@ function bill(){
         }else{
             $idAccount = 0;
         }
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+//        if ()
         $checkin = $_POST['checkin'];
         $checkout = $_POST['checkout'];
         $nguoilon = $_POST['nguoilon'];

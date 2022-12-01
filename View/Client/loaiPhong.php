@@ -85,7 +85,7 @@
                        <a href = "index.php?url=chi-tiet-phong&id=' . $id_cate . '" >
                            <h4>' . $name . '</h4 >
                        </a >
-                       <span > Price :' . $price . '/ ngày </span >
+                       <span > Price: ' . $price . ' VNĐ/ ngày </span >
                    </div >
                </div >
                 ';
