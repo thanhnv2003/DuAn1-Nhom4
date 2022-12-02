@@ -7,8 +7,7 @@ require_once './Models/dichvu.php';
 require_once './Models/home.php';
 require_once './Models/contact.php';
 require_once './Models/cart.php';
-
-
+include_once './Email/sendmail.php';
 function indexRoom(){
     $giaoDien = giaoDienTrangChu();
     $listPhong = loaiphong_loadall();
@@ -21,13 +20,13 @@ function gioiThieu(){
 function loaiPhong(){
     $giaoDien = giaoDienTrangChu();
     $list_roomss = loaiphong_loadall();
+    $slider = list_image();
     include_once './View/Client/loaiPhong.php';
 }
 function chitietphong(){
     if(isset($_GET['id']) && ($_GET['id']>0)){
         $list_onerooms = loaiphong_loadone($_GET['id']);
         $img_room = list_image_room($_GET['id']);
-
       }
     $list_roomss = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
@@ -81,17 +80,27 @@ function dangKy(){
     include_once './View/Client/taikhoan/register_taikhoan.php';
 }
 function quenMatKhau(){
+  
     if (isset($_POST['quenmatkhau']) && ($_POST['quenmatkhau'])){
         $email = $_POST['email'];
         $checkemail = check_email($email);
+        
         if (is_array($checkemail) && $checkemail != null){
-            $thongbao = 'Mật khẩu của bạn là: '.$checkemail['password'];
+            $mail = $checkemail['password'];
+            $title= "[CHAN MAY HOTEL & RESTAURANT] - FORGOT PASSWORD";
+            $content = "Mật khẩu cũ của bạn là: <b>$mail</b><br>Xin cảm ơn quý khách đã tin tưởng sử dụng dịch vụ của <b>CHÂN MÂY HOTEL & RESTAURANT</b>";
+            Send_email($title,$content,$email);
         }else{
             $thongbao = 'Email này không tồn tại!';
         }
+        
+        
     }
+    
     include_once './View/Client/taikhoan/forgot_taikhoan.php';
+    
 }
+
 function capNhatTaiKhoan(){
     if (isset($_POST['capnhat']) && ($_POST['capnhat'])){
         $id = $_POST['id'];
