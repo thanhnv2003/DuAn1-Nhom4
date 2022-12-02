@@ -44,16 +44,24 @@
         </header>
         <div class="">
             <div class="slideshow-container">
+                <?php
+                foreach ($slider as $item){
+                    extract($item);
+                    echo '
+              
                 <div class="mySlides fade imgSlider">
                     <div class="numbertext">1 / 3</div>
-                    <img src="View/src/image/chup-hinh-khach-san-nha-hang-mimosa-06-1 1.png" style="width:100%">
+                    <img src="View/src/upload/'.$image.'" style="width:100%">
                     <div class="text">Caption Text</div>
                 </div>
-
-                <div class="mySlides fade imgSlider">
-                    <div class="numbertext">2 / 3</div>
-                    <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">
-                    <div class="text">Caption Two</div>
+                ';
+                }
+                ?>
+<!---->
+<!--                <div class="mySlides fade imgSlider">-->
+<!--                    <div class="numbertext">2 / 3</div>-->
+<!--                    <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">-->
+<!--                    <div class="text">Caption Two</div>-->
             </div>    
             <div class="lp-product">
               <?php

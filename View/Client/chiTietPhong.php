@@ -53,7 +53,6 @@ if(is_array($list_onerooms)) {
             <div class="slideshow-container">
                 <?php foreach ($img_room as $value ){
                     extract($value);
-//                    var_dump($img_room);
                echo '
                 <div class="mySlides fade">
                     <div class="numbertext"></div>
