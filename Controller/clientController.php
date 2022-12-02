@@ -35,10 +35,12 @@ function chitietphong(){
 function dichVu(){
     $list_dichvu =dichvu_loadall();
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/dichVu.php';
 }
 function lienHe(){
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     if(isset($_POST['gui']) && $_POST['gui']){
         $sex=$_POST['sex'];
         $name=$_POST['name'];
