@@ -8,8 +8,8 @@ function tongdonhang(){
     return $tong;
 }
 //thêm mới bill
-function themMoiDonHang($fullname, $tel, $email, $adults, $children, $totalprice, $status, $datetime, $checkindate, $checkoutdate){
-    $sql = "INSERT INTO `book` (`id_book`, `fullname`, `tel`, `email`, `adults`, `children`, `total_price`, `status`, `date_time`, `check_in_date`, `check_out_date`) VALUES (NULL, '$fullname', '$tel', '$email', '$adults', '$children', '$totalprice', '$status', '$datetime', '$checkindate', '$checkoutdate')";
+function themMoiDonHang($fullname,$id_user, $tel, $email, $adults, $children, $totalprice, $status, $datetime, $checkindate, $checkoutdate){
+    $sql = "INSERT INTO `book` (`id_book`,`id_user`, `fullname`, `tel`, `email`, `adults`, `children`, `total_price`, `status`, `date_time`, `check_in_date`, `check_out_date`) VALUES (NULL,'$id_user', '$fullname', '$tel', '$email', '$adults', '$children', '$totalprice', '$status', '$datetime', '$checkindate', '$checkoutdate')";
     return pdo_execute_return_lastInsertId($sql);
 }
 //thêm mới book detail
@@ -22,5 +22,15 @@ function listDonHangkh($idbook){
     $sql = "SELECT * FROM book_detail WHERE id_book = ".$idbook;
     $ok = pdo_query($sql);
     return $ok;
+}
+//list booking theo id khách sạn
+function listdh_id($id){
+    $sql = "SELECT * FROM book WHERE id_user = ".$id;
+    $dh = pdo_query($sql);
+    return $dh;
+}
+function huybk($id){
+    $sql = "UPDATE book set status = 3 where id_book =".$id;
+    pdo_execute($sql);
 }
 ?>

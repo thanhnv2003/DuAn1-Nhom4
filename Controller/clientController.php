@@ -169,7 +169,7 @@ function bill(){
         $diachi = $_POST['address'];
         $thanhpho = $_POST['city'];
         $yeucaukhac =$_POST['yeucau'];
-        $bill_add = [$checkin, $checkout, $nguoilon, $treem, $gioitinh, $hoten, $email, $tel, $thoigianden, $diachi, $thanhpho, $yeucaukhac];
+        $bill_add = [$checkin, $checkout, $nguoilon, $treem, $gioitinh, $hoten, $email, $tel, $thoigianden, $diachi, $thanhpho, $yeucaukhac, $idAccount];
         array_push($_SESSION['bill'], $bill_add);
     }
     if (isset($_SESSION['bill'])){
@@ -207,7 +207,8 @@ function billConfirm(){
         }else{
             $bill = '';
         }
-        $id_bill = themMoiDonHang($bill_detail[5], $bill_detail[7], $bill_detail[6], $bill_detail[2], $bill_detail[3], $tongdonhang, null, $bill_detail[8], $bill_detail[0], $bill_detail[1]);
+//        var_dump($bill_detail);
+        $id_bill = themMoiDonHang($bill_detail[5],$bill_detail[12], $bill_detail[7], $bill_detail[6], $bill_detail[2], $bill_detail[3], $tongdonhang, null, $bill_detail[8], $bill_detail[0], $bill_detail[1]);
 
         foreach ($_SESSION['mycard'] as $cart){
             themMoiBookDetail($cart[0],$id_bill,$cart[3], $cart[4], $cart[5]);
@@ -218,6 +219,27 @@ function billConfirm(){
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/cart/billConFirm.php';
 }
+function booking(){
+    if (isset($_GET['id']) && ($_GET['id'] > 0)){
+        $id = $_GET['id'];
+        $listdh = listdh_id($id);
+    }else{
+        $listdh = '';
+    }
+    $giaoDien = giaoDienTrangChu();
+    include_once './View/Client/cart/myBill.php';
+}
+function huyBooking(){
+    if (isset($_GET['id']) && ($_GET['id'] > 0)){
+        $id = $_GET['id'];
+        huybk($id);
+        echo "<script>alert('Hủy đơn hàng thành công')</script>";
+        header('location: index.php');
+    }else{
+        echo 'Lỗi, không thể hủy phòng<br>Vui lòng liên hệ tới hotline khách sạn để nhận tư vấn<br><a href="index.php">Quay trở lại trang chủ</a>';
+    }
+}
+
 
 
 ?>
