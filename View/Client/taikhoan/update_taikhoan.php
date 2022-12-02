@@ -22,6 +22,7 @@
                 if (isset($_SESSION['account']) && is_array($_SESSION['account'])) {
                     $account = $_SESSION['account'];
                 ?>
+                        <a href="index.php?url=booking-cua-toi&id=<?php echo $account['id_account']?>"><h2 style="font-size: 20px">Booking của tôi</h2></a>
                     <form action="index.php?url=sua-tai-khoan" method="post" name="frmupdate" onsubmit=" return validate()">
                         <h2>Cập nhật tài khoản</h2>
                         <div class="box-dk">
