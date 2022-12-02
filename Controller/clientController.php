@@ -87,11 +87,10 @@ function quenMatKhau(){
         $checkemail = check_email($email);
         
         if (is_array($checkemail) && $checkemail != null){
-            
             $mail = $checkemail['password'];
-        $title= "Quên mật khẩu ";
-        $content = "Xin mời bạn nhập nội dung" ."<b>$mail<\b>";
-        Send_email($title,$content,$email);
+            $title= "[CHAN MAY HOTEL & RESTAURANT] - FORGOT PASSWORD";
+            $content = "Mật khẩu cũ của bạn là: <b>$mail</b><br>Xin cảm ơn quý khách đã tin tưởng sử dụng dịch vụ của <b>CHÂN MÂY HOTEL & RESTAURANT</b>";
+            Send_email($title,$content,$email);
         }else{
             $thongbao = 'Email này không tồn tại!';
         }
