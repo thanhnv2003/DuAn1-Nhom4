@@ -8,7 +8,7 @@ require_once './Models/home.php';
 require_once './Models/contact.php';
 require_once './Models/cart.php';
 include_once './Email/sendmail.php';
-
+// require_once './Email/sendmail.php';
 function indexRoom(){
     $giaoDien = giaoDienTrangChu();
     $listPhong = loaiphong_loadall();
@@ -28,7 +28,9 @@ function chitietphong(){
         $list_onerooms = loaiphong_loadone($_GET['id']);
         $img_room = list_image_room($_GET['id']);
 
-      }
+    }else {
+        header("location:index.php");
+    }
     $list_roomss = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/chiTietPhong.php';
@@ -202,14 +204,14 @@ function billConfirm(){
     if (isset($_POST['gui']) && $_POST['gui']){
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $ngaydathang = date('h:i:sa d/m/Y');
-        $tongdonhang = tongdonhang();
-
+        $tongdonhang = tongdonhang();   
         if (isset($_SESSION['account'])){
             $idAccount = $_SESSION['account']['id_account'];
         }else{
             $idAccount = 0;
         }
         if (isset($_SESSION['bill'])){
+
             $bill = $_SESSION['bill'];
             $count_arr = count($_SESSION['bill']);
             $bill_detail = $bill[$count_arr-1];
@@ -221,12 +223,20 @@ function billConfirm(){
         foreach ($_SESSION['mycard'] as $cart){
             themMoiBookDetail($cart[0],$id_bill,$cart[3], $cart[4], $cart[5]);
         }
+        // var_dump($_SESSION['bill']);
+
+        $mail = listDonHangkh($id_bill) ;
+        $email = $_SESSION['bill'][0][6];
+        var_dump($mail);
+        $title= "xác nhận đơn hàng ";
+        $content = "Cảm ơn quý khách đã đặt hàng" ;
+        // Send_email($title,$content,$email); 
         $_SESSION['mycard'] = [];
+        
     }
     $ctbill = listDonHangkh($id_bill);
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/cart/billConFirm.php';
 }
-
 
 ?>
