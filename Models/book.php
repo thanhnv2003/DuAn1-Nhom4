@@ -17,4 +17,5 @@ function donhang_update($id_book,$status){
     $sql = "DELETE FROM `book` WHERE id_book=".$id_book;
     pdo_execute($sql);
  }
+ 
  ?>

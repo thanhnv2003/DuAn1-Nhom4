@@ -81,6 +81,8 @@
                                       $trangthai = 'Đang thuê';
                                   }elseif ($status == 2){
                                       $trangthai = 'Đã trả';
+                                  }elseif ($status == 3){
+                                      $trangthai = 'Hủy phòng';
                                   }
                                   echo'
                                 

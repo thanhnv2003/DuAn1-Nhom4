@@ -26,7 +26,7 @@
                         <p id="tbemail" style="color:red ;"></p>
                     </div>
                     <!--<button type="submit">Kiểm tra tài khoản</button>-->
-                    <input type="submit" value="Kiểm tra tài khoản" name="quenmatkhau" class="info-mk-ip">
+                    <input type="submit" value="Gửi mật khẩu về email" name="quenmatkhau" class="info-mk-ip">
                     <?php if (isset($thongbao) && ($thongbao != '')) { ?>
                         <h1 style="color: red;"><?php echo $thongbao ?></h1>
                     <?php   } ?>

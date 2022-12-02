@@ -51,5 +51,10 @@ function xoa_anh_phong($id){
     $sql = "DELETE FROM image_room where id_img =".$id;
     pdo_execute($sql);
 }
+//cập nhật số lương phòng
+function update_quantity_room($id, $quantity){
+    $sql = "UPDATE categories_room SET quantity = '$quantity' WHERE id_cate = ".$id;
+    pdo_execute($sql);
+}
 
 ?>
