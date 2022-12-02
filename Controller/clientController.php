@@ -37,10 +37,12 @@ function chitietphong(){
 function dichVu(){
     $list_dichvu =dichvu_loadall();
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/dichVu.php';
 }
 function lienHe(){
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     if(isset($_POST['gui']) && $_POST['gui']){
         $sex=$_POST['sex'];
         $name=$_POST['name'];
@@ -130,6 +132,7 @@ function datPhong(){
     }
     $listPhong = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/bookPhong.php';
 }
 function themMoiGioHang(){
@@ -199,6 +202,7 @@ function bill(){
     }
 //    $listPhong = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/cart/bill.php';
 }
 function billConfirm(){
@@ -248,6 +252,7 @@ function billConfirm(){
     }
     $ctbill = listDonHangkh($id_bill);
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/cart/billConFirm.php';
 }
 function booking(){
@@ -277,6 +282,4 @@ function huyBooking(){
         echo 'Lỗi, không thể hủy phòng<br>Vui lòng liên hệ tới hotline khách sạn để nhận tư vấn<br><a href="index.php">Quay trở lại trang chủ</a>';
     }
 }
-
-
 ?>

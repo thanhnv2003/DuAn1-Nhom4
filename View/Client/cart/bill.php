@@ -43,20 +43,20 @@
     </header>
     <div class="banner">
         <div class="slideshow-container">
-            <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
-                <img src="View/src/image/chup-hinh-khach-san-nha-hang-mimosa-06-1 1.png" style="width:100%">
-            </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
-                <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">
-            </div>
+            <?php
+            foreach ($slider as $item){
+                extract($item);
+                echo '
+              
+                <div class="mySlides fade">
+                   
+                    <img src="View/src/upload/'.$image.'" style="width:100%">
+                </div>
+';
+            }
+            ?>
 
-            <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
-                <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" style="width:100%">
-            </div>
 
             <a class="prev" onclick="plusSlides(-1)">❮</a>
             <a class="next" onclick="plusSlides(1)">❯</a>
