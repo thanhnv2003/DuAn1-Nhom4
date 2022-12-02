@@ -8,7 +8,6 @@ require_once './Models/home.php';
 require_once './Models/contact.php';
 require_once './Models/cart.php';
 include_once './Email/sendmail.php';
-
 function indexRoom(){
     $giaoDien = giaoDienTrangChu();
     $listPhong = loaiphong_loadall();
@@ -21,13 +20,13 @@ function gioiThieu(){
 function loaiPhong(){
     $giaoDien = giaoDienTrangChu();
     $list_roomss = loaiphong_loadall();
+    $slider = list_image();
     include_once './View/Client/loaiPhong.php';
 }
 function chitietphong(){
     if(isset($_GET['id']) && ($_GET['id']>0)){
         $list_onerooms = loaiphong_loadone($_GET['id']);
         $img_room = list_image_room($_GET['id']);
-
       }
     $list_roomss = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
