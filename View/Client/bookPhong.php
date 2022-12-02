@@ -1,4 +1,4 @@
-<?php var_dump($_SESSION['account']); ?>
+<?php //var_dump($_SESSION['mycard']); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +17,7 @@
         <header>
             <div class="menu">
                 <div class="logo">
-                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>"></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo'] ?>"></a>
                 </div>
                 <nav>
                     <ul>
@@ -73,6 +73,7 @@
         </div>
         <!--Main-->
         <main>
+            <?php if (is_array($_SESSION['mycard']) && (count($_SESSION['mycard']) > 0) ){ ?>
             <div class="main-bookphong">
                 <h2>Thông tin phòng đặt</h2>
                 <table>
@@ -86,29 +87,32 @@
                         <td>Thao tác</td>
                     </tr>
                     <?php
-//                    var_dump($_SESSION['mycard']);
+                    //                    var_dump($_SESSION['mycard']);
                     $tong = 0;
-                    foreach ($_SESSION['mycard'] as $key => $value){
-                    $tong += $value[5];
-                     ?>
-                    <tr class="cart-row">
-                        <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value[1]?></td>
-                        <td><?php echo $value[3]?></td>
-                        <td><img src="View/src/upload/<?php echo $value[2]?>" alt="Lỗi tải ảnh" width="300px"></td>
-                        <td><?php echo $value[4]?></td>
-                        <td class="price"><?php echo $value[5]?></td>
-                        <td>
-                            <a href="index.php?url=xoa-phong&id=<?php echo $key ?>"><input type="button" value="Xóa"></a>
-                        </td>
-                    </tr>
+                    foreach ($_SESSION['mycard'] as $key => $value) {
+                        $tong += $value[5];
+                    ?>
+                        <tr class="cart-row">
+                            <td><?php echo $key + 1 ?></td>
+                            <td><?php echo $value[1] ?></td>
+                            <td><?php echo $value[3] ?></td>
+                            <td><img src="View/src/upload/<?php echo $value[2] ?>" alt="Lỗi tải ảnh" width="300px"></td>
+                            <td><?php echo $value[4] ?></td>
+                            <td class="price"><?php echo $value[5] ?></td>
+                            <td>
+                                <a href="index.php?url=xoa-phong&id=<?php echo $key ?>"><input type="button" value="Xóa"></a>
+                            </td>
+                        </tr>
                     <?php } ?>
                     <tr>
                         <td colspan="5">Tổng tiền</td>
-                        <td ><?php echo $tong ?> VNĐ</td>
+                        <td><?php echo $tong ?> VNĐ</td>
                     </tr>
                 </table>
             </div>
+            <?php }else{ ?>
+                <h2 align="center">Giỏ hàng chưa có phòng</h2>
+         <?php } ?>
 
 
             <div class="main-bookphong">
@@ -140,53 +144,26 @@
                             </select>
                         </div>
                     </div>
-<!--                    <table>-->
-<!--                        <tr>-->
-<!--                            <td>Loại phòng</td>-->
-<!--                            <td>Giá/đêm</td>-->
-<!--                            <td>Số người tối đa</td>-->
-<!--                            <td>Chọn phòng</td>-->
-<!--                        </tr>-->
-<!--                        --><?php
-////                        var_dump($user);
-////                        var_dump($listPhong);
-//                        foreach ($listPhong as $key => $value){ ?>
-<!--                        <tr>-->
-<!--                            <th>--><?php //echo $value['name']?><!--</th>-->
-<!--                            <th>--><?php //echo $value['price']?><!-- VND/đêm</th>-->
-<!--                            <th>2 người lớn</th>-->
-<!--                            <th><select name="sophong" id="">-->
-<!--                                    <option value="0">Lựa chọn</option>-->
-<!--                                    <option value="1">1</option>-->
-<!--                                    <option value="1">2</option>-->
-<!--                                    <option value="1">3</option>-->
-<!--                                </select>-->
-<!--                            </th>-->
-<!--                            <input type="hidden" name="id_phong" value="--><?php //echo $value['id_cate']?><!--">-->
-<!--                        </tr>-->
-<!--                        --><?php //} ?>
-<!--                    </table>-->
-
                     <div class="frm-boxphong">
                         <div class="boxphong-item">
                             <p>Giới tính</p>
                             <select name="sex" id="" required>
-                                <option value="0" >Lựa chọn</option>
+                                <option value="0">Lựa chọn</option>
                                 <option value="1">Nam</option>
                                 <option value="2">Nữ</option>
                             </select>
                         </div>
                         <div class="boxphong-item">
                             <p>Họ tên</p>
-                            <input type="text" name="fullname" placeholder="Nhập họ tên" value="<?php echo $user != '' ? $user['fullname']: ''?>" required>
+                            <input type="text" name="fullname" placeholder="Nhập họ tên" value="<?php echo $user != '' ? $user['fullname'] : '' ?>" required>
                         </div>
                         <div class="boxphong-item">
                             <p>Email</p>
-                            <input type="email" name="email" placeholder="Email" value="<?php echo $user != '' ? $user['email']: ''?>" required>
+                            <input type="email" name="email" placeholder="Email" value="<?php echo $user != '' ? $user['email'] : '' ?>" required>
                         </div>
                         <div class="boxphong-item">
                             <p>Số điện thoại</p>
-                            <input type="number" name="tel" placeholder="Số điện thoại" value="<?php echo $user != '' ? $user['tel']: ''?>" required>
+                            <input type="number" name="tel" placeholder="Số điện thoại" value="<?php echo $user != '' ? $user['tel'] : '' ?>" required>
                         </div>
 
                         <div class="boxphong-item">
@@ -196,7 +173,7 @@
                         </div>
                         <div class="boxphong-item">
                             <p>Địa chỉ</p>
-                            <input type="text" name="address" placeholder="Địa chỉ" value="<?php echo $user != '' ? $user['address']: ''?>" required>
+                            <input type="text" name="address" placeholder="Địa chỉ" value="<?php echo $user != '' ? $user['address'] : '' ?>" required>
                         </div>
                         <div class="boxphong-item">
                             <p>Thành phố</p>
@@ -210,9 +187,9 @@
                     <div class="checkbox-bp">
                         <input type="checkbox" value=""><label>Tôi đồng ý và chấp nhận điều khoản của khách sạn</label>
                         <br>
-<!--                        <button type="submit">Gửi</button>-->
+                        <?php if (is_array($_SESSION['mycard']) && (count($_SESSION['mycard']) > 0) ){ ?>
                         <input type="submit" value="Gửi" name="gui">
-<!--                        <button type="submit">Gui</button>-->
+                        <?php } ?>
                     </div>
                 </form>
             </div>
@@ -222,9 +199,9 @@
             <div class="footer-box1">
                 <div class="footer-box">
                     <h2>Khách sạn CHAN MAY VN</h2>
-                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> <?php echo $giaoDien[0]['address']?></p>
-                    <p><i class="fa-sharp fa-solid fa-phone"></i> <?php echo $giaoDien[0]['tel']?></p>
-                    <p><i class="fa-sharp fa-solid fa-envelope"></i> <?php echo $giaoDien[0]['email']?></p>
+                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> <?php echo $giaoDien[0]['address'] ?></p>
+                    <p><i class="fa-sharp fa-solid fa-phone"></i> <?php echo $giaoDien[0]['tel'] ?></p>
+                    <p><i class="fa-sharp fa-solid fa-envelope"></i> <?php echo $giaoDien[0]['email'] ?></p>
                 </div>
                 <div class="footer-box">
                     <h2>Về chúng tôi</h2>
@@ -238,7 +215,7 @@
                     <a href="index.php?url=dieu-kien-va-dieu-khoan">Điều khoản & điều kiện</a>
                 </div>
                 <div class="footer-box2">
-                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>" alt=""></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo'] ?>" alt=""></a>
                     <script lang="javascript">
                         var __vnp = {
                             code: 4505,
@@ -311,11 +288,10 @@
         </script>
     </div>
     <script>
-
         var today = new Date();
-        var dateToday = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var dateToday = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         // document.querySelector("#ngayden").value = dateToday;
-        var dateNext = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()+1);
+        var dateNext = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate() + 1);
         // inputdateObject.value = YYYY-MM-DD;
         // document.querySelector("#ngaydi").value = dateNext;
         // var ngayden = document.querySelector("#ngayden").value = '2023-11-20';
@@ -349,6 +325,9 @@
         //     return flag;
         // }
         // console.log(ngayden > ngaydi);
+    </script>
+    <script>
+        
     </script>
 </body>
 

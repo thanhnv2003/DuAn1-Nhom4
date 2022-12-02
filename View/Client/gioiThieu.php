@@ -16,7 +16,7 @@
     <header>
         <div class="menu">
             <div class="logo">
-                <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>"></a>
+                <a href="index.php?url=trang-chu"><img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>"></a>
             </div>
             <nav>
                 <ul>
@@ -174,27 +174,11 @@
                     năng to lớn về du lịch sinh thái ở Bắc Giang. <br>
                     (Nguồn: Vietnam Business Forum)
                 </p>
-                <form action="#" class="frm-gt">
-                    <input type="text" placeholder="Viết bình luận">
-                    <button type="submit">Đăng</button>
-                </form>
-                <table class="table-gt">
-                    <tr>
-                        <th>Người bình luận</th>
-                        <th>Nội dung bình luận</th>
-                        <th>Ngày bình luận</th>
-                    </tr>
-                    <tr>
-                        <td>THản</td>
-                        <td>Víp</td>
-                        <td>9/6/2022</td>
-                    </tr>
-                </table>
             </div>
             <div class="box-dm">
                 <h2>Bài viết nổi bật</h2>
                 <a href="">
-                    <h4><i class="fa-sharp fa-solid fa-forward"></i> TuTA FISNESS & FOLL</h4>
+                    <h4><i class="fa-sharp fa-solid fa-forward"></i> TUTA FISNESS & FOLL</h4>
                 </a>
                 <a href="">
                     <h4><i class="fa-sharp fa-solid fa-forward"></i> MASSAGE TOP HIT</h4>

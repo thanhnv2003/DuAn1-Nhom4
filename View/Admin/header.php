@@ -132,12 +132,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?url=quan-ly-uu-dai">
-                    <span class="menu-title">Ưu đãi</span>
-                    <i class="mdi mdi-chart-areaspline menu-icon"></i>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="index.php?url=quan-ly-lien-he">
                     <span class="menu-title">Liên hệ</span>
                     <i class="mdi mdi-chart-areaspline menu-icon"></i>

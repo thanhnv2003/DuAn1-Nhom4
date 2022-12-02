@@ -7,6 +7,7 @@ require_once './Models/dichvu.php';
 require_once './Models/home.php';
 require_once './Models/contact.php';
 require_once './Models/cart.php';
+include_once './Email/sendmail.php';
 function indexRoom(){
     $giaoDien = giaoDienTrangChu();
     $listPhong = loaiphong_loadall();
@@ -79,18 +80,27 @@ function dangKy(){
     include_once './View/Client/taikhoan/register_taikhoan.php';
 }
 function quenMatKhau(){
+  
     if (isset($_POST['quenmatkhau']) && ($_POST['quenmatkhau'])){
         $email = $_POST['email'];
         $checkemail = check_email($email);
-//        var_dump($checkemail);
+        
         if (is_array($checkemail) && $checkemail != null){
-            $thongbao = 'Mật khẩu của bạn là: '.$checkemail['password'];
+            $mail = $checkemail['password'];
+            $title= "[CHAN MAY HOTEL & RESTAURANT] - FORGOT PASSWORD";
+            $content = "Mật khẩu cũ của bạn là: <b>$mail</b><br>Xin cảm ơn quý khách đã tin tưởng sử dụng dịch vụ của <b>CHÂN MÂY HOTEL & RESTAURANT</b>";
+            Send_email($title,$content,$email);
         }else{
             $thongbao = 'Email này không tồn tại!';
         }
+        
+        
     }
+    
     include_once './View/Client/taikhoan/forgot_taikhoan.php';
+    
 }
+
 function capNhatTaiKhoan(){
     if (isset($_POST['capnhat']) && ($_POST['capnhat'])){
         $id = $_POST['id'];
@@ -126,7 +136,6 @@ function themMoiGioHang(){
         $image = $_POST['image'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
-
         $thanhtien = $price * $quantity;
         $room_add = [$id, $name, $image, $price, $quantity, $thanhtien];
         array_push($_SESSION['mycard'], $room_add);
@@ -155,6 +164,8 @@ function bill(){
         }else{
             $idAccount = 0;
         }
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+//        if ()
         $checkin = $_POST['checkin'];
         $checkout = $_POST['checkout'];
         $nguoilon = $_POST['nguoilon'];
@@ -177,7 +188,7 @@ function bill(){
     }else{
         $bill = '';
     }
-    var_dump($_SESSION['mycard']);
+//    var_dump($_SESSION['mycard']);
     if (isset($_SESSION['account'])){
         $user = $_SESSION['account'];
     }else{

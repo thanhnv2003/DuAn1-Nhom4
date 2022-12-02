@@ -18,6 +18,11 @@ $loadone_comment = loadall_binhluan($id_room);
         <h3>Bình luận </h3>
         <div class="thanhphan">
             <table>
+                <tr>
+                    <td>Nội dung</td>
+                    <td>ID user</td>
+                    <td>Thời gian binh luan</td>
+                </tr>
                     <?php
                     foreach ($loadone_comment as $item){
                         extract($item);
@@ -29,7 +34,7 @@ $loadone_comment = loadall_binhluan($id_room);
 
             </table>
         </div>
-        <div class="frombinhlian">
+        <div class="frombinhluan">
 
             <?php
             if(isset( $_SESSION['account'] )){
@@ -37,12 +42,12 @@ $loadone_comment = loadall_binhluan($id_room);
             <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
                 <input type="hidden" name="id_room" id="" value="<?=$id_room?>">
                 <input type="text" name="content">
-                <input type="submit" name="guibinhluan" value="gửi bình luận ">
+                <input type="submit" name="guibinhluan" value="Gửi bình luận ">
             </form>
                 <?php
             }
             else{
-                echo 'bạn cần đăng ký tài khoản ';
+                echo 'Bạn cần đăng ký tài khoản !';
             }
             ?>
         </div>
