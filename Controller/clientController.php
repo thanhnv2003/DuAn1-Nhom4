@@ -87,9 +87,10 @@ function quenMatKhau(){
         
         if (is_array($checkemail) && $checkemail != null){
             $mail = $checkemail['password'];
-            $title= "[CHAN MAY HOTEL & RESTAURANT] - FORGOT PASSWORD";
+            $title= "[FORGOT PASSWORD] - CHAN MAY HOTEL & RESTAURANT";
             $content = "Mật khẩu cũ của bạn là: <b>$mail</b><br>Xin cảm ơn quý khách đã tin tưởng sử dụng dịch vụ của <b>CHÂN MÂY HOTEL & RESTAURANT</b>";
             Send_email($title,$content,$email);
+            echo "<script>alert('Vui lòng kiểm tra email!')</script>";
         }else{
             $thongbao = 'Email này không tồn tại!';
         }
@@ -221,6 +222,16 @@ function billConfirm(){
 
         foreach ($_SESSION['mycard'] as $cart){
             themMoiBookDetail($cart[0],$id_bill,$cart[3], $cart[4], $cart[5]);
+            $room = loaiphong_loadone($cart[0]);
+            if ($room['quantity'] > 0){
+                $a = $room['quantity'] - $cart[4];
+                if ($a > 0){
+                    $b = $a;
+                }elseif ($a <= 0){
+                    $b = 0;
+                }
+                update_quantity_room($cart[0], $b);
+            }
         }
         $_SESSION['mycard'] = [];
     }
@@ -242,8 +253,15 @@ function huyBooking(){
     if (isset($_GET['id']) && ($_GET['id'] > 0)){
         $id = $_GET['id'];
         huybk($id);
+        $dh = listDonHangkh($id);
+        foreach ($dh as $key => $value){
+            $idroom = $value['id_room'];
+            $room = loaiphong_loadone($idroom);
+            $a = $room['quantity'] + $value['quantity'];
+            update_quantity_room($idroom, $a);
+        }
         echo "<script>alert('Hủy đơn hàng thành công')</script>";
-        header('location: index.php');
+        header("location: index.php");
     }else{
         echo 'Lỗi, không thể hủy phòng<br>Vui lòng liên hệ tới hotline khách sạn để nhận tư vấn<br><a href="index.php">Quay trở lại trang chủ</a>';
     }

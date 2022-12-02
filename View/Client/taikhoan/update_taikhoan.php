@@ -86,7 +86,7 @@
                 document.querySelector("#tbname").innerHTML = "";
             }
             // email
-            var regemail = /^\w+\@\w+\.\w/;
+            var regemail = /\w+([\.-]?\w+)*@\w+(\.\w{2,3})+$/;
             if (email == "") {
                 document.querySelector("#tbemail").innerHTML = "Vui lòng nhập email !";
                 return false;
