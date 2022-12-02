@@ -129,6 +129,7 @@ function datPhong(){
     }
     $listPhong = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/bookPhong.php';
 }
 function themMoiGioHang(){
@@ -198,6 +199,7 @@ function bill(){
     }
 //    $listPhong = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/cart/bill.php';
 }
 function billConfirm(){
@@ -227,8 +229,7 @@ function billConfirm(){
     }
     $ctbill = listDonHangkh($id_bill);
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/cart/billConFirm.php';
 }
-
-
 ?>
