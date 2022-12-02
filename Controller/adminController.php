@@ -29,11 +29,12 @@ if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
         if (isset($_GET['id']) && ($_GET['id'] > 0)) {
             $id = $_GET['id'];
             $listDonHang = listDonHangkh($id);
+        }else{
+            
         }
         include_once './View/Admin/donhang/chitiet_donhang.php';
         include_once './View/Admin/footer.php';
     }
-
     function listLoaiPhong()
     {
         include_once './View/Admin/header.php';
@@ -65,7 +66,13 @@ if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
     function listBinhluan()
     {
         include_once './View/Admin/header.php';
-        $load_commnet = list_comment();
+        $load_room = loaiphong_loadall();
+        if(isset($_POST['id_room']) && ($_POST['id_room'])>0){
+            $id_room = $_POST['id_room'];
+        }else{
+            $id_room=0;
+        }
+        $load_commnet = loadall_binhluan($id_room);
         include_once './View/Admin/binhluan/list_binhluan.php';
         include_once './View/Admin/footer.php';
     }

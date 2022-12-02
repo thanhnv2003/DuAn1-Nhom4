@@ -7,7 +7,7 @@ require_once './Models/dichvu.php';
 require_once './Models/home.php';
 require_once './Models/contact.php';
 require_once './Models/cart.php';
-include_once './Email/sendmail.php';
+require_once './Email/sendmail.php';
 function indexRoom(){
     $giaoDien = giaoDienTrangChu();
     $listPhong = loaiphong_loadall();
@@ -27,18 +27,22 @@ function chitietphong(){
     if(isset($_GET['id']) && ($_GET['id']>0)){
         $list_onerooms = loaiphong_loadone($_GET['id']);
         $img_room = list_image_room($_GET['id']);
-      }
+    }else {
+        header("location:index.php");
+    }
     $list_roomss = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/chiTietPhong.php';
-    }
+}
 function dichVu(){
     $list_dichvu =dichvu_loadall();
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/dichVu.php';
 }
 function lienHe(){
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     if(isset($_POST['gui']) && $_POST['gui']){
         $sex=$_POST['sex'];
         $name=$_POST['name'];
@@ -128,6 +132,7 @@ function datPhong(){
     }
     $listPhong = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/bookPhong.php';
 }
 function themMoiGioHang(){
@@ -197,20 +202,21 @@ function bill(){
     }
 //    $listPhong = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/cart/bill.php';
 }
 function billConfirm(){
     if (isset($_POST['gui']) && $_POST['gui']){
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $ngaydathang = date('h:i:sa d/m/Y');
-        $tongdonhang = tongdonhang();
-
+        $tongdonhang = tongdonhang();   
         if (isset($_SESSION['account'])){
             $idAccount = $_SESSION['account']['id_account'];
         }else{
             $idAccount = 0;
         }
         if (isset($_SESSION['bill'])){
+
             $bill = $_SESSION['bill'];
             $count_arr = count($_SESSION['bill']);
             $bill_detail = $bill[$count_arr-1];
@@ -233,10 +239,20 @@ function billConfirm(){
                 update_quantity_room($cart[0], $b);
             }
         }
+        // var_dump($_SESSION['bill']);
+
+        $mail = listDonHangkh($id_bill) ;
+        $email = $_SESSION['bill'][0][6];
+        var_dump($mail);
+        $title= "xác nhận đơn hàng ";
+        $content = "Cảm ơn quý khách đã đặt hàng" ;
+        // Send_email($title,$content,$email); 
         $_SESSION['mycard'] = [];
+        
     }
     $ctbill = listDonHangkh($id_bill);
     $giaoDien = giaoDienTrangChu();
+    $slider = list_image();
     include_once './View/Client/cart/billConFirm.php';
 }
 function booking(){
@@ -266,7 +282,4 @@ function huyBooking(){
         echo 'Lỗi, không thể hủy phòng<br>Vui lòng liên hệ tới hotline khách sạn để nhận tư vấn<br><a href="index.php">Quay trở lại trang chủ</a>';
     }
 }
-
-
-
 ?>

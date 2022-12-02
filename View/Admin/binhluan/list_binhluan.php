@@ -49,6 +49,22 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Danh sách bình luận</h4>
+                <div class="search">
+                    <form action="index.php?url=quan-ly-binh-luan" method="post">
+
+                        <select name="id_room">
+                            <?php
+                            foreach ($load_room as $item){
+                                extract($item);
+                                echo '
+                                <option value="'.$id_cate .'">'.$name.'</option>
+                                ';
+                            }
+                            ?>
+                        </select>
+                        <input type="submit" name="seach" value="tìm kiếm ">
+                    </form>
+                </div>
                 <div class="table-responsive">
                     <table class="table text-center table-bordered table1">
                         <thead>
