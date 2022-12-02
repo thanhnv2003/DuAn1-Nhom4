@@ -29,6 +29,8 @@ if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
         if (isset($_GET['id']) && ($_GET['id'] > 0)) {
             $id = $_GET['id'];
             $listDonHang = listDonHangkh($id);
+        }else{
+            
         }
         include_once './View/Admin/donhang/chitiet_donhang.php';
         include_once './View/Admin/footer.php';
