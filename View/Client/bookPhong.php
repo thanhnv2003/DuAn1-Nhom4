@@ -144,41 +144,6 @@
                             </select>
                         </div>
                     </div>
-                    <!--                    <table>-->
-                    <!--                        <tr>-->
-                    <!--                            <td>Loại phòng</td>-->
-                    <!--                            <td>Giá/đêm</td>-->
-                    <!--                            <td>Số người tối đa</td>-->
-                    <!--                            <td>Chọn phòng</td>-->
-                    <!--                        </tr>-->
-                    <!--                        --><?php
-                                                    ////                        var_dump($user);
-                                                    ////                        var_dump($listPhong);
-                                                    //                        foreach ($listPhong as $key => $value){ 
-                                                    ?>
-                    <!--                        <tr>-->
-                    <!--                            <th>--><?php //echo $value['name']
-                                                            ?>
-                    <!--</th>-->
-                    <!--                            <th>--><?php //echo $value['price']
-                                                            ?>
-                    <!-- VND/đêm</th>-->
-                    <!--                            <th>2 người lớn</th>-->
-                    <!--                            <th><select name="sophong" id="">-->
-                    <!--                                    <option value="0">Lựa chọn</option>-->
-                    <!--                                    <option value="1">1</option>-->
-                    <!--                                    <option value="1">2</option>-->
-                    <!--                                    <option value="1">3</option>-->
-                    <!--                                </select>-->
-                    <!--                            </th>-->
-                    <!--                            <input type="hidden" name="id_phong" value="--><?php //echo $value['id_cate']
-                                                                                                    ?>
-                    <!--">-->
-                    <!--                        </tr>-->
-                    <!--                        --><?php //} 
-                                                    ?>
-                    <!--                    </table>-->
-
                     <div class="frm-boxphong">
                         <div class="boxphong-item">
                             <p>Giới tính</p>
@@ -360,6 +325,9 @@
         //     return flag;
         // }
         // console.log(ngayden > ngaydi);
+    </script>
+    <script>
+        
     </script>
 </body>
 

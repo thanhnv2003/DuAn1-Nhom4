@@ -56,7 +56,7 @@
             var ok=true;
             var email = document.frmdangki.email.value;
             var password = document.frmdangki.password.value;
-            var regemail = /^\w+\@\w+\.\w/;
+            var regemail = /\w+([\.-]?\w+)*@\w+(\.\w{2,3})+$/;
             if (email == "") {
                 document.getElementById("idemail").innerHTML = "Vui lòng nhập email !";
                 return false;

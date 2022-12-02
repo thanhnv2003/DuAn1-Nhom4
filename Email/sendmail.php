@@ -18,17 +18,17 @@ function Send_email($title,$content,$email){
 
 try {
     //Server settings
-    $mail->SMTPDebug = 0;                      //Enable verbose debug output
+//    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'nhoa82551@gmail.com';                     //SMTP username
-    $mail->Password   = 'gokhwqweysfcdnsc';                               //SMTP password
+    $mail->Username   = 'vanthanhbg7x.2003@gmail.com';                     //SMTP username
+    $mail->Password   = 'jewfrwaylighaaip';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('nhoa82551@gmail.com', ' CHAN MAY');
+    $mail->setFrom('vanthanhbg7x.2003@gmail.com', 'CHAN MAY HOTEL & RESTAURANT');
     $mail->addAddress($email);     //Add a recipient
 
 
@@ -41,7 +41,7 @@ try {
 
 
     $mail->send();
-    // echo 'Message has been sent';
+//    echo 'Message has been sent';
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }

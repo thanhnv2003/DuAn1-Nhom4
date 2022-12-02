@@ -7,8 +7,7 @@ require_once './Models/dichvu.php';
 require_once './Models/home.php';
 require_once './Models/contact.php';
 require_once './Models/cart.php';
-include_once './Email/sendmail.php';
-// require_once './Email/sendmail.php';
+require_once './Email/sendmail.php';
 function indexRoom(){
     $giaoDien = giaoDienTrangChu();
     $listPhong = loaiphong_loadall();
@@ -21,20 +20,20 @@ function gioiThieu(){
 function loaiPhong(){
     $giaoDien = giaoDienTrangChu();
     $list_roomss = loaiphong_loadall();
+    $slider = list_image();
     include_once './View/Client/loaiPhong.php';
 }
 function chitietphong(){
     if(isset($_GET['id']) && ($_GET['id']>0)){
         $list_onerooms = loaiphong_loadone($_GET['id']);
         $img_room = list_image_room($_GET['id']);
-
     }else {
         header("location:index.php");
     }
     $list_roomss = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/chiTietPhong.php';
-    }
+}
 function dichVu(){
     $list_dichvu =dichvu_loadall();
     $giaoDien = giaoDienTrangChu();
@@ -89,11 +88,11 @@ function quenMatKhau(){
         $checkemail = check_email($email);
         
         if (is_array($checkemail) && $checkemail != null){
-            
             $mail = $checkemail['password'];
-        $title= "Quên mật khẩu ";
-        $content = "Xin mời bạn nhập nội dung" ."<b>$mail<\b>";
-        Send_email($title,$content,$email);
+            $title= "[FORGOT PASSWORD] - CHAN MAY HOTEL & RESTAURANT";
+            $content = "Mật khẩu cũ của bạn là: <b>$mail</b><br>Xin cảm ơn quý khách đã tin tưởng sử dụng dịch vụ của <b>CHÂN MÂY HOTEL & RESTAURANT</b>";
+            Send_email($title,$content,$email);
+            echo "<script>alert('Vui lòng kiểm tra email!')</script>";
         }else{
             $thongbao = 'Email này không tồn tại!';
         }
@@ -168,6 +167,8 @@ function bill(){
         }else{
             $idAccount = 0;
         }
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+//        if ()
         $checkin = $_POST['checkin'];
         $checkout = $_POST['checkout'];
         $nguoilon = $_POST['nguoilon'];
@@ -180,7 +181,7 @@ function bill(){
         $diachi = $_POST['address'];
         $thanhpho = $_POST['city'];
         $yeucaukhac =$_POST['yeucau'];
-        $bill_add = [$checkin, $checkout, $nguoilon, $treem, $gioitinh, $hoten, $email, $tel, $thoigianden, $diachi, $thanhpho, $yeucaukhac];
+        $bill_add = [$checkin, $checkout, $nguoilon, $treem, $gioitinh, $hoten, $email, $tel, $thoigianden, $diachi, $thanhpho, $yeucaukhac, $idAccount];
         array_push($_SESSION['bill'], $bill_add);
     }
     if (isset($_SESSION['bill'])){
@@ -218,10 +219,21 @@ function billConfirm(){
         }else{
             $bill = '';
         }
-        $id_bill = themMoiDonHang($bill_detail[5], $bill_detail[7], $bill_detail[6], $bill_detail[2], $bill_detail[3], $tongdonhang, null, $bill_detail[8], $bill_detail[0], $bill_detail[1]);
+//        var_dump($bill_detail);
+        $id_bill = themMoiDonHang($bill_detail[5],$bill_detail[12], $bill_detail[7], $bill_detail[6], $bill_detail[2], $bill_detail[3], $tongdonhang, null, $bill_detail[8], $bill_detail[0], $bill_detail[1]);
 
         foreach ($_SESSION['mycard'] as $cart){
             themMoiBookDetail($cart[0],$id_bill,$cart[3], $cart[4], $cart[5]);
+            $room = loaiphong_loadone($cart[0]);
+            if ($room['quantity'] > 0){
+                $a = $room['quantity'] - $cart[4];
+                if ($a > 0){
+                    $b = $a;
+                }elseif ($a <= 0){
+                    $b = 0;
+                }
+                update_quantity_room($cart[0], $b);
+            }
         }
         // var_dump($_SESSION['bill']);
 
@@ -238,5 +250,33 @@ function billConfirm(){
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/cart/billConFirm.php';
 }
+function booking(){
+    if (isset($_GET['id']) && ($_GET['id'] > 0)){
+        $id = $_GET['id'];
+        $listdh = listdh_id($id);
+    }else{
+        $listdh = '';
+    }
+    $giaoDien = giaoDienTrangChu();
+    include_once './View/Client/cart/myBill.php';
+}
+function huyBooking(){
+    if (isset($_GET['id']) && ($_GET['id'] > 0)){
+        $id = $_GET['id'];
+        huybk($id);
+        $dh = listDonHangkh($id);
+        foreach ($dh as $key => $value){
+            $idroom = $value['id_room'];
+            $room = loaiphong_loadone($idroom);
+            $a = $room['quantity'] + $value['quantity'];
+            update_quantity_room($idroom, $a);
+        }
+        echo "<script>alert('Hủy đơn hàng thành công')</script>";
+        header("location: index.php");
+    }else{
+        echo 'Lỗi, không thể hủy phòng<br>Vui lòng liên hệ tới hotline khách sạn để nhận tư vấn<br><a href="index.php">Quay trở lại trang chủ</a>';
+    }
+}
+
 
 ?>

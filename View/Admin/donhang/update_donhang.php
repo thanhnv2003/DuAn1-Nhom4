@@ -37,7 +37,7 @@ if(is_array($donhang)){
                             <option value="0" <?php echo $status == 0 ? 'selected': ''?>>Vừa đặt</option>
                             <option value="1" <?php echo $status == 1 ? 'selected': ''?>>Đang được thuê </option>
                             <option value="2" <?php echo $status == 2 ? 'selected': ''?>>Đã trả phòng </option>
-
+                            <option value="3" <?php echo $status == 3 ? 'selected': ''?>>Hủy phòng</option>
                         </select>
                     </div>
                     <div class="form-group">

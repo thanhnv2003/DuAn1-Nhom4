@@ -25,7 +25,12 @@ function loaiphong_delete($id_cate){
         $sql ="UPDATE `categories_room` SET `name`='$nameroom',`description`='$description',`price`='$price',`quantity`='$quantity', `number` = '$number',`area`='$area',`bed`='$bed',`views`='$views' WHERE id_cate=".$id_cate;
      pdo_execute($sql);
  }
-
+// list ảnh của chung
+function list_image(){
+    $sql = "select * from slider ORDER BY id_slider";
+    $list_anh = pdo_query($sql);
+    return $list_anh;
+}
  //thêm mới ảnh phòng
 function them_moi_anh_phong($image, $idRoom){
     if ($image != ''){
@@ -40,9 +45,15 @@ function list_image_room($id){
     $img = pdo_query($sql);
     return $img;
 }
+
 //xóa ảnh phòng
 function xoa_anh_phong($id){
     $sql = "DELETE FROM image_room where id_img =".$id;
+    pdo_execute($sql);
+}
+//cập nhật số lương phòng
+function update_quantity_room($id, $quantity){
+    $sql = "UPDATE categories_room SET quantity = '$quantity' WHERE id_cate = ".$id;
     pdo_execute($sql);
 }
 

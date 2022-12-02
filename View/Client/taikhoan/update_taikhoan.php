@@ -22,6 +22,7 @@
                 if (isset($_SESSION['account']) && is_array($_SESSION['account'])) {
                     $account = $_SESSION['account'];
                 ?>
+                        <a href="index.php?url=booking-cua-toi&id=<?php echo $account['id_account']?>"><h2 style="font-size: 20px">Booking của tôi</h2></a>
                     <form action="index.php?url=sua-tai-khoan" method="post" name="frmupdate" onsubmit=" return validate()">
                         <h2>Cập nhật tài khoản</h2>
                         <div class="box-dk">
@@ -85,7 +86,7 @@
                 document.querySelector("#tbname").innerHTML = "";
             }
             // email
-            var regemail = /^\w+\@\w+\.\w/;
+            var regemail = /\w+([\.-]?\w+)*@\w+(\.\w{2,3})+$/;
             if (email == "") {
                 document.querySelector("#tbemail").innerHTML = "Vui lòng nhập email !";
                 return false;
@@ -96,7 +97,7 @@
                 document.querySelector("#tbemail").innerHTML = "";
             }
             //số điện thoai
-            var regsdt = /^0[1-9]{9}/;
+            var regsdt = /^0[0-9]{9}$/;
             if (number == "") {
                 document.querySelector("#tbnumber").innerHTML = "Vui lòng nhập số điện thoại !";
                 return false;

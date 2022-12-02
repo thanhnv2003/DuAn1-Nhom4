@@ -53,7 +53,6 @@ if(is_array($list_onerooms)) {
             <div class="slideshow-container">
                 <?php foreach ($img_room as $value ){
                     extract($value);
-//                    var_dump($img_room);
                echo '
                 <div class="mySlides fade">
                     <div class="numbertext"></div>
@@ -134,15 +133,21 @@ if(is_array($list_onerooms)) {
                     </div>
                 </div>
                 <!--book phòng-->
+                <?php if ($quantity > 0){ ?>
                 <form action="index.php?url=them-moi-gio-hang" method="post" class="frm-ctp">
                     <input type="hidden" name="id" value="<?php echo $id_cate;?>">
                     <input type="hidden" name="name" value="<?php echo $name;?>">
                     <input type="hidden" name="image" value="<?php echo $image;?>">
                     <input type="hidden" name="price" value="<?php echo $price;?>">
-                    <input type="number" name="quantity" min="0" max="3" value="1">
+                    <input type="number" name="quantity" min="1" max="3" value="1" >
 <!--                    <a href="index.php?url=themmoi"><input type="button" value="ĐẶT PHÒNG"></a>-->
                     <input type="submit" name="themmoi" value="Đặt Phòng">
                 </form>
+                <?php }else{ ?>
+                <form action="#" method="post" class="frm-ctp">
+                    <input type="button" name="themmoi" value="Hết Phòng" class="input-soldout">
+                </form>
+                <?php } ?>
                 <!--frm binh luan-->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script>
