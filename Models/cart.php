@@ -29,6 +29,12 @@ function listdh_id($id){
     $dh = pdo_query($sql);
     return $dh;
 }
+//list booking theo id book
+function listdh_idbook($id){
+    $sql = "SELECT * FROM book WHERE id_book = ".$id;
+    $dh = pdo_query_one($sql);
+    return $dh;
+}
 function huybk($id){
     $sql = "UPDATE book set status = 3 where id_book =".$id;
     pdo_execute($sql);
