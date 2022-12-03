@@ -117,7 +117,7 @@
 
             <div class="main-bookphong">
                 <h2>Thông tin khách hàng</h2>
-                <form action="index.php?url=bill" method="post" onsubmit="return validateKiemTra()">
+                <form action="index.php?url=bill" method="post" >
                     <div class="frm-boxphong">
                         <div class="boxphong-item">
                             <p>Ngày đến</p>
