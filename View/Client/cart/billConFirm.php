@@ -43,8 +43,7 @@
     </header>
     <div class="banner">
         <div class="slideshow-container">
-            <div class="mySlides fade">
-
+            <div class="slideshow-container">
                 <?php
                 foreach ($slider as $item){
                     extract($item);
@@ -57,10 +56,10 @@
 ';
                 }
                 ?>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
 
-        </div>
+            </div>
         <br>
 
         <div style="text-align:center">

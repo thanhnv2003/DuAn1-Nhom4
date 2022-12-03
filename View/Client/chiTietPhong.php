@@ -139,7 +139,7 @@ if(is_array($list_onerooms)) {
                     <input type="hidden" name="name" value="<?php echo $name;?>">
                     <input type="hidden" name="image" value="<?php echo $image;?>">
                     <input type="hidden" name="price" value="<?php echo $price;?>">
-                    <input type="number" name="quantity" min="1" max="3" value="1" >
+                    <input type="number" name="quantity" min="1" max="<?php echo $quantity ?>" value="1" >
 <!--                    <a href="index.php?url=themmoi"><input type="button" value="ĐẶT PHÒNG"></a>-->
                     <input type="submit" name="themmoi" value="Đặt Phòng">
                 </form>

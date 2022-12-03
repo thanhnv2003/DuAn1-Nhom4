@@ -119,6 +119,9 @@
                         <div class="boxphong-item">
                             <p>Ngày đến</p>
                             <input type="date" id="ngayden" name="checkin" value="" required>
+                            <?php if (isset($thongbao['checkin'])) {?>
+                                <span style="color: red"><?php echo $thongbao['checkin']?></span>
+                            <?php } ?>
                         </div>
                         <div class="boxphong-item">
                             <p>Người lớn</p>
@@ -131,6 +134,9 @@
                         <div class="boxphong-item">
                             <p>Ngày đi</p>
                             <input type="date" id="ngaydi" name="checkout" value="" required>
+                            <?php if (isset($thongbao['checkout'])) {?>
+                                <span style="color: red"><?php echo $thongbao['checkout']?></span>
+                            <?php } ?>
                         </div>
                         <div class="boxphong-item">
                             <p>Trẻ em</p>
@@ -166,6 +172,9 @@
                         <div class="boxphong-item">
                             <p>Thời gian đến</p>
                             <input type="datetime-local" name="date_time" id="" required>
+                            <?php if (isset($thongbao['tgian'])) {?>
+                                <br><span style="color: red"><?php echo $thongbao['tgian']?></span>
+                            <?php } ?>
 
                         </div>
                         <div class="boxphong-item">

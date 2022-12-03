@@ -152,6 +152,7 @@ function themMoiGioHang(){
         $user = '';
     }
 //    $listPhong = loaiphong_loadall();
+    $slider = list_image();
     $giaoDien = giaoDienTrangChu();
     include_once './View/Client/bookPhong.php';
 }
@@ -184,26 +185,66 @@ function bill(){
         $diachi = $_POST['address'];
         $thanhpho = $_POST['city'];
         $yeucaukhac =$_POST['yeucau'];
-        $bill_add = [$checkin, $checkout, $nguoilon, $treem, $gioitinh, $hoten, $email, $tel, $thoigianden, $diachi, $thanhpho, $yeucaukhac, $idAccount];
-        array_push($_SESSION['bill'], $bill_add);
+        $flag = true;
+        $thongbao = [];
+
+
+        //validate
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $dateToday = date('Y/m/d');
+        $newToday = strtotime($dateToday);
+        $newIn = strtotime($checkin);
+        $newOut = strtotime($checkout);
+        $newTgian = strtotime($thoigianden);
+        if ($newIn < $newToday){
+            $thongbao['checkin'] = "Ngày đến không thể nhỏ hơn ngày hôm nay";
+            $flag = false;
+        }
+        if ($newIn > $newOut){
+            $thongbao['checkin'] = "Ngày đến không thể lớn hơn ngày đi";
+            $flag = false;
+        }
+        if ($newOut < $newIn){
+            $thongbao['checkout'] = "Ngày đi không thể nhỏ hơn ngày đến";
+            $flag = false;
+        }
+        if ($newTgian < $newIn || $newTgian > $newOut){
+            $thongbao['tgian'] = "Kiểm tra lại thời gian đến";
+            $flag = false;
+        }
+
+
+        if ($flag == true){
+            $bill_add = [$checkin, $checkout, $nguoilon, $treem, $gioitinh, $hoten, $email, $tel, $thoigianden, $diachi, $thanhpho, $yeucaukhac, $idAccount];
+            array_push($_SESSION['bill'], $bill_add);
+            if (isset($_SESSION['bill'])){
+                $bill = $_SESSION['bill'];
+                $count_arr = count($_SESSION['bill']);
+                $bill_detail = $bill[$count_arr-1];
+            }else{
+                $bill = '';
+            }
+            if (isset($_SESSION['account'])){
+                $user = $_SESSION['account'];
+            }else{
+                $user = '';
+            }
+            $giaoDien = giaoDienTrangChu();
+            $slider = list_image();
+            include_once './View/Client/cart/bill.php';
+        }else{
+         echo 'newIn: '.$newIn;
+         echo 'newToday: '.$newToday;
+        }
     }
-    if (isset($_SESSION['bill'])){
-        $bill = $_SESSION['bill'];
-        $count_arr = count($_SESSION['bill']);
-        $bill_detail = $bill[$count_arr-1];
-    }else{
-        $bill = '';
-    }
-//    var_dump($_SESSION['mycard']);
     if (isset($_SESSION['account'])){
         $user = $_SESSION['account'];
     }else{
         $user = '';
     }
-//    $listPhong = loaiphong_loadall();
     $giaoDien = giaoDienTrangChu();
     $slider = list_image();
-    include_once './View/Client/cart/bill.php';
+    include_once './View/Client/bookPhong.php';
 }
 function billConfirm(){
     if (isset($_POST['gui']) && $_POST['gui']){
@@ -241,12 +282,29 @@ function billConfirm(){
         }
         // var_dump($_SESSION['bill']);
 
-        $mail = listDonHangkh($id_bill) ;
+        $mail = listdh_idbook($id_bill) ;
+        $fullname = $mail['fullname'];
+        $emailBill = $mail['email'];
+        $telBill = $mail['tel'];
+        $totalBill = $mail['total_price'];
+        $inBill = $mail['check_in_date'];
+        $outBill = $mail['check_out_date'];
         $email = $_SESSION['bill'][0][6];
-        var_dump($mail);
-        $title= "xác nhận đơn hàng ";
-        $content = "Cảm ơn quý khách đã đặt hàng" ;
-        // Send_email($title,$content,$email); 
+        $title= "[ORDER CONFIRMATION] - CHAN MAY HOTEL & RESTAURANT";
+        $content = "Chào $fullname,<br>
+Cảm ơn bạn đã tin tưởng đặt phòng của <b>CHÂN MÂY HOTEL</b><br>
+Chúng mình xin phép xác nhận đặt phòng của bạn như sau: <br>
+<ul>
+    <li>Email: $emailBill</li>
+    <li>Phone: $telBill</li>
+    <li>Tổng tiền phòng: $totalBill VNĐ</li>
+    <li>Thời gian đến: $inBill</li>
+    <li>Thời gian đi: $outBill</li>
+</ul><br>
+Nếu có bất kỳ vấn đề gì, hãy gọi ngay đến tổng đài trợ giúp của chúng tôi tại đây!<br>
+Chúc bạn có kỳ nghỉ vui vẻ!<br>
+" ;
+         Send_email($title,$content,$email);
         $_SESSION['mycard'] = [];
         
     }
