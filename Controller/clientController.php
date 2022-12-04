@@ -233,18 +233,16 @@ function bill(){
             $slider = list_image();
             include_once './View/Client/cart/bill.php';
         }else{
-         echo 'newIn: '.$newIn;
-         echo 'newToday: '.$newToday;
+            if (isset($_SESSION['account'])){
+                $user = $_SESSION['account'];
+            }else{
+                $user = '';
+            }
+            $giaoDien = giaoDienTrangChu();
+            $slider = list_image();
+            include_once './View/Client/bookPhong.php';
         }
     }
-    if (isset($_SESSION['account'])){
-        $user = $_SESSION['account'];
-    }else{
-        $user = '';
-    }
-    $giaoDien = giaoDienTrangChu();
-    $slider = list_image();
-    include_once './View/Client/bookPhong.php';
 }
 function billConfirm(){
     if (isset($_POST['gui']) && $_POST['gui']){
