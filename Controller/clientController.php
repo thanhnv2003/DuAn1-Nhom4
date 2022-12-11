@@ -165,6 +165,8 @@ function xoaPhong(){
     header('location: index.php?url=book-phong');
 }
 function bill(){
+    //datetime
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
     if (isset($_POST['gui']) && ($_POST['gui'])){
         if (isset($_SESSION['account'])){
             $idAccount = $_SESSION['account']['id_account'];
@@ -181,7 +183,7 @@ function bill(){
         $hoten = $_POST['fullname'];
         $email = $_POST['email'];
         $tel = $_POST['tel'];
-        $thoigianden = $_POST['date_time'];
+        $thoigiandat = date('Y/m/d H:i:s');
         $diachi = $_POST['address'];
         $thanhpho = $_POST['city'];
         $yeucaukhac =$_POST['yeucau'];
@@ -190,12 +192,11 @@ function bill(){
 
 
         //validate
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
+
         $dateToday = date('Y/m/d');
         $newToday = strtotime($dateToday);
         $newIn = strtotime($checkin);
         $newOut = strtotime($checkout);
-        $newTgian = strtotime($thoigianden);
         if ($newIn < $newToday){
             $thongbao['checkin'] = "Ngày đến không thể nhỏ hơn ngày hôm nay";
             $flag = false;
@@ -208,14 +209,10 @@ function bill(){
             $thongbao['checkout'] = "Ngày đi không thể nhỏ hơn ngày đến";
             $flag = false;
         }
-        if ($newTgian < $newIn || $newTgian > $newOut){
-            $thongbao['tgian'] = "Kiểm tra lại thời gian đến";
-            $flag = false;
-        }
 
 
         if ($flag == true){
-            $bill_add = [$checkin, $checkout, $nguoilon, $treem, $gioitinh, $hoten, $email, $tel, $thoigianden, $diachi, $thanhpho, $yeucaukhac, $idAccount];
+            $bill_add = [$checkin, $checkout, $nguoilon, $treem, $gioitinh, $hoten, $email, $tel, $thoigiandat, $diachi, $thanhpho, $yeucaukhac, $idAccount];
             array_push($_SESSION['bill'], $bill_add);
             if (isset($_SESSION['bill'])){
                 $bill = $_SESSION['bill'];
@@ -290,8 +287,8 @@ function billConfirm(){
         $email = $_SESSION['bill'][0][6];
         $title= "[ORDER CONFIRMATION] - CHAN MAY HOTEL & RESTAURANT";
         $content = "Chào $fullname,<br>
-Cảm ơn bạn đã tin tưởng đặt phòng của <b>CHÂN MÂY HOTEL</b><br>
-Chúng mình xin phép xác nhận đặt phòng của bạn như sau: <br>
+Cảm ơn bạn đã tin tưởng đặt phòng của <b>CHÂN MÂY HOTEL & RESTAURANT</b><br>
+Chúng mình xin phép xác nhận đặt phòng [ID: $id_bill] của bạn như sau: <br>
 <ul>
     <li>Email: $emailBill</li>
     <li>Phone: $telBill</li>
@@ -299,6 +296,7 @@ Chúng mình xin phép xác nhận đặt phòng của bạn như sau: <br>
     <li>Thời gian đến: $inBill</li>
     <li>Thời gian đi: $outBill</li>
 </ul><br>
+Thời gian đặt: $ngaydathang (Asia/Ho_Chi_Minh);<br>
 Nếu có bất kỳ vấn đề gì, hãy gọi ngay đến tổng đài trợ giúp của chúng tôi tại đây!<br>
 Chúc bạn có kỳ nghỉ vui vẻ!<br>
 " ;
@@ -332,7 +330,18 @@ function huyBooking(){
             $a = $room['quantity'] + $value['quantity'];
             update_quantity_room($idroom, $a);
         }
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $dateToday = date('H:i:s d/m/Y');
+        $email = $_SESSION['bill'][0][6];
+        $title= "[CANCELLATION CONFIRMATION] - CHAN MAY HOTEL & RESTAURANT";
+        $content = "Chào bạn,<br>
+Chúng mình xin phép xác nhận yêu cầu hủy Booking đặt phòng [ID: $id] của bạn vào lúc: $dateToday (Asia/Ho_Chi_Minh)<br>
+Nếu có bất kỳ vấn đề gì, hãy gọi ngay đến tổng đài trợ giúp của chúng tôi tại đây!<br>
+Chúc bạn có một ngày vui vẻ!<br>
+";
+        Send_email($title,$content,$email);
         echo "<script>alert('Hủy đơn hàng thành công')</script>";
+
         header("location: index.php");
     }else{
         echo 'Lỗi, không thể hủy phòng<br>Vui lòng liên hệ tới hotline khách sạn để nhận tư vấn<br><a href="index.php">Quay trở lại trang chủ</a>';

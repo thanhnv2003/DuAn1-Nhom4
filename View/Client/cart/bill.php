@@ -157,11 +157,11 @@
                         <input type="number" name="tel" placeholder="Số điện thoại" value="<?php echo $bill_detail[7] ?>" disabled>
                     </div>
 
-                    <div class="boxphong-item">
-                        <p>Thời gian đến</p>
-                        <input type="datetime-local" name="date_time" id="" value="<?php echo $bill_detail[8] ?>" disabled>
-
-                    </div>
+<!--                    <div class="boxphong-item">-->
+<!--                        <p>Thời gian đến</p>-->
+<!--                        <input type="datetime-local" name="date_time" id="" value="--><?php //echo $bill_detail[8] ?><!--" disabled>-->
+<!---->
+<!--                    </div>-->
                     <div class="boxphong-item">
                         <p>Địa chỉ</p>
                         <input type="text" name="address" placeholder="Địa chỉ" value="<?php echo $bill_detail[9] ?>" disabled>

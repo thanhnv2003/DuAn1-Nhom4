@@ -169,14 +169,14 @@
                             <input type="number" name="tel" placeholder="Số điện thoại" value="<?php echo $user != '' ? $user['tel'] : '' ?>" required>
                         </div>
 
-                        <div class="boxphong-item">
-                            <p>Thời gian đến</p>
-                            <input type="datetime-local" name="date_time" id="" required>
-                            <?php if (isset($thongbao['tgian'])) {?>
-                                <br><span style="color: red"><?php echo $thongbao['tgian']?></span>
-                            <?php } ?>
-
-                        </div>
+<!--                        <div class="boxphong-item">-->
+<!--                            <p>Thời gian đến</p>-->
+<!--                            <input type="datetime-local" name="date_time" id="" required>-->
+<!--                            --><?php //if (isset($thongbao['tgian'])) {?>
+<!--                                <br><span style="color: red">--><?php //echo $thongbao['tgian']?><!--</span>-->
+<!--                            --><?php //} ?>
+<!---->
+<!--                        </div>-->
                         <div class="boxphong-item">
                             <p>Địa chỉ</p>
                             <input type="text" name="address" placeholder="Địa chỉ" value="<?php echo $user != '' ? $user['address'] : '' ?>" required>

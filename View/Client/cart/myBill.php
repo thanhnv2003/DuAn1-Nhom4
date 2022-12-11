@@ -108,11 +108,11 @@
                         <td><?php echo $value['check_in_date']?></td>
                         <td><?php echo $value['check_out_date']?></td>
                         <td><?php echo $tt?></td>
+                        <?php if ($value['status'] == 0){ ?>
                         <td>
-                            <?php if ($value['status'] != 3){ ?>
                             <a href="index.php?url=huy-booking&id=<?php echo $value['id_book']?>" onclick = "return confirm(`Bạn muốn hủy booking này?`)"; id = "delete"><button>Hủy booking</button></a>
-                            <?php } ?>
                         </td>
+                        <?php } ?>
                     </tr>
                 <?php }
                 }else{ ?>
