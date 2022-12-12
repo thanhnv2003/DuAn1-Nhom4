@@ -52,9 +52,9 @@ function delete_account($id_account){
     pdo_execute($result);
 }
 //vai trò
-function role(){
-    $reslut = "select * from vaitro order by id_vaitro";
-    $vaitro = pdo_query($reslut);
-    return $vaitro;
-}
+//function role(){
+//    $reslut = "select * from vaitro order by id_vaitro";
+//    $vaitro = pdo_query($reslut);
+//    return $vaitro;
+//}
 ?>

@@ -59,13 +59,8 @@ if(is_file($hinh_anh)){
                     <div class="form-group">
                         <label for="">Vai trò</label> <br>
                         <select name="role">
-                           <?php
-                               foreach ($list_role as $key => $value){
-                           ?>
-                                   <option value="<?php echo $value['id_vaitro'] ?>" <?php echo $role == $value['id_vaitro'] ? 'selected' : ''?>> <?php echo $value['name']; ?></option>
-                            <?php
-                               }
-                           ?>
+                           <option value="0" <?php   $role == 0 ? 'selected' : "" ?>>Thành viên </option>
+                            <option value="1" <?php  $role == 1 ? 'selected' : "" ?>>Admin </option>
                         </select>
                     </div>
                     <input type="hidden" name="account_id" value=" $user_id ">

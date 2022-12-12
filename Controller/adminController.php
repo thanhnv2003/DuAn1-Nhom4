@@ -56,7 +56,6 @@ if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
         include_once './View/Admin/header.php';
         if (isset($_GET['id']) && ($_GET['id'] > 0)) {
             $fixaccount = loadone_account($_GET['id']);
-            $list_role = role();
         }
         include_once './View/Admin/taikhoan/update_taikhoan.php';
 

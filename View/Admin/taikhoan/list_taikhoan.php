@@ -58,6 +58,11 @@
                             }else{
                                 $image = "no photo";
                             }
+                            if($role == 1 ){
+                                $thongbao ='admin';
+                            }else{
+                                $thongbao ='thành viên ';
+                            }
                             echo '     
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
@@ -68,7 +73,7 @@
                             <td>'.$email.'</td>
                             <td>'.$address.'</td>
                             <td>'.$tel.' </td>
-                            <td>'.$role.'</td>
+                            <td>'.$thongbao.'</td>
                             <td class="btn1">
                                 <a href="index.php?url=sua-khach-hang&id='.$id_account.'"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
                                 <a href="index.php?url=xoa-khach-hang&id='.$id_account.'" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete">
