@@ -13,7 +13,7 @@ if(is_array($lienhe)){
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Cập nhật tài khoản</h4>
+                <h4 class="card-title">Cập nhật liên hệ</h4>
 
                 <form action="index.php?url=cap-nhat-lien-he" method="post" enctype="multipart/form-data">
                     <div class="form-group">
@@ -21,12 +21,21 @@ if(is_array($lienhe)){
                         <input type="hidden" class="form-control" name="id_contact" value="<?php echo $id_contact ; ?>">
                     </div>
                         <div class="form-group">
-                            <label for="">giới tính</label>
-                            <input type="" disabled class="form-control" name="sex" value="<?php echo $sex; ?> ">
-                        </div>
+                            <label for="">Giới tính</label>    
+                              <?php 
+                              if ($sex == 1 ) {
+                               $gioitinh = "Nam";
+                            }elseif ($sex == 2) {
+                                $gioitinh = "Nữ";
+                            }else {
+                                $gioitinh = " Chưa chọn giới tính";
+                            }?>                   
+                            <input type="" disabled class="form-control" name="sex" value="<?php echo $gioitinh ; ?> ">
+                        </div>  
+                        
                     <div class="form-group">
                         <label for="">Fullname</label>
-                        <input type="text" class="form-control" name="fullname" value="<?php echo $fullname; ?>">
+                        <input type="text" disabled class="form-control" name="fullname" value="<?php echo $fullname; ?>">
                         <?php echo isset($error['fullname']) ? $error['fullname'] : "" ?>
                     </div>
                     <div class="form-group">
@@ -34,19 +43,20 @@ if(is_array($lienhe)){
                         <input type="" disabled class="form-control" name="email" value="<?php echo $email; ?> ">
                     </div>
                     <div class="form-group">
-                        <label for="">tel</label>
+                        <label for="">Tel</label>
                         <input type="" disabled class="form-control" name="tel" value="<?php echo $tel; ?>">
                     </div>
                         <div class="form-group">
-                            <label for="">content</label>
+                            <label for="">Content</label>
                             <input type="" disabled class="form-control" name="content" value="<?php echo $content; ?>">
                         </div>
 
                         <div class="form-group">
-                        <label for="">trạng thái</label> <br>
+                        <label for="">Trạng thái</label> <br>
                         <select name="status">
-                           <option value="0">Chưa trả lời</option>
-                            <option value="1">Đã trả lời</option>
+                           <option value="0" <?php echo $status == 0 ? 'selected':"" ?>>Chưa trả lời</option>
+
+                            <option value="1"<?php echo $status == 1 ? 'selected':"" ?>>Đã trả lời</option>
                         </select>
                     </div>
                     <input type="hidden" name="account_id" value=" $user_id ">
@@ -57,6 +67,7 @@ if(is_array($lienhe)){
                     if(isset($thongbao)&& $thongbao!= ""){
                         echo $thongbao;
                     }
+
                     ?>
                 </form>
             </div>
