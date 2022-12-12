@@ -59,8 +59,8 @@ if(is_file($hinh_anh)){
                     <div class="form-group">
                         <label for="">Vai trò</label> <br>
                         <select name="role">
-                           <option value="0" <?php   $role == 0 ? 'selected' : "" ?>>Thành viên </option>
-                            <option value="1" <?php  $role == 1 ? 'selected' : "" ?>>Admin </option>
+                           <option value="0" <?php  echo $role == 0 ? 'selected' : "" ?>>Thành viên </option>
+                            <option value="1" <?php echo $role == 1 ? 'selected' : "" ?>>Admin </option>
                         </select>
                     </div>
                     <input type="hidden" name="account_id" value=" $user_id ">

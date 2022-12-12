@@ -31,7 +31,7 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Danh sách loại hàng</h4>
+                <h4 class="card-title">Danh sách liên hệ </h4>
                 <div class="table-responsive">
                     <table class="table text-center table-bordered table1">
                         <thead>
