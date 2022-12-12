@@ -104,44 +104,44 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                <h4 class="card-title">Ảnh Khách Sạn</h4>
-                <div class="table-responsive">
-                    <table class="table text-center table-bordered table1">
-                        <thead>
-                        <tr>
-                            <th style="width: 9%;">ID IMG</th>
-                            <th>IMAGE</th>
-                            <th>URL</th>
-                            <th>DESCRIPTION</th>
-                            <th style="width: 22%;">Thao tác</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <?php
-//                            var_dump($anhHotel);
-                            foreach ($anhHotel as $key => $value){
-                            ?>
-                            <td><?php echo $value['id_img']?></td>
-                            <td><img src="View/src/upload/<?php echo $value['image']?>" alt="Lỗi tải ảnh"></td>
-                            <td><?php echo $value['url']?></td>
-                            <td><?php echo $value['description']?></td>
-                            <td class="btn1">
-                                <a href="index.php?url=sua-anh-khach-san&id=<?php echo $value['id_img']?>"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>
-                                <a href="index.php?url=xoa-anh-khach-san&id=<?php echo $value['id_img']?>" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a>
-                            </td>
-                        </tr>
-                        <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="thaotac">
-                    <div class="">
-                        <a href="index.php?url=them-moi-anh-khach-san"><input class="btn btn-primary" type="button" value="Thêm mới ảnh"></a>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="card-body">-->
+<!--                <h4 class="card-title">Ảnh Khách Sạn</h4>-->
+<!--                <div class="table-responsive">-->
+<!--                    <table class="table text-center table-bordered table1">-->
+<!--                        <thead>-->
+<!--                        <tr>-->
+<!--                            <th style="width: 9%;">ID IMG</th>-->
+<!--                            <th>IMAGE</th>-->
+<!--                            <th>URL</th>-->
+<!--                            <th>DESCRIPTION</th>-->
+<!--                            <th style="width: 22%;">Thao tác</th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!--                        <tr>-->
+<!--                            --><?php
+////                            var_dump($anhHotel);
+//                            foreach ($anhHotel as $key => $value){
+//                            ?>
+<!--                            <td>--><?php //echo $value['id_img']?><!--</td>-->
+<!--                            <td><img src="View/src/upload/--><?php //echo $value['image']?><!--" alt="Lỗi tải ảnh"></td>-->
+<!--                            <td>--><?php //echo $value['url']?><!--</td>-->
+<!--                            <td>--><?php //echo $value['description']?><!--</td>-->
+<!--                            <td class="btn1">-->
+<!--                                <a href="index.php?url=sua-anh-khach-san&id=--><?php //echo $value['id_img']?><!--"><input class="btn btn-primary btn2" type="button" value="Sửa"></a>-->
+<!--                                <a href="index.php?url=xoa-anh-khach-san&id=--><?php //echo $value['id_img']?><!--" onclick="return confirm(`Bạn muốn xóa?`)" ; id="delete"><input class="btn btn-danger btn2" type="button" value="Xóa"></a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        --><?php //} ?>
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--                <div class="thaotac">-->
+<!--                    <div class="">-->
+<!--                        <a href="index.php?url=them-moi-anh-khach-san"><input class="btn btn-primary" type="button" value="Thêm mới ảnh"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </div>

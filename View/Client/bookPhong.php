@@ -191,8 +191,8 @@
                         </div>
                     </div>
                     <div class="checkbox-bp">
-                        <input type="checkbox" value=""><label>Tôi đồng ý và chấp nhận điều khoản của khách sạn</label>
-                        <br>
+<!--                        <input type="checkbox" value=""><label>Tôi đồng ý và chấp nhận điều khoản của khách sạn</label>-->
+<!--                        <br>-->
                         <?php if (is_array($_SESSION['mycard']) && (count($_SESSION['mycard']) > 0) ){ ?>
                         <input type="submit" value="Gửi" name="gui">
                         <?php } ?>
