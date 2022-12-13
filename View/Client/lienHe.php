@@ -16,7 +16,7 @@
         <header>
             <div class="menu">
                 <div class="logo">
-                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>"></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo'] ?>"></a>
                 </div>
                 <nav>
                     <ul>
@@ -44,28 +44,28 @@
         <div class="banner">
             <div class="slideshow-container">
                 <?php
-                foreach ($slider as $item){
+                foreach ($slider as $item) {
                     extract($item);
                     echo '
               
                 <div class="mySlides fade">
                    
-                    <img src="View/src/upload/'.$image.'" style="width:100%">
+                    <img src="View/src/upload/' . $image . '" style="width:100%">
                 </div>
 ';
                 }
                 ?>
-<!--                <div class="mySlides fade">-->
-<!--                    <div class="numbertext">2 / 3</div>-->
-<!--                    <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">-->
-<!--                    <div class="text">Caption Two</div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="mySlides fade">-->
-<!--                    <div class="numbertext">3 / 3</div>-->
-<!--                    <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" style="width:100%">-->
-<!--                    <div class="text">Caption Three</div>-->
-<!--                </div>-->
+                <!--                <div class="mySlides fade">-->
+                <!--                    <div class="numbertext">2 / 3</div>-->
+                <!--                    <img src="View/src/image/4 STUDIO 801_1 1920-min.jpg" style="width:100%">-->
+                <!--                    <div class="text">Caption Two</div>-->
+                <!--                </div>-->
+                <!---->
+                <!--                <div class="mySlides fade">-->
+                <!--                    <div class="numbertext">3 / 3</div>-->
+                <!--                    <img src="View/src/image/5 DELUXE STUDIO_P704_1 1920-min.jpg" style="width:100%">-->
+                <!--                    <div class="text">Caption Three</div>-->
+                <!--                </div>-->
 
                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                 <a class="next" onclick="plusSlides(1)">❯</a>
@@ -90,20 +90,31 @@
                     <p><i class="fa-regular fa-envelope"></i> Duan1nhom4@gmail.com</p>
                 </div>
                 <div class="lh-box-right">
-                    <form action="index.php?url=lien-he" method="post">
+                    <form action="index.php?url=lien-he" method="post" onsubmit="return validate()" name="frmlienhe">
                         <div class="frm-boxright">
-                            <select name="sex" id="">
-                                <option value="0">--Lựa chọn--</option>
-                                <option value="1">Ông </option>
-                                <option value="2">Bà</option>
-
-                            </select>
-                            <input type="text" name="name" value="" placeholder="Họ tên">
-                            <input type="number" name="phone" value="" placeholder="Số điện thoại" min="0">
-                            <input type="email" name="email" placeholder="Email">
+                            <div>
+                                <select name="sex" id="sex" >
+                                    <option value="0">--Lựa chọn--</option>
+                                    <option value="1">Ông </option>
+                                    <option value="2">Bà</option>
+                                </select>
+                            </div>
+                            <div>
+                                <input type="text" name="name" value="" placeholder="Họ tên" id="name">
+                                <p style="color: red;" id="tbname"></p>
+                            </div>
+                            <div>
+                                <input type="number" name="phone" value="" placeholder="Số điện thoại" min="0" id="sdt">
+                                <p style="color: red;" id="tbsdt"></p>
+                            </div>
+                            <div>
+                                <input type="text" name="email" placeholder="Email" id="email">
+                                <p style="color: red;" id="tbemail"></p>
+                            </div>
                         </div>
                         <textarea name="content" placeholder="Yêu cầu khác"></textarea> <br>
                         <input type="submit" id="submit" name="gui" value="Gửi">
+                        <p style="color: red;" id="tblienhe"></p>
                     </form>
                 </div>
             </div>
@@ -112,9 +123,9 @@
             <div class="footer-box1">
                 <div class="footer-box">
                     <h2>Khách sạn CHAN MAY VN</h2>
-                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> <?php echo $giaoDien[0]['address']?></p>
-                    <p><i class="fa-sharp fa-solid fa-phone"></i> <?php echo $giaoDien[0]['tel']?></p>
-                    <p><i class="fa-sharp fa-solid fa-envelope"></i> <?php echo $giaoDien[0]['email']?></p>
+                    <p><i class="fa-sharp fa-solid fa-location-dot"></i> <?php echo $giaoDien[0]['address'] ?></p>
+                    <p><i class="fa-sharp fa-solid fa-phone"></i> <?php echo $giaoDien[0]['tel'] ?></p>
+                    <p><i class="fa-sharp fa-solid fa-envelope"></i> <?php echo $giaoDien[0]['email'] ?></p>
                 </div>
                 <div class="footer-box">
                     <h2>Về chúng tôi</h2>
@@ -128,7 +139,7 @@
                     <a href="index.php?url=dieu-kien-va-dieu-khoan">Điều khoản & điều kiện</a>
                 </div>
                 <div class="footer-box2">
-                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo']?>" alt=""></a>
+                    <a href="index.php?url=trang-chu"> <img src="View/src/upload/<?php echo $giaoDien[0]['logo'] ?>" alt=""></a>
                     <script lang="javascript">
                         var __vnp = {
                             code: 4505,
@@ -179,7 +190,7 @@
             }
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
-        }   
+        }
 
         function showSlides() {
             let i;
@@ -198,6 +209,51 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
             setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+
+        function validate() {
+            var gioitinh = document.frmlienhe.sex.value;
+            var name = document.frmlienhe.name.value;
+            var sdt = document.frmlienhe.sdt.value;
+            var email = document.frmlienhe.email.value;
+            var ok = true;
+            // name
+            var regname=/^[a-zA-Z]/;
+            if (name == '') {
+                document.querySelector("#tbname").innerHTML = "Vui Lòng nhập tên đăng nhập !";
+                return false;
+            } else if(!name.match(regname)){
+                document.querySelector("#tbname").innerHTML = "Nhập đúng tên người dùng !";
+                return false;
+            }
+            else {
+                document.querySelector("#tbname").innerHTML = "";
+            }
+            // so dien thoai
+            var regsdt = /^0[0-9]{9}$/;
+            if (sdt == '') {
+                document.querySelector("#tbsdt").innerHTML = "Vui lòng nhập số điện thoại !";
+                return false;
+            }else if(!sdt.match(regsdt)){
+                document.querySelector("#tbsdt").innerHTML = "Số điện thoại không đúng định dạng !";
+                return false;
+            }
+            else {
+                document.querySelector("#tbsdt").innerHTML = "";
+            }
+            //email
+            var regemail = /\w+([\.-]?\w+)*@\w+(\.\w{2,3})+$/;
+            if (email == '') {
+                document.querySelector("#tbemail").innerHTML = "Vui lòng nhập email !";
+                return false;
+            }else if(!email.match(regemail)){
+                document.querySelector("#tbemail").innerHTML = "Email không đúng định dạng !";
+                return false;
+            }
+            else {
+                document.querySelector("#tbemail").innerHTML = "";
+            }
+            
         }
     </script>
 </body>
