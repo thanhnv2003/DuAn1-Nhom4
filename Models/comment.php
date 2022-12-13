@@ -12,7 +12,7 @@ function loadall_binhluan($id_room){
     return $listbl;
 }
 function insert_comment($content,$id_room,$id_user,$date_time){
-    $sql="insert into comment(content,id_room,Id_user,date_time) values ('$content','$id_room','$id_user','$date_time')";
+    $sql="insert into comment(id_cmt,content,id_room,Id_user,date_time) values (null,'$content','$id_room','$id_user','$date_time')";
     pdo_execute($sql);
 }
 

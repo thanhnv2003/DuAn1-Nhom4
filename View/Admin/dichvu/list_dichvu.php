@@ -37,7 +37,6 @@
                     <table class="table text-center table-bordered table1" >
                         <thead >
                           <tr>
-                              <th style="width: 9%;">#</th>
                               <th>Mã dịch vụ</th>
                               <th>Tên dịch vụ</th>
                               <th>Giá dịch vụ</th>
@@ -64,7 +63,6 @@
                                             
                         echo'
                         <tr>
-                            <td><input class="form-check-input" type="checkbox" name="" id=""></td>
                             <td>' . $id_sv . '</td>
                             <td>' . $name . '</td>
                             <td>' . $price . '</td>

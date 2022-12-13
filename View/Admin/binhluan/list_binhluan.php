@@ -62,14 +62,13 @@
                             }
                             ?>
                         </select>
-                        <input type="submit" name="seach" value="tìm kiếm ">
+                        <input type="submit" name="seach" value="Tìm kiếm">
                     </form>
                 </div>
                 <div class="table-responsive">
                     <table class="table text-center table-bordered table1">
                         <thead>
                         <tr>
-                            <th style="width: 5%;">#</th>
                             <th>ID</th>
                             <th>Nội dung bình luận</th>
                             <th>Id_phòng</th>
@@ -85,7 +84,6 @@
                             extract($value);
                              echo '
                             <tr >
-                            <td ><input type = "checkbox" name = "" id = "" ></td >
                             <td >'.$id_cmt.'</td >
                             <td >'.$content.'</td >
                             <td >'.$id_room.'</td >

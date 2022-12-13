@@ -30,37 +30,7 @@
 <div class="row">
     <div class="col-12 grid-margin">
         <div class="card" id="categori">
-            <div class="card-body">
-                <h2 class="card-title">Thống kê các phòng</h2>
-                <div class="table-responsive">
-                    <table class="table text-center table-bordered table1">
-                        <thead>
-                        <th>Id phòng</th>
-                        <th>Tên phòng</th>
-                        <th>Giá cao nhất</th>
-                        <th>Giá thấp nhất</th>
-                        <th>Giá trung bình</th>
-                        </thead>
-                        <tbody>
-                        <?php
-                        foreach ($thongKe as $key => $value){
-                        ?>
-                        <tr>
-                            <td><?php echo $value['cate_id']?></td>
-                            <td><?php echo $value['cate_name']?></td>
-                            <td><?php echo $value['cate_maxprice']?></td>
-                            <td><?php echo $value['cate_minprice']?></td>
-                            <td><?php echo $value['cate_avgprice']?></td>
 
-                        </tr>
-
-                        <?php
-                        }
-                        ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
         <div class="card" id="date">
             <div class="card-body">

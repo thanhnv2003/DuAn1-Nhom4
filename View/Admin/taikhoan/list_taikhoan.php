@@ -36,7 +36,6 @@
                     <table class="table table-bordered text-center table1">
                         <thead>
                         <tr>
-                            <th style="width: 5%;">#</th>
                             <th>ID</th>
                             <th>Img</th>
                             <th>Họ và tên </th>
@@ -56,16 +55,15 @@
                             if(is_file($hinh_anh)){
                                 $image = "<img src ='".$hinh_anh."' height='80'> ";
                             }else{
-                                $image = "no photo";
+                                $image = "No photo";
                             }
                             if($role == 1 ){
-                                $thongbao ='admin';
+                                $thongbao ='Admin';
                             }else{
-                                $thongbao ='thành viên ';
+                                $thongbao ='Thành viên ';
                             }
                             echo '     
                         <tr>
-                            <td><input type="checkbox" name="" id=""></td>
                             <td>'.$id_account.'</td>
                             <td>'.$image.'</td>
                             <td>'.$fullname.'</td>

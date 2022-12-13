@@ -37,7 +37,6 @@
                     <table class="table text-center table-bordered table1" >
                         <thead >
                           <tr>
-                              <th style="width: 9%;">#</th>
                               <th>Mã loại</th>
                               <th>Tên loại</th>
                               <th>Ảnh</th>
@@ -67,7 +66,6 @@
                                             
                         echo'
                         <tr>
-                            <td><input class="form-check-input" type="checkbox" name="" id=""></td>
                             <td>' . $id_cate . '</td>
                             <td>' . $name . '</td>
                             <td>' . $image . '</td>

@@ -52,6 +52,26 @@
                 <h2 class="card-title">Danh sách đơn hàng</h2>
                 </form>
                 <div class="table-responsive">
+                    <form action="index.php?url=cap-nhat-don-hang" method="post">
+                        <div class="form-group">
+                            <p>Trạng thái phòng: </p>
+                            <?php
+                            if(is_array($donhang)){
+                                extract($donhang);
+                            }
+                            ?>
+                            <select name="status" id="" class="form-select">
+                                <option value="0" <?php echo $status == 0 ? 'selected': ''?>>Vừa đặt</option>
+                                <option value="1" <?php echo $status == 1 ? 'selected': ''?>>Đang được thuê </option>
+                                <option value="2" <?php echo $status == 2 ? 'selected': ''?>>Đã trả phòng </option>
+                                <option value="3" <?php echo $status == 3 ? 'selected': ''?>>Hủy phòng</option>
+                            </select>
+                        </div>
+                        <input type="hidden" name="id" value="<?php echo $_GET['id']?>">
+                        <input class="btn btn-primary" type="submit" name="capnhat" value="Cập nhật">
+                    </form>
+
+
                     <table class="table text-center">
                         <table class="table table-bordered text-center table1">
                             <thead>

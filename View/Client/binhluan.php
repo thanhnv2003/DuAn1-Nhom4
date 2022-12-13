@@ -20,15 +20,15 @@ $loadone_comment = loadall_binhluan($id_room);
             <table>
                 <tr>
                     <td>Nội dung</td>
-                    <td>ID user</td>
-                    <td>Thời gian binh luan</td>
+                    <td>ID User</td>
+                    <td>Thời gian binh luận</td>
                 </tr>
                     <?php
                     foreach ($loadone_comment as $item){
                         extract($item);
                         echo '<tr> <td>'.$content.'</td>' ;
                         echo '<td>'.$Id_user.'</td>' ;
-                        echo '<td>'.$date_time	.'</td></tr>' ;
+                        echo '<td>'.$date_time.'</td></tr>' ;
                     }
                     ?>
 
@@ -56,8 +56,9 @@ $loadone_comment = loadall_binhluan($id_room);
             $content = $_POST['content'];
             $id_room = $_POST['id_room'];
             $id_user = $_SESSION['account']['id_account'];
-            $date_time = date('h:i:sa d/m/Y');
-            insert_comment($content,$id_room,$id_user,$date_time);
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $dateToday = date('H:i:s d/m/Y');
+            insert_comment($content,$id_room,$id_user,$dateToday);
             header("location:  ".$_SERVER['HTTP_REFERER']);
         }
         ?>

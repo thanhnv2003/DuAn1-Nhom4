@@ -29,6 +29,7 @@ if (isset($_SESSION['account']) && ($_SESSION['account']['role'] == 1)) {
         if (isset($_GET['id']) && ($_GET['id'] > 0)) {
             $id = $_GET['id'];
             $listDonHang = listDonHangkh($id);
+            $donhang = donhang_loadone($_GET['id']);
         }else{
             
         }

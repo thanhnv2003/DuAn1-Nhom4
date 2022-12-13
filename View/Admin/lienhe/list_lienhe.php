@@ -36,7 +36,6 @@
                     <table class="table text-center table-bordered table1">
                         <thead>
                         <tr>
-                            <th style="width: 9%;">#</th>
                             <th>Mã-contact</th>
                             <th>Giới tính</th>
                             <th>Họ và tên </th>
@@ -61,12 +60,11 @@
                             }elseif ($sex == 2) {
                                 $gioitinh = "Nữ";
                             }else {
-                                $gioitinh = " Chưa chọn giới tính";
+                                $gioitinh = "Null";
                             }
                             echo '
                      
                         <tr>
-                            <td><input class="form-check-input" type="checkbox" name="" id=""></td>
                             <td>' . $id_contact  . '</td>
                             <td>' . $gioitinh . '</td>
                             <td>'.$fullname.'</td>

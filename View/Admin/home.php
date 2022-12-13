@@ -38,7 +38,6 @@
                     <table class="table text-center table-bordered table1">
                         <thead>
                         <tr>
-                            <th style="width: 9%;">#</th>
                             <th>LOGO</th>
                             <th>ADDRESS</th>
                             <th>TEL</th>
@@ -50,8 +49,6 @@
                         <tbody>
                         <?php foreach ($giaoDienTrangChu as $key => $value){ ?>
                         <tr>
-                            <td><input class="form-check-input" type="checkbox" name="" id=""></td>
-<!--                            <td>--><?php //echo $value['id_st']?><!--</td>-->
                             <td><img src="View/src/upload/<?php echo $value['logo']?>" alt="Lỗi tải ảnh"> </td>
                             <td><?php echo $value['address']?></td>
                             <td><?php echo $value['tel']?></td>

@@ -220,10 +220,10 @@
             // name
             var regname=/^[a-zA-Z]/;
             if (name == '') {
-                document.querySelector("#tbname").innerHTML = "Vui Lòng nhập tên đăng nhập !";
+                document.querySelector("#tbname").innerHTML = "Vui lòng nhập họ và tên!";
                 return false;
             } else if(!name.match(regname)){
-                document.querySelector("#tbname").innerHTML = "Nhập đúng tên người dùng !";
+                document.querySelector("#tbname").innerHTML = "Nhập đúng họ và tên!";
                 return false;
             }
             else {
@@ -232,7 +232,7 @@
             // so dien thoai
             var regsdt = /^0[0-9]{9}$/;
             if (sdt == '') {
-                document.querySelector("#tbsdt").innerHTML = "Vui lòng nhập số điện thoại !";
+                document.querySelector("#tbsdt").innerHTML = "Vui lòng nhập số điện thoại!";
                 return false;
             }else if(!sdt.match(regsdt)){
                 document.querySelector("#tbsdt").innerHTML = "Số điện thoại không đúng định dạng !";
@@ -244,7 +244,7 @@
             //email
             var regemail = /\w+([\.-]?\w+)*@\w+(\.\w{2,3})+$/;
             if (email == '') {
-                document.querySelector("#tbemail").innerHTML = "Vui lòng nhập email !";
+                document.querySelector("#tbemail").innerHTML = "Vui lòng nhập email!";
                 return false;
             }else if(!email.match(regemail)){
                 document.querySelector("#tbemail").innerHTML = "Email không đúng định dạng !";
