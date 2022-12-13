@@ -57,12 +57,11 @@ $loadone_comment = loadall_binhluan($id_room);
             $id_room = $_POST['id_room'];
             $id_user = $_SESSION['account']['id_account'];
             date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $dateToday = date('H:i:s d/m/Y');
-            insert_comment($content,$id_room,$id_user,$dateToday);
+            $date_time = date('h:i:sa d/m/Y');
+            insert_comment($content,$id_room,$id_user,$date_time);
             header("location:  ".$_SERVER['HTTP_REFERER']);
         }
         ?>
-
     </div>
 </body>
 </html>

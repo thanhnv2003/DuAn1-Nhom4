@@ -15,7 +15,6 @@ function insert_comment($content,$id_room,$id_user,$date_time){
     $sql="insert into comment(id_cmt,content,id_room,Id_user,date_time) values (null,'$content','$id_room','$id_user','$date_time')";
     pdo_execute($sql);
 }
-
 function delete_commet($id_cmt){
     $result = "delete from comment where id_cmt = ".$id_cmt;
     pdo_execute($result);
